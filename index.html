@@ -203,6 +203,20 @@ html:has(body.xd){overflow:hidden}
 #xListen.act{filter:none;background:linear-gradient(180deg,#0f8d9b,#0a6f7c);border-color:#38cfd9}
 #xSay.act{filter:none;background:linear-gradient(180deg,#e63946,#c62836);border-color:#ff6b76}
 .rt .bad{color:#ff4b55;text-decoration:underline;text-decoration-color:#ff4b55;text-decoration-thickness:calc(var(--u)*3.5);text-underline-offset:calc(var(--u)*6);text-decoration-skip-ink:none}
+
+/* ===== menus & pickers: same look as the sentence card ===== */
+#menu,.pkb{background:linear-gradient(180deg,#03234a 0%,#03264e 40%,#032852 70%,#022248 100%)!important;border:2.5px solid #17b2ff!important;border-radius:calc(var(--u)*26)!important;box-shadow:none!important;color:#fff}
+#pk,#pkS{background:rgba(2,8,22,.6)}
+.pkb{padding:calc(var(--u)*24);width:100%;max-width:calc(var(--u)*600)}
+.pkb>b{display:block;text-align:center;color:#fff;font-size:calc(var(--u)*30);margin-bottom:calc(var(--u)*10)}
+.pkb .chips{justify-content:center;gap:calc(var(--u)*12);margin:calc(var(--u)*12) 0}
+.pkb .chip{background:#06214f;border:2px solid rgba(23,178,255,.55);color:#e5edf2;border-radius:calc(var(--u)*12);padding:calc(var(--u)*12) calc(var(--u)*20)}
+.pkb .chip.on{background:linear-gradient(180deg,#0e5593,#004080);border-color:#00c6ff;color:#fff}
+.pkb .go{background:linear-gradient(180deg,#0e5593,#004080);border:2px solid #00c6ff;color:#fff;border-radius:calc(var(--u)*14);margin-bottom:0}
+.pkb .go:disabled{opacity:.4}
+#menu{padding:calc(var(--u)*6)}
+#menu button{color:#fff;background:none;border:0;border-radius:0;padding:calc(var(--u)*14) calc(var(--u)*22)}
+#menu button+button{border-top:1px solid rgba(23,178,255,.35)}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
@@ -367,7 +381,7 @@ const C=(s,k)=>{
   if(k==="pf")s=s.replace(/\b(I|you|we|they) have\b/gi,(m,p)=>p+"’ve").replace(/\b(he|she|it) has\b/gi,(m,p)=>p+"’s");
   return s};
 const SP=[0.6,0.7,0.8,0.9,1,1.1];
-const sel=new Set();
+const sel=new Set(["ps","pa","fs"]);
 const $=id=>document.getElementById(id);
 let voice=null,voices=[];
 function pickVoice(){
@@ -494,7 +508,9 @@ $("xNext").onclick=()=>{if(xI<xItems.length-1){xI++;xDraw()}};
 $("xPrev").onclick=()=>{if(xI>0){xI--;xDraw()}};
 $("xMean").onclick=()=>{if(!xItems.length)return;const on=!$("xMean").classList.contains("act");$("xMean").classList.toggle("act",on);$("xFa").textContent=on?xItems[xI].fa:""};
 $("xListen").onclick=()=>{if(xItems.length)speak(xItems[xI].en,xRate,$("xListen"))};
-const nm=s=>s.toLowerCase().replace(/’/g,"'").replace(/won't/g,"will not").replace(/n't/g," not").replace(/'re/g," are").replace(/'m/g," am").replace(/'ll/g," will").replace(/'ve/g," have").replace(/'s\b/g," is").replace(/\bhas\b/g,"is").replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(Boolean);
+const NUMW={"0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten","11":"eleven","12":"twelve","13":"thirteen","14":"fourteen","15":"fifteen","16":"sixteen","17":"seventeen","18":"eighteen","19":"nineteen","20":"twenty"};
+const CONTR={im:["i","am"],ive:["i","have"],dont:["do","not"],doesnt:["does","not"],didnt:["did","not"],cant:["can","not"],isnt:["is","not"],arent:["are","not"],wasnt:["was","not"],werent:["were","not"],wont:["will","not"],havent:["have","not"],hasnt:["has","not"],hadnt:["had","not"],couldnt:["could","not"],wouldnt:["would","not"],shouldnt:["should","not"],youre:["you","are"],theyre:["they","are"],hes:["he","is"],shes:["she","is"],thats:["that","is"],whats:["what","is"],theres:["there","is"],lets:["let","us"]};
+const nm=s=>s.toLowerCase().replace(/’/g,"'").replace(/won't/g,"will not").replace(/n't/g," not").replace(/'re/g," are").replace(/'m/g," am").replace(/'ll/g," will").replace(/'ve/g," have").replace(/'s\b/g," is").replace(/\bhas\b/g,"is").replace(/\bgonna\b/g,"going to").replace(/\bwanna\b/g,"want to").replace(/\bgotta\b/g,"got to").replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(Boolean).flatMap(w=>CONTR[w]||[NUMW[w]||w]);
 const sim=(a,b)=>{a=nm(a);b=nm(b);const d=Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=a[i-1]===b[j-1]?d[i-1][j-1]+1:Math.max(d[i-1][j],d[i][j-1]);return 2*d[a.length][b.length]/(a.length+b.length||1)};
 $("xSay").onclick=()=>{
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition,r=$("xRes");
@@ -566,10 +582,10 @@ function diffMarks(toks,target){
   const hw=[],hi=[];toks.forEach((tok,ti)=>nm(tok).forEach(w=>{hw.push(w);hi.push(ti)}));
   const tw=nm(target),m=hw.length,n=tw.length;
   const d=Array.from({length:m+1},()=>Array(n+1).fill(0));
-  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)d[i][j]=hw[i]===tw[j]?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
+  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)d[i][j]=weq(hw[i],tw[j])?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
   const bad=new Set(),miss={};let i=0,j=0;
   while(i<m||j<n){
-    if(i<m&&j<n&&hw[i]===tw[j]){i++;j++}
+    if(i<m&&j<n&&weq(hw[i],tw[j])){i++;j++}
     else if(j<n&&(i>=m||d[i][j+1]>=d[i+1][j])){const k=i<m?hi[i]:"end";(miss[k]=miss[k]||[]).push(tw[j].length);j++}
     else{bad.add(hi[i]);i++}
   }
@@ -584,7 +600,32 @@ function boxResult(heard,sc,ok,target){const r=$("xRes");r.textContent="";r.appe
   (mm.miss.end||[]).forEach(len=>{t.appendChild(document.createTextNode(" "));t.appendChild(gap(len))});
   let S=37;while(S>16&&t.scrollWidth>t.clientWidth){S--;t.style.fontSize="calc(var(--u)*"+S+")"}}
 const lev=(a,b)=>{const m=a.length,n=b.length,d=[];for(let i=0;i<=m;i++)d[i]=[i];for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]};
-const score=(h,t)=>{const a=nm(h).join(" "),b=nm(t).join(" "),L=Math.max(a.length,b.length);return L?Math.round(100*(1-lev(a,b)/L)):0};
+const HOMO=[["to","too","two"],["there","their"],["no","know"],["write","right"],["for","four"],["by","buy","bye"],["hear","here"],["see","sea"],["one","won"],["weather","whether"],["whose","who"],["son","sun"],["week","weak"],["meet","meat"],["wait","weight"],["of","off"],["a","uh"],["in","and"],["then","than"],["our","are"],["your","you"],["its","it"],["new","knew"],["wear","where"],["accept","except"]];
+const HM={};HOMO.forEach(g=>g.forEach(w=>{HM[w]=g[0]}));
+const lev2=(a,b)=>{const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=Array.from({length:n+1},(_,j)=>j);for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]};
+const weq=(a,b)=>{if(a===b)return true;if((HM[a]||a)===(HM[b]||b))return true;const L=Math.max(a.length,b.length);if(L<5)return false;return lev2(a,b)<=(L>=9?2:1)};
+const STOP=new Set("a an the to of is are am was were be been do does did will have has had it its i you he she we they my your his her our their this that and or in on at for with so but as just".split(" "));
+const NEG=new Set(["not","no","never","cannot"]);
+const wt=w=>STOP.has(w)?0.5:1;
+function judge(h,t){
+  const hw=nm(h),tw=nm(t);
+  if(!hw.length)return {ok:false,sc:0};
+  const m=hw.length,n=tw.length,d=Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){
+    d[i][j]=Math.max(d[i-1][j],d[i][j-1]);
+    if(weq(hw[i-1],tw[j-1]))d[i][j]=Math.max(d[i][j],d[i-1][j-1]+Math.min(wt(hw[i-1]),wt(tw[j-1])));
+  }
+  const tot=tw.reduce((a,w)=>a+wt(w),0)||1,htot=hw.reduce((a,w)=>a+wt(w),0)||1;
+  const rec=Math.min(1,d[m][n]/tot),pre=Math.min(1,d[m][n]/htot);
+  const negT=tw.filter(w=>NEG.has(w)).length,negH=hw.filter(w=>NEG.has(w)).length;
+  const negOk=(negT>0)===(negH>0);
+  const a=hw.join(""),b=tw.join("");
+  const charOk=negOk&&Math.max(a.length,b.length)>0&&1-lev2(a,b)/Math.max(a.length,b.length)>=0.88;
+  let ok=(rec>=0.8&&pre>=0.6&&negOk)||charOk;
+  let sc=Math.round(100*(0.85*rec+0.15*pre));
+  sc=ok?Math.max(sc,80):Math.min(sc,79);
+  return {ok,sc};
+}
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function ttsOnce(text,rate){return new Promise(res=>{
   if(!("speechSynthesis" in window)){res();return}
@@ -596,25 +637,27 @@ function ttsOnce(text,rate){return new Promise(res=>{
     setTimeout(()=>{try{speechSynthesis.resume();speechSynthesis.speak(u)}catch(e){fin()}},80);
   }catch(e){res()}
 })}
-function recOnce(){return new Promise(res=>{
+function recOnce1(){return new Promise(res=>{
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){res({err:"unsupported"});return}
-  let done=false;
+  let done=false,last=null;
   const fin=v=>{if(!done){done=true;clearTimeout(tm);try{rec.abort()}catch(e){}res(v)}};
   try{if(rec)rec.abort()}catch(e){}
-  rec=new SR();rec.lang="en-US";rec.maxAlternatives=3;rec.interimResults=false;
-  const tm=setTimeout(()=>fin({err:"no-speech"}),9000);
-  rec.onresult=e=>{const a=[];for(let j=0;j<e.results[0].length;j++)a.push(e.results[0][j].transcript);fin({alts:a})};
+  rec=new SR();rec.lang="en-US";rec.continuous=false;rec.maxAlternatives=5;rec.interimResults=true;
+  const tm=setTimeout(()=>fin(last?{alts:last}:{err:"no-speech"}),10000);
+  rec.onresult=e=>{const R=e.results[e.results.length-1],a=[];for(let j=0;j<R.length;j++)a.push(R[j].transcript);last=a;if(R.isFinal)fin({alts:a})};
   rec.onerror=e=>fin({err:e.error});
-  rec.onend=()=>fin({err:"no-speech"});
+  rec.onend=()=>setTimeout(()=>fin(last?{alts:last}:{err:"no-speech"}),300);
   try{rec.start()}catch(e){fin({err:"start"})}
 })}
+async function recOnce(){let r=await recOnce1();if(r.err==="audio-capture"||r.err==="start"){await sleep(500);r=await recOnce1()}return r}
 function showOutcome(r,it){
   if(r.err){
-    if(r.err==="no-speech"){boxPrompt("دوباره بگو");return "none"}
-    boxPrompt(r.err==="not-allowed"||r.err==="service-not-allowed"?"اجازهٔ میکروفون داده نشده":r.err==="unsupported"?"این مرورگر تشخیص صدا ندارد":"تشخیص صدا در دسترس نیست");return "fatal"}
-  let best=-1,heard="";r.alts.forEach(a=>{const s=score(a,it.en);if(s>best){best=s;heard=a}});
-  const ok=best>=80;boxResult(heard,best,ok,it.en);return ok?"ok":"bad";
+    if(r.err==="no-speech"||r.err==="aborted"){boxPrompt("دوباره بگو");return "none"}
+    const E={"not-allowed":"اجازهٔ میکروفون داده نشده","service-not-allowed":"سرویس تشخیص صدای گوشی (Google) غیرفعال است","unsupported":"این مرورگر تشخیص صدا ندارد","network":"اتصال به سرویس تشخیص صدا برقرار نشد (اینترنت یا فیلترشکن را بررسی کن)","audio-capture":"میکروفون در دسترس نیست (برنامهٔ دیگری استفاده می‌کند؟)","language-not-supported":"زبان انگلیسی برای تشخیص صدا روی گوشی فعال نیست"};
+    boxPrompt((E[r.err]||"تشخیص صدا در دسترس نیست")+" ["+r.err+"]");return "fatal"}
+  let best=null,heard="";r.alts.forEach(a=>{const j=judge(a,it.en);if(!best||(j.ok&&!best.ok)||(j.ok===best.ok&&j.sc>best.sc)){best=j;heard=a}});
+  boxResult(heard,best.sc,best.ok,it.en);return best.ok?"ok":"bad";
 }
 let prOn=false,prTok=0,prBusy=false;
 const prUI=on=>{$("xPrac").querySelector(".gi").innerHTML=on?PAUSEI:IC.xPrac};
@@ -650,7 +693,7 @@ async function prRun(){
   }
 }
 let micGranted=false;
-const micOk=async()=>{if(micGranted)return true;if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){try{const st=await navigator.mediaDevices.getUserMedia({audio:true});st.getTracks().forEach(t=>t.stop())}catch(e){return false}}micGranted=true;return true};
+const micOk=async()=>{if(micGranted)return true;if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){try{const st=await navigator.mediaDevices.getUserMedia({audio:true});st.getTracks().forEach(t=>t.stop())}catch(e){if(e&&(e.name==="NotAllowedError"||e.name==="SecurityError"))return false}await sleep(250)}micGranted=true;return true};
 $("xPrac").onclick=async()=>{
   if(prOn){prStop();return}
   if(!xItems.length||prBusy)return;
