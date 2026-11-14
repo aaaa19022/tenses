@@ -217,6 +217,33 @@ html:has(body.xd){overflow:hidden}
 #menu{padding:calc(var(--u)*6)}
 #menu button{color:#fff;background:none;border:0;border-radius:0;padding:calc(var(--u)*14) calc(var(--u)*22)}
 #menu button+button{border-top:1px solid rgba(23,178,255,.35)}
+
+/* ===== Dictate mode (copy of reference video) ===== */
+#dkT{display:none;direction:ltr;align-items:center;justify-content:center;width:100%;gap:calc(var(--u)*14)}
+#dkT i{display:block;flex:none}
+#dkT i svg{display:block;width:100%;height:100%}
+#dkT .dp{width:calc(var(--u)*58);height:calc(var(--u)*61)}
+#dkT .de{width:calc(var(--u)*41);height:calc(var(--u)*53);margin-left:calc(var(--u)*8)}
+#dkTs{font-family:'Vazirmatn','Vazir','IRANSans',Tahoma,sans-serif;font-weight:500;color:#fff;font-size:calc(var(--u)*54);line-height:1.4;white-space:nowrap;direction:rtl}
+.qc.dkm #xEn{display:none}
+.qc.dkm.dkr #xEn{display:block}
+.qc.dkm:not(.dkr) #dkT{display:flex}
+.qc.dkm:not(.dkr) #xFa{visibility:hidden}
+.dkeye{position:absolute;left:calc(var(--u)*19);top:calc(var(--u)*8);width:calc(var(--u)*24);height:calc(var(--u)*15)}
+.dkeye svg{display:block;width:100%;height:100%}
+.gr:not(.n) .gb.tl{--bc:#6de0f0!important;background:#087e8d!important}
+.gr:not(.n) #xDict .gt b.pb{font-family:'Vazirmatn','Vazir','IRANSans',Tahoma,sans-serif;font-weight:700;font-size:calc(var(--u)*28)!important;line-height:calc(var(--u)*36);color:#fff;text-shadow:0 2px 3px rgba(0,0,0,.4);white-space:nowrap}
+.gr:not(.n) #xDict .gt b.pb1{top:calc(var(--u)*28.5)}
+.gr:not(.n) #xDict .gt b.pb2{top:calc(var(--u)*10.5)}
+
+/* ===== working state (copy of reference): flat fill, thin light line ===== */
+.gr:not(.n) .gb.act,.gr:not(.n) .gb.tl,.gr:not(.n) .gb.wk{filter:none!important;border-color:transparent!important;outline:calc(var(--u)*1.9) solid #8cf2f9;outline-offset:calc(var(--u)*-1.9)}
+.gr:not(.n) #xListen.act,.gr:not(.n) #xListen.tl{background:#077f8d!important}
+.gr:not(.n) #xSay.act{background:#e12d38!important;outline-color:#ff8e90}
+.gr:not(.n) #xPrac.wk{background:#084d3a!important;outline-color:#8ff1f0}
+.gr:not(.n) #xDict.wk{background:#911c51!important;outline-color:#96ecfb}
+.gr:not(.n) #xRev.wk{background:#0f6a8e!important}
+.gr:not(.n) #xShad.wk{background:#c5501f!important}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
@@ -253,7 +280,7 @@ html:has(body.xd){overflow:hidden}
 <div class="qpg"><div class="qtr"><div class="qbar" id="xBar"></div></div></div>
 <div class="qc">
 <div class="qh"><b id="xNum"></b><button class="sv" id="xSave" aria-label="save"><svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M6 3h12v18l-6-4-6 4z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></button></div>
-<div class="qe"><div id="xEn"></div></div>
+<div class="qe"><div id="xEn"></div><div id="dkT"><i class="dp"><svg viewBox="0 0 61.8 65.5" preserveAspectRatio="none"><path fill-rule="evenodd" fill="#ec66a8" d="M54.7 19.5 L53.7 19.4 L42.3 8.0 L42.2 7.0 L48.1 1.0 L49.7 0.2 L50.7 0.0 L52.5 1.0 L60.7 9.2 L61.7 11.0 L61.1 13.0 L54.7 19.5Z M11.7 62.2 L0.5 62.0 L0.0 61.0 L0.0 50.0 L0.2 49.0 L37.7 11.6 L38.7 12.1 L45.6 19.0 L49.5 23.0 L50.1 24.0 L14.7 59.5 L11.7 62.2Z M61.7 65.0 L60.7 65.4 L59.7 65.5 L16.7 65.5 L14.7 65.4 L13.5 65.0 L18.7 59.8 L19.7 59.0 L20.7 58.8 L59.7 58.8 L61.0 59.0 L61.8 60.0 L61.7 65.0Z"/></svg></i><span id="dkTs">گوش بده و بنویس</span><i class="de"><svg viewBox="0 0 41.9 53.9" preserveAspectRatio="none"><path fill-rule="evenodd" fill="#ec66a8" d="M22.5 53.6 L19.5 53.9 L17.5 53.5 L15.5 52.6 L14.0 51.5 L12.4 48.5 L11.8 43.5 L11.1 42.5 L10.9 41.5 L8.8 38.5 L4.2 33.5 L2.2 30.5 L0.2 24.5 L0.0 22.5 L0.3 17.5 L1.1 14.5 L2.3 11.5 L4.1 8.5 L8.5 4.1 L11.5 2.3 L14.5 1.1 L17.5 0.3 L20.5 0.0 L24.5 0.3 L28.4 1.5 L30.5 2.3 L33.5 4.1 L35.5 6.0 L37.8 8.5 L39.6 11.5 L40.8 14.5 L41.7 17.5 L41.9 20.5 L41.8 24.5 L39.7 30.5 L37.7 33.5 L35.5 35.9 L34.5 35.4 L31.2 32.5 L34.0 28.5 L35.8 24.5 L36.0 22.5 L35.9 18.5 L35.0 15.5 L34.0 13.5 L32.7 11.5 L30.5 9.3 L27.5 7.4 L24.5 6.3 L21.5 5.9 L18.5 6.1 L15.5 6.9 L12.6 8.5 L10.2 10.5 L7.9 13.5 L6.9 15.5 L6.0 18.5 L6.2 24.5 L7.4 27.5 L8.5 29.3 L14.5 36.3 L15.5 35.5 L16.1 33.5 L17.2 31.5 L22.6 25.5 L23.7 23.5 L24.0 20.5 L23.7 19.5 L22.5 18.2 L20.5 17.9 L19.5 18.2 L18.5 19.1 L17.5 20.9 L12.5 20.9 L12.1 20.5 L12.2 19.5 L13.3 16.5 L14.5 15.0 L16.5 13.3 L19.5 12.2 L21.5 12.0 L25.5 13.3 L27.5 15.0 L28.6 16.5 L29.1 17.5 L29.7 19.5 L29.9 22.5 L28.8 26.5 L27.7 28.5 L22.2 34.5 L21.2 36.5 L20.9 38.5 L20.5 38.9 L17.5 38.9 L16.4 39.5 L17.7 43.5 L18.2 47.5 L19.5 48.0 L22.5 47.7 L24.5 46.6 L25.7 45.5 L27.5 41.7 L32.5 41.8 L32.8 42.5 L31.8 46.5 L30.7 48.5 L29.8 49.5 L27.4 51.5 L25.5 52.5 L22.5 53.6Z"/></svg></i></div></div>
 <div class="qd"><b id="xPassed"></b><div class="ql"><i></i></div><b id="xCount"></b></div>
 <div class="qm" id="xFa"></div>
 <div class="qr"><button class="qa" id="xPrev">‹</button><div class="qb"><span id="xRes"></span></div><button class="qa" id="xNext">›</button></div>
@@ -660,7 +687,7 @@ function showOutcome(r,it){
   boxResult(heard,best.sc,best.ok,it.en);return best.ok?"ok":"bad";
 }
 let prOn=false,prTok=0,prBusy=false;
-const prUI=on=>{$("xPrac").querySelector(".gi").innerHTML=on?PAUSEI:IC.xPrac};
+const prUI=on=>{$("xPrac").classList.toggle("wk",on);$("xPrac").querySelector(".gi").innerHTML=on?PAUSEI:IC.xPrac};
 function prStop(){prTok++;const was=prOn;prOn=false;try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}$("xListen").classList.remove("act");$("xSay").classList.remove("act");prUI(false);if(was)xIdle()}
 function xIdle(){if(xItems.length)boxPrompt("به جمله گوش کن","spk");else $("xRes").textContent=""}
 const xDraw0=xDraw;xDraw=function(){xDraw0();xIdle()};
@@ -717,6 +744,87 @@ $("xSay").onclick=async()=>{
 ["xNext","xPrev","xListen"].forEach(id=>$(id).addEventListener("click",()=>{if(prOn)prStop()},true));
 const xStart0=xStart;xStart=function(){prStop();xStart0()};
 const xShow0=xShow;xShow=function(on){if(!on)prStop();xShow0(on)};
+
+/* ===== Dictate mode ===== */
+const DK_NORMAL=$("xDict").querySelector(".gt").innerHTML;
+const DK_ICON=$("xDict").querySelector(".gi");
+const DK_ICON_HTML=DK_ICON.innerHTML;
+const DK_CHEV='<svg viewBox="0 0 22 41" preserveAspectRatio="none"><polyline points="3.5,3.5 18.5,20.5 3.5,37.5" fill="none" stroke="#e0e4ea" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const DK_EYE='<svg viewBox="0 0 24 15"><path d="M1 7.5C4.5 2.2 8 0.8 12 0.8S19.5 2.2 23 7.5C19.5 12.8 16 14.2 12 14.2S4.5 12.8 1 7.5Z" fill="#ec66a8"/><circle cx="12" cy="7.5" r="4.6" fill="#0b2a5c"/><circle cx="12" cy="7.5" r="2.5" fill="#fff"/></svg>';
+let dkOn=false,dkTok=0,dkStage="",dkBox="";
+const dkQC=()=>document.querySelector(".qc");
+function dkBoxSet(t){dkBox=t;boxPrompt(t)}
+function dkEye(on){const q=document.querySelector(".qb");let e=q.querySelector(".dkeye");if(on&&!e){e=document.createElement("i");e.className="dkeye";e.innerHTML=DK_EYE;q.appendChild(e)}if(!on&&e)e.remove()}
+function dkBtn(mode){
+  const b=$("xDict"),g=b.querySelector(".gt"),ic=b.querySelector(".gi");
+  if(mode==="normal"){g.innerHTML=DK_NORMAL;ic.innerHTML=DK_ICON_HTML;ic.style.cssText=""}
+  else if(mode==="wrote"){g.innerHTML='<b class="pb pb1">نوشتم!</b>';ic.innerHTML=DK_ICON_HTML;ic.style.cssText=""}
+  else if(mode==="next"){g.innerHTML='<b class="pb pb2">جمله<br>بعدی</b>';ic.innerHTML=DK_CHEV;ic.style.cssText="left:calc(var(--u)*26);top:calc(var(--u)*26);width:calc(var(--u)*21);height:calc(var(--u)*41)"}
+}
+function dkFitTitle(){
+  const sp=$("dkTs");if(!sp.offsetWidth)return;
+  sp.style.fontSize="calc(var(--u)*54)";
+  const fs=parseFloat(getComputedStyle(sp).fontSize),u=fs/54,w=sp.offsetWidth;
+  if(!w)return;
+  const k=Math.max(40,Math.min(66,54*(396*u)/w));
+  sp.style.fontSize="calc(var(--u)*"+k.toFixed(1)+")";
+}
+function dkView(){
+  const q=dkQC();q.classList.toggle("dkm",dkOn);q.classList.toggle("dkr",dkOn&&dkStage==="reveal");
+  if(!dkOn)return;
+  if(dkStage==="reveal"){xFit();$("xFa").textContent=xItems[xI].fa}
+  else{$("xFa").textContent="";dkFitTitle()}
+  dkBoxSet(dkBox);dkEye(dkStage==="reveal");
+}
+function dkStop(){
+  if(!dkOn)return;
+  dkOn=false;$("xDict").classList.remove("wk");dkTok++;dkStage="";
+  try{speechSynthesis.cancel()}catch(e){}
+  $("xListen").classList.remove("tl");dkBtn("normal");dkEye(false);
+  dkQC().classList.remove("dkm","dkr");
+  xIdle();xFit();
+}
+async function dkRun(){
+  const tok=++dkTok,idx=xI,it=xItems[idx];
+  const alive=()=>dkOn&&tok===dkTok&&xOn&&xI===idx;
+  const play=async()=>{$("xListen").classList.add("tl");await ttsOnce(it.en,xRate);$("xListen").classList.remove("tl")};
+  dkStage="listen";dkBtn("normal");dkBoxSet("گوش بده، بنویس.");dkView();
+  await sleep(900);if(!alive())return;
+  await play();if(!alive())return;
+  await sleep(300);if(!alive())return;
+  dkBoxSet("۵ ثانیه دیگه دوباره می‌گم.");
+  await sleep(5000);if(!alive())return;
+  dkBoxSet("دوباره گوش بده.");
+  await sleep(900);if(!alive())return;
+  await play();if(!alive())return;
+  await sleep(300);if(!alive())return;
+  dkStage="write";dkBoxSet("وقتی نوشتی، «نوشتم!» رو بزن.");dkBtn("wrote");
+}
+$("xDict").onclick=()=>{
+  if(!xItems.length)return;
+  if(prOn)prStop();
+  try{speechSynthesis.cancel()}catch(e){}
+  if(!dkOn){dkOn=true;$("xDict").classList.add("wk");dkTok++;dkStage="ready";dkBtn("normal");dkBoxSet("آماده‌ای؟");dkView();return}
+  if(dkStage==="ready"){dkRun();return}
+  if(dkStage==="listen"){dkTok++;try{speechSynthesis.cancel()}catch(e){}$("xListen").classList.remove("tl");dkStage="paused";dkBoxSet("آماده‌ای؟");return}
+  if(dkStage==="paused"){dkStop();return}
+  if(dkStage==="write"){
+    dkStage="reveal";dkBoxSet("حالا مقایسه کن.");dkBtn("next");dkView();return}
+  if(dkStage==="reveal"){
+    if(xI>=xItems.length-1){dkStop();return}
+    xI++;dkStage="listen";dkBtn("normal");xDraw();dkRun();return}
+};
+["xListen","xSay","xPrac","xShad","xRev","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(dkOn)dkStop()},true));
+const xDraw3=xDraw;xDraw=function(){xDraw3();if(dkOn)dkView()};
+const xStart3=xStart;xStart=function(){dkStop();xStart3()};
+const xShow3=xShow;xShow=function(on){if(!on)dkStop();xShow3(on)};
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(dkOn)dkFitTitle()});
+/* ===== working state for Review / Shadowing ===== */
+const rsOff=()=>["xRev","xShad"].forEach(j=>$(j).classList.remove("wk"));
+["xRev","xShad"].forEach(id=>{$(id).onclick=()=>{const b=$(id),on=!b.classList.contains("wk");rsOff();if(prOn)prStop();if(dkOn)dkStop();try{speechSynthesis.cancel()}catch(e){}if(on)b.classList.add("wk")}});
+["xListen","xSay","xPrac","xDict","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",rsOff,true));
+const xStart5=xStart;xStart=function(){rsOff();xStart5()};
+const xShow5=xShow;xShow=function(on){if(!on)rsOff();xShow5(on)};
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
 upd();
 </script>
