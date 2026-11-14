@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>تمرین زمان‌های انگلیسی</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b1f2a;--mu:#667085;--ac:#2f6fed;--bd:#e3e6ee;--ok:#e8f0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141a;--card:#1b1f2a;--tx:#eef0f6;--mu:#9aa3b5;--ac:#6b9bff;--bd:#2d3342;--ok:#23304f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Tahoma,system-ui,sans-serif;line-height:1.6}
+main{position:relative;max-width:640px;margin:0 auto;padding:calc(60px + env(safe-area-inset-top,0px)) 16px 84px}
+h1{font-size:20px;margin:8px 0 4px}
+p.s{color:var(--mu);margin:0 0 12px;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+*{-webkit-tap-highlight-color:transparent}button,input,.chip{outline:none}.chip,button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;cursor:pointer}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.go{background:var(--ac);color:#fff;border-color:var(--ac);width:100%;border-radius:12px;padding:12px;margin:8px 0;font-weight:bold}
+.go:disabled{opacity:.5}
+.card{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:28px 14px 14px;margin:10px 0}
+.en{direction:ltr;text-align:left;font-size:20px;font-weight:600}
+.tag{font-size:12px;color:var(--mu)}.num{position:absolute;top:10px;left:12px;font-size:12px;font-weight:400;color:#8a8a8a;direction:ltr}#out.hidetag .tag{display:none}
+.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.sp{display:flex;gap:6px;margin-top:10px;direction:ltr;overflow-x:auto;padding-bottom:2px}
+.sp button{padding:6px 10px;font-size:13px;flex:none}
+.sp button.on{background:var(--ok);border-color:var(--ac);color:var(--ac);font-weight:bold}
+.fa{margin-top:10px;padding:10px;background:var(--ok);border-radius:10px;display:none}
+.note{font-size:13px;color:var(--mu);margin-top:6px}
+.act{background:#dff3e4;border-color:#8fd3a3;color:#1b1f2a}
+@media (prefers-color-scheme:dark){.act{background:#23402e;border-color:#3f7a54;color:#eef0f6}.num{color:#9aa3b5}}
+.exb{background:#dc3545;border-color:#dc3545}
+.mb{background:var(--card);color:var(--tx);border-color:var(--bd)}
+.mb.act{background:#dff3e4;border-color:#8fd3a3;color:#1b1f2a}
+@media (prefers-color-scheme:dark){.mb.act{background:#23402e;border-color:#3f7a54;color:#eef0f6}}
+#ex{display:none;position:fixed;inset:0;z-index:50;background:var(--bg);overflow:auto;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+.exin{max-width:640px;margin:0 auto}
+.qrow{display:flex;gap:8px;align-items:center;margin:10px 0}
+.qbox{flex:1;min-height:220px;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.qen{direction:ltr;font-size:28px;font-weight:800;line-height:1.35}
+.qfa{margin-top:14px;font-size:14px;color:var(--mu)}
+.nv{flex:none;width:44px;height:44px;border-radius:12px;font-size:22px;font-weight:bold;padding:0}
+#ex,#exOpen{display:none!important}
+#tb{position:fixed;top:0;left:0;right:0;z-index:60;height:calc(48px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 12px 0;display:flex;align-items:center;gap:8px;background:var(--bg);border-bottom:1px solid var(--bd)}
+#selTxt{flex:1;text-align:center;color:#b45309;font-size:13px;font-weight:bold}
+#menuBtn{font-size:22px;padding:2px 10px;line-height:1.3;border-radius:8px}
+#menu{display:none;position:fixed;top:calc(52px + env(safe-area-inset-top,0px));left:10px;z-index:70;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:6px}
+#menu button{border:0;background:none;padding:10px 14px;border-radius:8px;white-space:nowrap}
+#pk{display:none;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:16px}
+.pkb{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;width:100%;max-width:420px}
+#bn{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--bd)}
+#bn button{flex:1;border:2px solid #7b2fa0;border-radius:6px;background:var(--card);padding:10px;font-weight:bold}
+#bn button.cur{background:#ead9f3;color:#1b1f2a}
+#xp{display:none;position:fixed;left:0;right:0;top:calc(48px + env(safe-area-inset-top,0px));bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--bg);padding:10px 12px;overflow:auto}
+.xcard{position:relative;height:calc(100% - 66px);min-height:300px;border:2px solid #9b1c1c;border-radius:6px;display:flex;flex-direction:column;padding:6px 42px 10px;background:var(--card)}
+.xcnt{text-align:center;font-size:12px;color:var(--mu);min-height:18px}
+.xmid{flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
+.xen{direction:ltr;font-size:26px;font-weight:800;line-height:1.35}
+.xfa{text-align:center;font-size:14px;color:var(--mu);min-height:22px}
+.xres{text-align:center;font-size:14px;font-weight:bold;min-height:24px}
+.xm{width:100%;height:40px;border:2px solid var(--tx);border-radius:6px;background:var(--card);font-weight:bold;padding:0}
+.xs{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:84px;border:2px solid var(--tx);border-radius:6px;background:var(--card);padding:0;font-size:18px;font-weight:bold}
+.xs.r{right:6px}.xs.l{left:6px}
+.xrow{display:flex;gap:8px;margin-top:10px}
+.xrow button{flex:1;height:48px;border:2px solid #2b3fa0;border-radius:6px;background:var(--card);font-weight:bold;padding:0}
+.xm.act,.xrow button.act{background:#dff3e4;border-color:#8fd3a3;color:#1b1f2a}
+@media (prefers-color-scheme:dark){.xm.act,.xrow button.act{background:#23402e;border-color:#3f7a54;color:#eef0f6}#selTxt{color:#f0a35e}#bn button.cur{background:#3a2a4a;color:#eef0f6}}
+:root{--u:calc(min(100vw,480px) / 688)}
+body.xd{background:#050c1e}
+body.xd #selTxt,body.xd #bn{display:none}
+body.xd #tb{background:transparent;border:0}
+#menuBtn{width:34px;height:28px;padding:5px;display:flex;flex-direction:column;justify-content:space-between;background:none;border:0;border-radius:0}
+#menuBtn i{display:block;height:1.5px;background:var(--tx);border-radius:2px}
+body.xd #menuBtn i{background:#fff}
+#xp{top:0!important;bottom:0!important;padding:0!important;background:#050c1e!important;color:#fff;overflow:auto}
+.qw{width:calc(var(--u)*688);max-width:100vw;margin:0 auto;padding-top:calc(44px + env(safe-area-inset-top,0px));padding-bottom:calc(var(--u)*40)}
+.qsel{text-align:center;font-size:calc(var(--u)*20);color:#9fb4d8;margin-bottom:calc(var(--u)*8);min-height:calc(var(--u)*28)}
+.qpg{margin:0 calc(var(--u)*20);height:calc(var(--u)*100);border:2px solid #2fa8ee;border-radius:calc(var(--u)*30);display:flex;align-items:center;padding:0 calc(var(--u)*30);background:rgba(8,40,90,.25);box-shadow:0 0 12px rgba(47,168,238,.25)}
+.qtr{flex:1;height:calc(var(--u)*20);border-radius:20px;background:rgba(60,110,170,.28);overflow:hidden;direction:ltr}
+.qbar{height:100%;width:0;border-radius:20px;background:linear-gradient(90deg,#1aa3f5,#35c0ff)}
+.qc{margin:calc(var(--u)*34) calc(var(--u)*20) 0;height:calc(var(--u)*558);border:2px solid #2fa8ee;border-radius:calc(var(--u)*34);background:linear-gradient(180deg,#0a2d63,#05193d);display:flex;flex-direction:column;padding:0 calc(var(--u)*3) calc(var(--u)*10);box-shadow:0 0 14px rgba(47,168,238,.25)}
+.qh{height:calc(var(--u)*62);display:flex;justify-content:space-between;align-items:center;padding:calc(var(--u)*12) calc(var(--u)*26) 0;direction:ltr}
+#xNum{font-size:calc(var(--u)*32);font-weight:700}
+.sv{width:calc(var(--u)*44);height:calc(var(--u)*44);padding:0;border:0;background:none;border-radius:0}
+.sv path{fill:none}.sv.on path{fill:#fff}
+.qe{height:calc(var(--u)*200);display:flex;align-items:center;justify-content:center;padding:0 calc(var(--u)*22)}
+#xEn{direction:ltr;text-align:center;font-family:'Roboto Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+.qd{height:calc(var(--u)*52);display:flex;align-items:center;gap:calc(var(--u)*12);padding:0 calc(var(--u)*14);direction:ltr}
+.qd b{font-size:calc(var(--u)*26);font-weight:600;color:#fff}
+.ql{flex:1;position:relative;height:calc(var(--u)*14)}
+.ql i{position:absolute;left:0;right:0;top:calc(var(--u)*3);bottom:calc(var(--u)*3);background:linear-gradient(90deg,transparent,#3aa9f0 50%,transparent);clip-path:polygon(0 50%,50% 0,100% 50%,50% 100%)}
+.ql::after{content:"";position:absolute;left:50%;top:50%;width:calc(var(--u)*14);height:calc(var(--u)*14);transform:translate(-50%,-50%);border-radius:50%;background:#5cc8ff;box-shadow:0 0 8px #2fa8ee}
+.qm{height:calc(var(--u)*70);display:flex;align-items:center;justify-content:center;text-align:center;color:#f0b43c;font-size:calc(var(--u)*28)}
+.qr{margin-top:auto;height:calc(var(--u)*132);display:flex;gap:calc(var(--u)*8);direction:ltr}
+.qa{width:calc(var(--u)*22);padding:0;border:1.5px solid #2fa8ee;border-radius:calc(var(--u)*8);background:rgba(10,50,110,.4);color:#4cc0ff;font-size:calc(var(--u)*30);line-height:1}
+.qb{flex:1;border:1px solid rgba(80,150,220,.28);border-radius:calc(var(--u)*26);background:rgba(10,40,90,.3);display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*30);font-weight:bold;filter:saturate(.85) brightness(1.25);direction:rtl}
+.gr{margin:calc(var(--u)*18) auto 0;width:calc(var(--u)*596);display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*13) calc(var(--u)*12);direction:rtl}
+.gr.n{margin-top:calc(var(--u)*12)}
+.gb{height:calc(var(--u)*92);border-radius:calc(var(--u)*26);border:2px solid;display:flex;justify-content:space-between;align-items:center;padding:0 calc(var(--u)*14) 0 calc(var(--u)*12);color:#fff}
+.gt{text-align:right;line-height:1.2}
+.gt b{display:block;font-family:'Roboto Condensed',Arial,sans-serif;font-size:calc(var(--u)*30);font-weight:600}
+.gt span{display:block;font-size:calc(var(--u)*24);color:#cbd6ee}
+.gi{font-style:normal;font-size:calc(var(--u)*40);line-height:1;filter:brightness(0) invert(1)}
+.c1{border-color:#2fa56b;background:linear-gradient(180deg,#0b4a3c,#0a2e2c)}
+.c2{border-color:#7d63d8;background:linear-gradient(180deg,#2b2a7a,#171850)}
+.c3{border-color:#2e9be8;background:linear-gradient(180deg,#0f58b8,#0a3478)}
+.c4{border-color:#2a8fbf;background:linear-gradient(180deg,#10597f,#0a3556)}
+.c5{border-color:#d23f7e;background:linear-gradient(180deg,#701848,#41102f)}
+.c6{border-color:#e0742a;background:linear-gradient(180deg,#a04a18,#612a10)}
+.gb.act{filter:brightness(1.4)}
+.qmb{display:block;margin:calc(var(--u)*14) calc(var(--u)*20) 0;width:calc(100% - var(--u)*40);height:calc(var(--u)*56);border:2px solid #2fa8ee;border-radius:calc(var(--u)*20);background:rgba(10,45,100,.35);color:#fff;font-size:calc(var(--u)*26);font-weight:bold;padding:0}
+.qmb.act{background:rgba(240,180,60,.22);border-color:#f0b43c;color:#fff}
+.nb{height:calc(var(--u)*92);border-radius:calc(var(--u)*20);border:2px solid #2fa8ee;background:#06163a;color:#fff;padding:0;line-height:1.2}
+.nb b{display:block;font-size:calc(var(--u)*30);font-weight:600}
+#menuBtn{margin-right:auto;margin-left:0}
+#xNum,.qd b{color:rgba(255,255,255,.5)}
+.qc{background:linear-gradient(180deg,#062454,#04173a)}
+.qmb{width:calc(var(--u)*596);margin:calc(var(--u)*14) auto 0}
+.gr{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gb{padding:0 calc(var(--u)*13);gap:calc(var(--u)*6);overflow:hidden}
+.gt{flex:1;min-width:0;white-space:nowrap;overflow:hidden}
+.gt span span{display:inline}
+.gt b{font-size:calc(var(--u)*28)}
+.gt span{font-size:calc(var(--u)*22)}
+#xListen .gt b,#xSay .gt b{font-size:calc(var(--u)*30)}
+#xShad .gt b{font-size:calc(var(--u)*24)}
+.gi{filter:none!important;flex:none;width:calc(var(--u)*46);height:calc(var(--u)*46);display:block}
+.gi svg{width:100%;height:100%;stroke:#fff;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== exam card refinements ===== */
+.qc{border:2.5px solid #17b2ff;border-radius:calc(var(--u)*26);padding:0 0 calc(var(--u)*12);box-shadow:none}
+.sv{width:calc(var(--u)*38);height:calc(var(--u)*38)}
+#xNum{font-weight:500}
+.qd b{font-weight:500;color:rgba(255,255,255,.66)}
+.ql i{top:50%;bottom:auto;height:1px;transform:translateY(-50%);clip-path:none;background:linear-gradient(90deg,transparent 0,rgba(70,175,240,.9) 50%,transparent 100%)}
+.ql::after{width:calc(var(--u)*7);height:calc(var(--u)*7);background:#4cb8f5;box-shadow:none}
+#xEn{width:100%;overflow-wrap:normal;word-break:normal}
+.qm{font-family:'Vazirmatn','Vazir','IRANSans',Tahoma,sans-serif;font-weight:600;color:#fdc20f}
+.qr{height:calc(var(--u)*132);margin-top:auto;gap:calc(var(--u)*6);align-items:stretch}
+.qa{position:relative;z-index:2;width:calc(var(--u)*25);margin:calc(var(--u)*18) 0 calc(var(--u)*12);border:2.5px solid #17b2ff;border-radius:calc(var(--u)*5);background:#06214f;box-shadow:none;font-size:0;color:transparent}
+.qa::before{content:"";position:absolute;top:50%;left:50%;width:calc(var(--u)*10);height:calc(var(--u)*10);border-left:1px solid #4aa8dc;border-bottom:1px solid #4aa8dc;transform:translate(-30%,-50%) rotate(45deg)}
+#xNext::before{transform:translate(-70%,-50%) rotate(-135deg)}
+.qa:first-child{margin-left:-2.5px}
+.qa:last-child{margin-right:-2.5px}
+.qb{margin-top:calc(var(--u)*9);border:1px solid rgba(60,120,200,.26);border-radius:calc(var(--u)*20);background:rgba(4,20,56,.35);filter:none}
+
+/* ===== six colored buttons: copy of reference ===== */
+.gr:not(.n){width:calc(var(--u)*594);gap:calc(var(--u)*11.5) calc(var(--u)*8.3);margin-top:calc(var(--u)*14)}
+.gb{height:calc(var(--u)*92.4);border-radius:calc(var(--u)*20);border-width:calc(var(--u)*4);border-style:solid;padding:0 0 0 calc(var(--u)*11);gap:0;overflow:hidden}
+.gt{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:calc(var(--u)*7.5) 0 0 calc(var(--u)*6);gap:calc(var(--u)*11);text-align:center;white-space:nowrap;overflow:visible;line-height:1}
+.gt b{display:block;font-family:'Roboto',Arial,sans-serif;font-weight:500;font-size:calc(var(--u)*27.5);line-height:calc(var(--u)*30);color:#fff}
+.gt span{display:block;font-family:'Vazirmatn',Tahoma,sans-serif;font-weight:500;font-size:calc(var(--u)*22.5);line-height:calc(var(--u)*28);color:#fff}
+.gt span span{display:inline}
+#xListen .gt b,#xSay .gt b{font-size:calc(var(--u)*27.5)}
+#xShad .gt{gap:calc(var(--u)*8.5)}
+#xShad .gt b{font-family:'Roboto Condensed','Roboto',Arial,sans-serif;font-weight:700;font-size:calc(var(--u)*25);margin-top:calc(var(--u)*2.5)}
+.gi{width:calc(var(--u)*41);height:calc(var(--u)*41);flex:none}
+.gi svg{overflow:visible;stroke:none;stroke-width:0;fill:#e4e7ec}
+.c1{border-color:#3acb8a;background:linear-gradient(180deg,#1f9868,#126b4b)}
+.c2{border-color:#9d89ec;background:linear-gradient(180deg,#6853b6,#4a3a98)}
+.c3{border-color:#19b6f2;background:linear-gradient(180deg,#1274c6,#0a5299)}
+.c4{border-color:#3cb6de;background:linear-gradient(180deg,#1e809f,#135f7e)}
+.c5{border-color:#e24d95;background:linear-gradient(180deg,#9c2166,#6a1247)}
+.c6{border-color:#fba14c;background:linear-gradient(180deg,#d6621f,#9a3d10)}
+/* darker button fills + lighter card, from reference colors */
+.c1{background:linear-gradient(180deg,#146555,#035446)}
+.c2{background:linear-gradient(180deg,#4b3d8c,#382c7f)}
+.c3{background:linear-gradient(180deg,#0b4b80,#013a72)}
+.c4{background:linear-gradient(180deg,#135676,#034568)}
+.c5{background:linear-gradient(180deg,#771a4b,#64093d)}
+.c6{background:linear-gradient(180deg,#ac411f,#983011)}
+.qc{background:linear-gradient(180deg,#03234a 0%,#03264e 40%,#032852 70%,#022248 100%)}
+/* nav row lower, thicker meaning button, softer corners, speed label */
+.qw{position:relative}
+.qpg{border-radius:calc(var(--u)*22)}
+.qmb{height:calc(var(--u)*68);border-radius:calc(var(--u)*15)}
+.gr.n{margin-top:calc(var(--u)*30)}
+#menu button{display:block;width:100%;text-align:right}
+#pkS{display:none;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:16px}
+.qspd{position:absolute;right:calc(var(--u)*34);top:calc(44px + env(safe-area-inset-top,0px) + var(--u)*8);font-size:calc(var(--u)*18);font-weight:bold;color:#ff4d4d;direction:ltr;line-height:1.2}
+/* fixed exam page, nav spacing, tappable speed/tense labels */
+@supports (height:100dvh){:root{--u:min(calc(min(100vw,480px) / 688),calc((100dvh - 44px - env(safe-area-inset-top,0px)) / 1175))}}
+#xp{overflow:hidden!important;overscroll-behavior:none}
+body.xd{overflow:hidden}
+html:has(body.xd){overflow:hidden}
+.gr.n{margin-top:calc(var(--u)*14)}
+.qspd{color:#fff;right:calc(var(--u)*22);top:calc(44px + env(safe-area-inset-top,0px));padding:calc(var(--u)*8) calc(var(--u)*12);cursor:pointer;z-index:3}
+.qsel{cursor:pointer}
+/* practice-mode message box */
+.qb{position:relative;overflow:hidden}
+#xRes{position:absolute;inset:0;color:#fff;font-family:'Vazirmatn',Tahoma,sans-serif;direction:rtl;pointer-events:none}
+.rp{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:calc(var(--u)*29);font-weight:500;line-height:1.3}
+.ri{position:absolute;left:calc(var(--u)*16);bottom:calc(var(--u)*16);width:calc(var(--u)*30);height:calc(var(--u)*30);display:block}
+.ri svg{width:100%;height:100%;fill:currentColor;display:block}
+.ri.spk{color:#12838f}.ri.mic{color:#e2323f}
+.rh{position:absolute;right:calc(var(--u)*66);top:calc(var(--u)*6);font-size:calc(var(--u)*24);font-weight:700;line-height:calc(var(--u)*24);white-space:nowrap}
+.rf{position:absolute;left:calc(var(--u)*18);top:calc(var(--u)*6);height:calc(var(--u)*24);display:flex;align-items:center;gap:calc(var(--u)*17);direction:ltr;white-space:nowrap}
+.rf i{display:block;width:calc(var(--u)*25);height:calc(var(--u)*25)}
+.rf i svg{width:100%;height:100%;display:block}
+.rf i.th{color:#f6c23c}.rf i.th svg{fill:currentColor}
+.rf span{direction:rtl;font-size:calc(var(--u)*20);font-weight:500;line-height:1}
+.rt{position:absolute;left:calc(var(--u)*12);right:calc(var(--u)*12);top:calc(var(--u)*60);text-align:center;white-space:nowrap;overflow:hidden;font-family:'Roboto Condensed','Roboto',Arial,sans-serif;font-weight:700;font-size:calc(var(--u)*37);line-height:calc(var(--u)*44)}
+#xListen.act{filter:none;background:linear-gradient(180deg,#0f8d9b,#0a6f7c);border-color:#38cfd9}
+#xSay.act{filter:none;background:linear-gradient(180deg,#e63946,#c62836);border-color:#ff6b76}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#050c1e">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<main>
+<h1>تمرین زمان‌های انگلیسی (A1–A2)</h1>
+<p class="s">یک یا چند زمان را انتخاب کنید. با انتخاب چند زمان، جمله‌ها قاطی نمایش داده می‌شوند.</p>
+<div class="chips" id="chips"></div>
+<button class="go" id="go" disabled>شروع</button>
+<label class="note"><input type="checkbox" id="showTag"> نمایش نام زمان روی هر جمله</label><br><label class="note"><input type="checkbox" id="mix"> قاطی کردن ترتیب جملات (برای محک زدن خودتان)</label>
+<button class="go exb" id="exOpen">امتحان</button>
+<div id="ex"><div class="exin">
+<button class="chip" id="exBack">بازگشت</button>
+<h2 style="font-size:18px;margin:12px 0 4px">امتحان</h2>
+<div id="exPick"><p class="s">یک یا چند زمان را انتخاب کنید.</p><div class="chips" id="exChips"></div><button class="go" id="exGo" disabled>شروع</button></div>
+<div id="exQuiz" style="display:none">
+<div class="note" id="qCount" style="text-align:center"></div>
+<div class="qrow"><button class="nv" id="qNext">&lt;</button><div class="qbox"><div class="qen" id="qEn"></div><div class="qfa" id="qFa"></div></div><button class="nv" id="qPrev">&gt;</button></div>
+<button class="go mb" id="qMean">معنی</button>
+</div>
+</div></div>
+<div id="out" class="hidetag"></div>
+<div id="tb"><div id="selTxt"></div><button id="menuBtn" aria-label="menu"><i></i><i></i><i></i></button></div>
+<div id="menu"><button id="menuPick">انتخاب زمان جمله</button><button id="menuSpd" style="display:none">سرعت جمله</button></div>
+<div id="pk"><div class="pkb"><b>انتخاب زمان جمله</b><div class="chips" id="pkChips"></div><button class="go" id="pkOk" disabled>ok</button></div></div>
+<div id="pkS"><div class="pkb"><b>سرعت جمله</b><div class="chips" id="pkSChips"></div></div></div>
+<div id="xp"><div class="qw">
+<div class="qsel" id="xSel"></div><div class="qspd" id="xSpd"></div>
+<div class="qpg"><div class="qtr"><div class="qbar" id="xBar"></div></div></div>
+<div class="qc">
+<div class="qh"><b id="xNum"></b><button class="sv" id="xSave" aria-label="save"><svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M6 3h12v18l-6-4-6 4z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></button></div>
+<div class="qe"><div id="xEn"></div></div>
+<div class="qd"><b id="xPassed"></b><div class="ql"><i></i></div><b id="xCount"></b></div>
+<div class="qm" id="xFa"></div>
+<div class="qr"><button class="qa" id="xPrev">‹</button><div class="qb"><span id="xRes"></span></div><button class="qa" id="xNext">›</button></div>
+</div>
+<div class="gr">
+<button class="gb c3" id="xListen"><span class="gt"><b>Listen</b><span>گوش کن</span></span><i class="gi">🔊</i></button>
+<button class="gb c2" id="xSay"><span class="gt"><b>Speak</b><span>بگو</span></span><i class="gi">🎤</i></button>
+<button class="gb c1" id="xPrac"><span class="gt"><b>Practice</b><span>تمرین کن!</span></span><i class="gi">🔄</i></button>
+<button class="gb c6" id="xShad"><span class="gt"><b>Shadowing</b><span>شدویینگ</span></span><i class="gi">👂</i></button>
+<button class="gb c5" id="xDict"><span class="gt"><b>Dictate</b><span>دیکته بنویس</span></span><i class="gi">✏️</i></button>
+<button class="gb c4" id="xRev"><span class="gt"><b>Review</b><span>مرور کن (<span id="xRevN">۰</span>)</span></span><i class="gi">↻</i></button>
+</div>
+<button class="qmb" id="xMean">معنی</button>
+<div class="gr n"><button class="nb"></button><button class="nb"><b>Exam</b><b>امتحان</b></button><button class="nb" id="xHome"><b>Home</b><b>خانه</b></button></div>
+</div></div>
+<div id="bn"><button id="bnExam">امتحان</button><button id="bnHome" class="cur">خانه</button></div>
+<p class="note" id="vnote"></p>
+</main>
+<script>
+const T={
+ps:{n:"حال ساده",s:[
+["I drink tea every morning.","من هر صبح چای می‌نوشم."],
+["She works in a small shop.","او در یک مغازهٔ کوچک کار می‌کند."],
+["He plays football on Fridays.","او جمعه‌ها فوتبال بازی می‌کند."],
+["We live in a big city.","ما در یک شهر بزرگ زندگی می‌کنیم."],
+["They go to school by bus.","آن‌ها با اتوبوس به مدرسه می‌روند."],
+["The sun rises in the east.","خورشید از شرق طلوع می‌کند."],
+["My brother likes pizza.","برادرم پیتزا دوست دارد."],
+["Do you speak English?","آیا انگلیسی صحبت می‌کنی؟"],
+["She does not eat meat.","او گوشت نمی‌خورد."],
+["The shop opens at nine.","مغازه ساعت نه باز می‌شود."],
+["I do not watch TV in the morning.","من صبح‌ها تلویزیون تماشا نمی‌کنم."],
+["Birds fly in the sky.","پرندگان در آسمان پرواز می‌کنند."],
+["Where does he work?","او کجا کار می‌کند؟"],
+["My mother cooks dinner every day.","مادرم هر روز شام می‌پزد."],
+["We have lunch at one o’clock.","ما ساعت یک ناهار می‌خوریم."],["I get up at seven.","من ساعت هفت از خواب بیدار می‌شوم."],["My friends like music.","دوستانم موسیقی دوست دارند."],["The baby sleeps a lot.","نوزاد زیاد می‌خوابد."],["Does she live near here?","آیا او نزدیک اینجا زندگی می‌کند؟"],["We do not have a car.","ما ماشین نداریم."],["My father drives to work.","پدرم با ماشین به سر کار می‌رود."],["He does not like coffee.","او قهوه دوست ندارد."],["Do they play tennis?","آیا آن‌ها تنیس بازی می‌کنند؟"],["I do not know his name.","من اسم او را نمی‌دانم."],["What time does the film start?","فیلم ساعت چند شروع می‌شود؟"],["The students read books in the library.","دانش‌آموزان در کتابخانه کتاب می‌خوانند."],["My sister does not drink milk.","خواهرم شیر نمی‌نوشد."],["Do you like fish?","آیا ماهی دوست داری؟"],["The bus stops near my house.","اتوبوس نزدیک خانهٔ من می‌ایستد."],["We often eat rice for lunch.","ما اغلب برای ناهار برنج می‌خوریم."],["Why do you study English?","چرا انگلیسی می‌خوانی؟"],["I do not go to the gym on Sundays.","من یکشنبه‌ها به باشگاه نمی‌روم."],["Her brother works in a bank.","برادرش در یک بانک کار می‌کند."],["Does your teacher speak Spanish?","آیا معلمت اسپانیایی صحبت می‌کند؟"],["They always wash the car on Saturday.","آن‌ها همیشه شنبه‌ها ماشین را می‌شویند."],["The weather is nice today.","امروز هوا خوب است."],["I go to bed at eleven.","من ساعت یازده به رختخواب می‌روم."],["Do you have a pen?","آیا خودکار داری؟"],["How much does this cost?","این چقدر قیمت دارد؟"],["I do not understand this word.","من این کلمه را نمی‌فهمم."],["Where do you live?","کجا زندگی می‌کنی؟"],["He does not work on Sundays.","او یکشنبه‌ها کار نمی‌کند."],["Does the bus stop here?","آیا اتوبوس اینجا می‌ایستد؟"],["My mother wakes up early.","مادرم زود از خواب بیدار می‌شود."],["I need some water.","من کمی آب لازم دارم."],["Do you want some tea?","آیا چای می‌خواهی؟"],["She does not have a phone.","او گوشی ندارد."],["My brother cleans his room on Saturdays.","برادرم شنبه‌ها اتاقش را تمیز می‌کند."],["What do you do on weekends?","آخر هفته‌ها چه کار می‌کنی؟"],["I like my new job.","من شغل جدیدم را دوست دارم."],["They do not eat breakfast at home.","آن‌ها صبحانه را در خانه نمی‌خورند."],["I walk to work every day.","من هر روز پیاده به سر کار می‌روم."],["Do you know her?","آیا او را می‌شناسی؟"],["My parents live in a small town.","پدر و مادرم در یک شهر کوچک زندگی می‌کنند."],["I do not like hot weather.","من هوای گرم را دوست ندارم."],["What does your father do?","پدرت چه شغلی دارد؟"],["The train leaves at seven.","قطار ساعت هفت حرکت می‌کند."],["She does not speak French.","او فرانسوی صحبت نمی‌کند."],["I take a shower every morning.","من هر صبح دوش می‌گیرم."],["Do you like your school?","آیا مدرسه‌ات را دوست داری؟"],["My teacher does not live here.","معلمم اینجا زندگی نمی‌کند."],["We watch a film on Fridays.","ما جمعه‌ها فیلم تماشا می‌کنیم."],["Where does she study?","او کجا درس می‌خواند؟"],["It snows a lot in winter.","در زمستان برف زیادی می‌بارد."],["I do not drink coffee at night.","من شب‌ها قهوه نمی‌نوشم."],["I work from nine to five.","من از ساعت نه تا پنج کار می‌کنم."],["Do you need help?","آیا کمک لازم داری؟"],["He does not eat sugar.","او شکر نمی‌خورد."],["My daughter goes to bed early.","دخترم زود به رختخواب می‌رود."],["What do you want?","چه می‌خواهی؟"],["The kids do not like vegetables.","بچه‌ها سبزیجات را دوست ندارند."],["I think it is a good idea.","فکر می‌کنم ایدهٔ خوبی است."],["Does your phone work?","آیا گوشی‌ات کار می‌کند؟"]]},
+pa:{n:"گذشته ساده",s:[
+["I visited my grandmother yesterday.","دیروز به دیدن مادربزرگم رفتم."],
+["She watched a movie last night.","او دیشب یک فیلم تماشا کرد."],
+["We went to the park on Sunday.","ما یکشنبه به پارک رفتیم."],
+["He bought a new phone.","او یک گوشی جدید خرید."],
+["They played games after school.","آن‌ها بعد از مدرسه بازی کردند."],
+["I did not sleep well last night.","من دیشب خوب نخوابیدم."],
+["Did you call your friend?","آیا به دوستت زنگ زدی؟"],
+["The train arrived at six.","قطار ساعت شش رسید."],
+["My father cooked rice for dinner.","پدرم برای شام برنج پخت."],
+["She was happy yesterday.","او دیروز خوشحال بود."],
+["We were at home last weekend.","ما آخر هفتهٔ گذشته خانه بودیم."],
+["I lost my keys.","من کلیدهایم را گم کردم."],
+["What did you eat for breakfast?","برای صبحانه چه خوردی؟"],
+["He did not go to work on Monday.","او دوشنبه سر کار نرفت."],
+["The children ate ice cream.","بچه‌ها بستنی خوردند."],["I met my friend at the park.","من دوستم را در پارک دیدم."],["She cleaned her room yesterday.","او دیروز اتاقش را تمیز کرد."],["We did not watch TV last night.","ما دیشب تلویزیون تماشا نکردیم."],["Did he come to the party?","آیا او به مهمانی آمد؟"],["It was cold last winter.","زمستان گذشته هوا سرد بود."],["I wrote a letter to my friend.","من برای دوستم یک نامه نوشتم."],["We did not buy bread yesterday.","ما دیروز نان نخریدیم."],["Did they win the game?","آیا آن‌ها بازی را بردند؟"],["She opened the window.","او پنجره را باز کرد."],["I did not see him last week.","من هفتهٔ گذشته او را ندیدم."],["Where did you put my book?","کتابم را کجا گذاشتی؟"],["He did not finish his work.","او کارش را تمام نکرد."],["Did you enjoy the trip?","آیا از سفر لذت بردی؟"],["We cooked pasta last night.","ما دیشب پاستا پختیم."],["I forgot my umbrella.","من چترم را فراموش کردم."],["How did you go to school?","چطور به مدرسه رفتی؟"],["The film was not very long.","فیلم خیلی طولانی نبود."],["My teacher called me on Tuesday.","معلمم سه‌شنبه به من زنگ زد."],["They stayed at a small hotel.","آن‌ها در یک هتل کوچک ماندند."],["Did she take the bus?","آیا او سوار اتوبوس شد؟"],["I did not hear the phone.","من صدای تلفن را نشنیدم."],["I woke up at six this morning.","امروز صبح ساعت شش از خواب بیدار شدم."],["Did you like the food?","آیا غذا را دوست داشتی؟"],["She did not answer the phone.","او به تلفن جواب نداد."],["We took a taxi to the airport.","ما با تاکسی به فرودگاه رفتیم."],["How did you get here?","چطور به اینجا رسیدی؟"],["He forgot his bag at school.","او کیفش را در مدرسه جا گذاشت."],["I did not have time yesterday.","دیروز وقت نداشتم."],["My friends came to my house.","دوستانم به خانهٔ من آمدند."],["I called my mother last night.","دیشب به مادرم زنگ زدم."],["Did you sleep well?","آیا خوب خوابیدی؟"],["We did not have milk.","ما شیر نداشتیم."],["He drank a glass of water.","او یک لیوان آب نوشید."],["Why did you leave early?","چرا زود رفتی؟"],["I paid for the tickets.","من پول بلیت‌ها را پرداختم."],["The teacher did not give us homework.","معلم به ما تکلیف نداد."],["I washed my hands before dinner.","قبل از شام دست‌هایم را شستم."],["Did you buy a ticket?","آیا بلیت خریدی؟"],["She did not like the movie.","او فیلم را دوست نداشت."],["We ate at a restaurant last night.","دیشب در رستوران غذا خوردیم."],["Who called you?","چه کسی به تو زنگ زد؟"],["He was tired after work.","او بعد از کار خسته بود."],["They did not come to school yesterday.","آن‌ها دیروز به مدرسه نیامدند."],["I cooked dinner for my family.","من برای خانواده‌ام شام پختم."],["Did she call you back?","آیا او دوباره با تو تماس گرفت؟"],["We did not go out last night.","دیشب بیرون نرفتیم."],["He read a book on the bus.","او در اتوبوس کتاب خواند."],["How much did you pay?","چقدر پرداخت کردی؟"],["The weather was bad yesterday.","دیروز هوا بد بود."],["Did you hear that noise?","آیا آن صدا را شنیدی؟"],["I saw your brother yesterday.","دیروز برادرت را دیدم."],["Did you find your keys?","آیا کلیدهایت را پیدا کردی؟"],["We did not know the answer.","ما جواب را نمی‌دانستیم."],["She made a cake for my birthday.","او برای تولدم یک کیک درست کرد."],["Where did you go?","کجا رفتی؟"],["I left my phone at home.","گوشی‌ام را در خانه جا گذاشتم."],["It did not rain last week.","هفتهٔ گذشته باران نبارید."],["Did he say anything?","آیا او چیزی گفت؟"]]},
+fs:{n:"آینده ساده",s:[
+["I will call you tomorrow.","فردا به تو زنگ می‌زنم."],
+["She will visit her friend next week.","او هفتهٔ آینده به دیدن دوستش می‌رود."],
+["We will eat dinner at eight.","ما ساعت هشت شام می‌خوریم."],
+["It will rain tomorrow.","فردا باران می‌بارد."],
+["He will buy a car next year.","او سال آینده یک ماشین می‌خرد."],
+["They will come to the party.","آن‌ها به مهمانی می‌آیند."],
+["I will not be late.","من دیر نمی‌کنم."],
+["Will you help me?","آیا به من کمک می‌کنی؟"],
+["My sister will be ten next month.","خواهرم ماه آینده ده ساله می‌شود."],
+["The shop will close at nine.","مغازه ساعت نه بسته می‌شود."],
+["We will not go to school on Friday.","ما جمعه به مدرسه نمی‌رویم."],
+["What will you do tomorrow?","فردا چه کار می‌کنی؟"],
+["She will be at home tonight.","او امشب خانه است."],
+["I will wash the dishes.","من ظرف‌ها را می‌شویم."],
+["Will he come with us?","آیا او با ما می‌آید؟"],["I will study English tonight.","امشب انگلیسی می‌خوانم."],["She will make tea for us.","او برای ما چای درست می‌کند."],["They will not be at home tomorrow.","آن‌ها فردا خانه نیستند."],["Will it be hot tomorrow?","آیا فردا هوا گرم خواهد بود؟"],["We will meet at the station.","ما در ایستگاه همدیگر را می‌بینیم."],["I will open the door.","من در را باز می‌کنم."],["She will not come to work tomorrow.","او فردا سر کار نمی‌آید."],["Will they stay here tonight?","آیا آن‌ها امشب اینجا می‌مانند؟"],["I will not eat fish tonight.","من امشب ماهی نمی‌خورم."],["Will you be at school tomorrow?","آیا فردا مدرسه هستی؟"],["My parents will visit us on Friday.","پدر و مادرم جمعه به دیدن ما می‌آیند."],["He will not wait for us.","او منتظر ما نمی‌ماند."],["Will she bring her book?","آیا او کتابش را می‌آورد؟"],["We will play football after lunch.","ما بعد از ناهار فوتبال بازی می‌کنیم."],["I will be home at six.","من ساعت شش خانه هستم."],["We will not wait for you.","ما منتظر تو نمی‌مانیم."],["Will you come to my house?","آیا به خانهٔ من می‌آیی؟"],["He will start work next Monday.","او دوشنبهٔ آینده کار را شروع می‌کند."],["I will not forget your name.","من اسمت را فراموش نمی‌کنم."],["What time will the shop open?","مغازه ساعت چند باز می‌شود؟"],["I will help you tomorrow.","فردا به تو کمک می‌کنم."],["They will not buy that house.","آن‌ها آن خانه را نمی‌خرند."],["Will it be cold tonight?","آیا امشب هوا سرد خواهد بود؟"],["I will send you a message.","من برایت پیام می‌فرستم."],["I will pay for dinner.","من پول شام را می‌پردازم."],["Will you call me tonight?","آیا امشب به من زنگ می‌زنی؟"],["She will not go out tomorrow.","او فردا بیرون نمی‌رود."],["I will take a taxi.","من تاکسی می‌گیرم."],["Will you be here tomorrow?","آیا فردا اینجا هستی؟"],["They will not eat here.","آن‌ها اینجا غذا نمی‌خورند."],["I will see you tomorrow.","فردا می‌بینمت."],["It will not take long.","زیاد طول نمی‌کشد."],["Will she come tonight?","آیا او امشب می‌آید؟"]]},
+pc:{n:"حال استمراری",s:[
+["I am reading a book now.","من الان دارم کتاب می‌خوانم."],
+["She is cooking dinner.","او دارد شام می‌پزد."],
+["They are playing in the park.","آن‌ها دارند در پارک بازی می‌کنند."],
+["We are waiting for the bus.","ما منتظر اتوبوس هستیم."],
+["He is not sleeping.","او خواب نیست."],
+["Are you listening to me?","آیا به من گوش می‌دهی؟"],
+["It is raining outside.","بیرون دارد باران می‌بارد."],
+["My brother is watching TV.","برادرم دارد تلویزیون تماشا می‌کند."],
+["What are you doing?","داری چه کار می‌کنی؟"],
+["The children are eating lunch.","بچه‌ها دارند ناهار می‌خورند."],
+["I am not working today.","من امروز کار نمی‌کنم."],
+["She is wearing a red dress.","او یک لباس قرمز پوشیده است."],
+["Where are they going?","آن‌ها دارند کجا می‌روند؟"],
+["We are learning English.","ما داریم انگلیسی یاد می‌گیریم."],
+["The dog is running after the ball.","سگ دارد دنبال توپ می‌دود."],["I am drinking water.","دارم آب می‌نوشم."],["She is talking on the phone.","او دارد تلفنی صحبت می‌کند."],["They are not watching TV.","آن‌ها تلویزیون تماشا نمی‌کنند."],["Is he sleeping?","آیا او در حال خوابیدن است؟"],["We are sitting in the kitchen.","ما در آشپزخانه نشسته‌ایم."],["I am writing a letter.","دارم نامه می‌نویسم."],["He is not eating breakfast.","او در حال خوردن صبحانه نیست."],["Is she studying now?","آیا او الان دارد درس می‌خواند؟"],["We are not walking to school today.","ما امروز پیاده به مدرسه نمی‌رویم."],["My sister is making a cake.","خواهرم دارد کیک درست می‌کند."],["Why are you laughing?","چرا می‌خندی؟"],["The students are writing in their books.","دانش‌آموزان دارند در کتاب‌هایشان می‌نویسند."],["I am not feeling well.","حالم خوب نیست."],["Is it snowing today?","آیا امروز دارد برف می‌بارد؟"],["She is looking for her bag.","او دارد دنبال کیفش می‌گردد."],["What is your brother doing?","برادرت دارد چه کار می‌کند؟"],["They are not coming to the party.","آن‌ها به مهمانی نمی‌آیند."],["I am cleaning my room now.","من الان دارم اتاقم را تمیز می‌کنم."],["The baby is smiling.","نوزاد دارد لبخند می‌زند."],["Are you using this pen?","آیا داری از این خودکار استفاده می‌کنی؟"],["We are not staying at home today.","ما امروز در خانه نمی‌مانیم."],["I am waiting for my friend.","دارم منتظر دوستم هستم."],["What is she reading?","او دارد چه می‌خواند؟"],["It is not raining now.","الان باران نمی‌بارد."],["The kids are playing outside.","بچه‌ها دارند بیرون بازی می‌کنند."],["Are you working today?","آیا امروز کار می‌کنی؟"],["I am looking for my phone.","دارم دنبال گوشی‌ام می‌گردم."],["He is driving to work.","او دارد با ماشین به سر کار می‌رود."],["Is the water boiling?","آیا آب دارد می‌جوشد؟"],["My father is reading the newspaper.","پدرم دارد روزنامه می‌خواند."],["Are they waiting outside?","آیا آن‌ها بیرون منتظر هستند؟"],["I am not eating meat these days.","این روزها گوشت نمی‌خورم."],["What are they eating?","آن‌ها دارند چه می‌خورند؟"],["The man is carrying a big bag.","آن مرد دارد یک کیف بزرگ حمل می‌کند."],["She is not answering her phone.","او جواب تلفنش را نمی‌دهد."],["Is your mother cooking now?","آیا مادرت الان دارد آشپزی می‌کند؟"],["I am studying for my exam.","دارم برای امتحانم درس می‌خوانم."],["Are you coming with us?","آیا با ما می‌آیی؟"],["She is not wearing her coat.","او پالتویش را نپوشیده است."],["Where is he going?","او دارد کجا می‌رود؟"],["The students are not listening.","دانش‌آموزان گوش نمی‌دهند."],["My friend is calling me.","دوستم دارد به من زنگ می‌زند."],["We are walking to the market.","ما داریم پیاده به بازار می‌رویم."],["I am cleaning the house.","دارم خانه را تمیز می‌کنم."],["What is he doing?","او دارد چه کار می‌کند؟"],["The baby is not crying now.","نوزاد الان گریه نمی‌کند."],["Are you eating lunch?","آیا داری ناهار می‌خوری؟"],["My parents are sitting outside.","پدر و مادرم بیرون نشسته‌اند."],["It is getting dark.","دارد هوا تاریک می‌شود."],["We are not using the car today.","ما امروز از ماشین استفاده نمی‌کنیم."],["I am making breakfast.","دارم صبحانه درست می‌کنم."],["Is she coming to the party?","آیا او به مهمانی می‌آید؟"],["They are not working today.","آن‌ها امروز کار نمی‌کنند."],["Who are you talking to?","داری با چه کسی صحبت می‌کنی؟"],["My phone is ringing.","گوشی‌ام دارد زنگ می‌خورد."],["We are leaving now.","ما داریم الان می‌رویم."],["He is not listening to me.","او به من گوش نمی‌دهد."],["What are you cooking?","داری چه می‌پزی؟"]]},
+pac:{n:"گذشته استمراری",s:[
+["I was sleeping at ten o’clock.","ساعت ده داشتم می‌خوابیدم."],
+["She was cooking when I arrived.","وقتی رسیدم، او داشت آشپزی می‌کرد."],
+["They were playing football at five.","ساعت پنج آن‌ها داشتند فوتبال بازی می‌کردند."],
+["We were watching TV last night.","دیشب داشتیم تلویزیون تماشا می‌کردیم."],
+["He was not working yesterday morning.","او دیروز صبح کار نمی‌کرد."],
+["What were you doing at nine?","ساعت نه داشتی چه کار می‌کردی؟"],
+["It was raining all day.","تمام روز باران می‌بارید."],
+["The children were sleeping.","بچه‌ها خواب بودند."],
+["I was reading a book in the kitchen.","من در آشپزخانه داشتم کتاب می‌خواندم."],
+["Were you listening to music?","آیا داشتی موسیقی گوش می‌دادی؟"],
+["My mother was talking on the phone.","مادرم داشت تلفنی صحبت می‌کرد."],
+["We were walking to school.","ما داشتیم پیاده به مدرسه می‌رفتیم."],
+["She was wearing a blue coat.","او یک پالتوی آبی پوشیده بود."],
+["They were not listening to the teacher.","آن‌ها به معلم گوش نمی‌دادند."],
+["The baby was crying.","نوزاد داشت گریه می‌کرد."],["I was drinking tea at six.","ساعت شش داشتم چای می‌نوشیدم."],["She was talking to her friend.","او داشت با دوستش صحبت می‌کرد."],["We were not sleeping.","ما خواب نبودیم."],["Was he working at night?","آیا او شب داشت کار می‌کرد؟"],["The birds were singing.","پرندگان داشتند آواز می‌خواندند."],["We were having lunch at one o’clock.","ساعت یک داشتیم ناهار می‌خوردیم."],["I was not listening to the radio.","من به رادیو گوش نمی‌دادم."],["Was she studying in her room?","آیا او داشت در اتاقش درس می‌خواند؟"],["The boys were playing in the street.","پسرها داشتند در خیابان بازی می‌کردند."],["They were not waiting for the train.","آن‌ها منتظر قطار نبودند."],["What was he doing in the kitchen?","او در آشپزخانه چه کار می‌کرد؟"],["I was cleaning the kitchen at eight.","ساعت هشت داشتم آشپزخانه را تمیز می‌کردم."],["Was it snowing yesterday?","آیا دیروز برف می‌بارید؟"],["The teacher was not smiling.","معلم لبخند نمی‌زد."],["We were waiting for you at the station.","ما در ایستگاه منتظر تو بودیم."],["She was reading a magazine on the bus.","او داشت در اتوبوس مجله می‌خواند."],["Why were you running?","چرا می‌دویدی؟"],["They were having dinner when the phone rang.","وقتی تلفن زنگ زد، داشتند شام می‌خوردند."],["I was not using my phone.","من از گوشی‌ام استفاده نمی‌کردم."],["What were the children doing?","بچه‌ها داشتند چه کار می‌کردند؟"],["He was driving to work at seven.","ساعت هفت داشت با ماشین به سر کار می‌رفت."],["I was walking home when it started to rain.","وقتی باران شروع شد، داشتم پیاده به خانه می‌رفتم."],["What were they talking about?","آن‌ها داشتند دربارهٔ چه چیزی صحبت می‌کردند؟"],["She was not feeling well.","او حالش خوب نبود."],["We were sitting in the park.","ما در پارک نشسته بودیم."],["Were you sleeping at eleven?","آیا ساعت یازده خواب بودی؟"],["He was driving very fast.","او خیلی تند رانندگی می‌کرد."],["The phone was ringing.","تلفن زنگ می‌خورد."],["I was not looking at you.","من به تو نگاه نمی‌کردم."],["I was eating an apple.","داشتم سیب می‌خوردم."],["Were they playing outside?","آیا آن‌ها داشتند بیرون بازی می‌کردند؟"],["She was not driving fast.","او تند رانندگی نمی‌کرد."],["What was she wearing?","او چه پوشیده بود؟"],["We were talking about school.","ما داشتیم دربارهٔ مدرسه صحبت می‌کردیم."],["My sister was sleeping at noon.","خواهرم ظهر خواب بود."],["Was the baby crying?","آیا نوزاد داشت گریه می‌کرد؟"],["I was working in the garden.","داشتم در حیاط کار می‌کردم."],["Were you studying at night?","آیا شب داشتی درس می‌خواندی؟"],["They were not watching the game.","آن‌ها بازی را تماشا نمی‌کردند."],["What was your brother doing?","برادرت داشت چه کار می‌کرد؟"],["She was cooking and singing.","او داشت آشپزی می‌کرد و آواز می‌خواند."],["We were having breakfast at eight.","ساعت هشت داشتیم صبحانه می‌خوردیم."],["He was not paying attention.","او توجه نمی‌کرد."],["I was waiting for a taxi.","منتظر تاکسی بودم."],["Were you working yesterday?","آیا دیروز کار می‌کردی؟"],["She was not talking to me.","او با من صحبت نمی‌کرد."],["What were you reading?","داشتی چه می‌خواندی؟"],["The students were taking a test.","دانش‌آموزان داشتند امتحان می‌دادند."],["My parents were watching the news.","پدر و مادرم داشتند اخبار تماشا می‌کردند."],["We were not using the computer.","ما از کامپیوتر استفاده نمی‌کردیم."],["I was sleeping when you called.","وقتی زنگ زدی، خواب بودم."],["Were they waiting for you?","آیا آن‌ها منتظر تو بودند؟"],["He was not wearing a hat.","او کلاه سرش نبود."],["What were you thinking about?","داشتی به چه چیزی فکر می‌کردی؟"],["It was getting late.","داشت دیر می‌شد."],["We were not talking about you.","ما دربارهٔ تو صحبت نمی‌کردیم."],["The kids were making noise.","بچه‌ها داشتند سروصدا می‌کردند."],["Was it raining?","آیا باران می‌بارید؟"]]},
+pf:{n:"حال کامل",s:[
+["I have finished my homework.","من تکلیفم را تمام کرده‌ام."],
+["She has visited London.","او از لندن دیدن کرده است (سفر کرده است)."],
+["We have lived here for five years.","ما پنج سال است که اینجا زندگی می‌کنیم."],
+["He has lost his phone.","او گوشی‌اش را گم کرده است."],
+["They have not eaten lunch yet.","آن‌ها هنوز ناهار نخورده‌اند."],
+["Have you ever been to Italy?","آیا تا به حال به ایتالیا رفته‌ای؟"],
+["I have never eaten sushi.","من تا به حال سوشی نخورده‌ام."],
+["My sister has bought a new bag.","خواهرم یک کیف جدید خریده است."],
+["Has he arrived?","آیا او رسیده است؟"],
+["We have just finished dinner.","ما تازه شام را تمام کرده‌ایم."],
+["She has already cleaned her room.","او قبلاً اتاقش را تمیز کرده است."],
+["I have known him for two years.","من دو سال است که او را می‌شناسم."],
+["The bus has not come yet.","اتوبوس هنوز نیامده است."],
+["They have seen this movie.","آن‌ها این فیلم را دیده‌اند."],
+["What have you done?","چه کار کرده‌ای؟"],["I have washed the car.","من ماشین را شسته‌ام."],["She has gone to school.","او به مدرسه رفته است."],["We have had breakfast.","ما صبحانه خورده‌ایم."],["Have they finished?","آیا آن‌ها تمام کرده‌اند؟"],["He has not called me.","او به من زنگ نزده است."],["I have read this book.","من این کتاب را خوانده‌ام."],["She has not cleaned the kitchen yet.","او هنوز آشپزخانه را تمیز نکرده است."],["Have you seen my keys?","آیا کلیدهایم را دیده‌ای؟"],["We have not met her brother.","ما با برادر او آشنا نشده‌ایم."],["My father has gone to work.","پدرم به سر کار رفته است."],["How long have you lived here?","چند وقت است که اینجا زندگی می‌کنی؟"],["She has not seen this film.","او این فیلم را ندیده است."],["Have you done your homework?","آیا تکلیفت را انجام داده‌ای؟"],["I have already eaten.","من قبلاً غذا خورده‌ام."],["We have never been to Spain.","ما تا به حال به اسپانیا نرفته‌ایم."],["He has broken his phone.","او گوشی‌اش را شکسته است."],["Has your mother come home?","آیا مادرت به خانه آمده است؟"],["They have lived in Turkey for two years.","آن‌ها دو سال است که در ترکیه زندگی می‌کنند."],["I have not eaten breakfast today.","من امروز صبحانه نخورده‌ام."],["Have you ever ridden a horse?","آیا تا به حال سوار اسب شده‌ای؟"],["My teacher has given us homework.","معلمم به ما تکلیف داده است."],["I have lost my wallet.","من کیف پولم را گم کرده‌ام."],["Have you eaten lunch?","آیا ناهار خورده‌ای؟"],["She has not been here before.","او قبلاً اینجا نبوده است."],["We have bought some milk.","ما کمی شیر خریده‌ایم."],["He has worked here for three years.","او سه سال است که اینجا کار می‌کند."],["I have not seen him today.","من امروز او را ندیده‌ام."],["The film has started.","فیلم شروع شده است."],["Where have you been?","کجا بوده‌ای؟"],["They have already left.","آن‌ها قبلاً رفته‌اند."],["I have made some tea.","من کمی چای درست کرده‌ام."],["Has she called you?","آیا او به تو زنگ زده است؟"],["We have not decided yet.","ما هنوز تصمیم نگرفته‌ایم."],["I have been to Turkey.","من به ترکیه رفته‌ام."],["Have you ever tried Italian food?","آیا تا به حال غذای ایتالیایی امتحان کرده‌ای؟"],["He has not slept well this week.","او این هفته خوب نخوابیده است."],["My phone has stopped working.","گوشی‌ام از کار افتاده است."],["I have forgotten her name.","من اسم او را فراموش کرده‌ام."],["Have you finished your tea?","آیا چایت را تمام کرده‌ای؟"],["My brother has not come home yet.","برادرم هنوز به خانه نیامده است."],["We have lived in this house since 2020.","ما از سال ۲۰۲۰ در این خانه زندگی می‌کنیم."],["She has just left.","او همین الان رفته است."],["Have you ever flown in a plane?","آیا تا به حال با هواپیما پرواز کرده‌ای؟"],["I have not heard from him.","از او خبری نشنیده‌ام."],["I have seen that man before.","من آن مرد را قبلاً دیده‌ام."],["Has your mother cooked dinner?","آیا مادرت شام پخته است؟"],["They have not found the keys.","آن‌ها کلیدها را پیدا نکرده‌اند."],["I have had a long day.","روز طولانی‌ای داشته‌ام."],["She has never been late.","او هیچ‌وقت دیر نکرده است."],["Have you called the doctor?","آیا به دکتر زنگ زده‌ای؟"],["We have opened a new shop.","ما یک مغازهٔ جدید باز کرده‌ایم."],["I have talked to him.","با او صحبت کرده‌ام."],["Have you cleaned the kitchen?","آیا آشپزخانه را تمیز کرده‌ای؟"],["We have not seen that film.","ما آن فیلم را ندیده‌ایم."],["He has changed his phone number.","او شمارهٔ تلفنش را عوض کرده است."],["My friends have arrived.","دوستانم رسیده‌اند."],["I have never driven a bus.","من هیچ‌وقت اتوبوس نرانده‌ام."],["Have you paid the bill?","آیا قبض را پرداخت کرده‌ای؟"],["It has stopped raining.","باران بند آمده است."]]}
+};
+const C=(s,k)=>{
+  if(/\?\s*$/.test(s))return s;
+  s=s.replace(/\bwill not\b/g,"won’t").replace(/\b(do|does|did|was|were|have|has) not\b/gi,(m,a)=>a+"n’t");
+  const hh=t=>{let x=0;for(const c of t)x=(x*31+c.charCodeAt(0))>>>0;return x};
+  if(hh(s)%2===0)s=s.replace(/\b(he|she|it) is not\b/gi,(m,p)=>p+" isn’t").replace(/\b(you|we|they) are not\b/gi,(m,p)=>p+" aren’t");
+  s=s.replace(/\bI am\b/g,"I’m").replace(/\b(you|we|they) are\b/gi,(m,p)=>p+"’re").replace(/\b(he|she|it) is\b/gi,(m,p)=>p+"’s").replace(/\b(is|are) not\b/gi,(m,a)=>a+"n’t");
+  s=s.replace(/\b(I|you|we|they|he|she|it) will\b/gi,(m,p)=>p+"’ll");
+  if(k==="pf")s=s.replace(/\b(I|you|we|they) have\b/gi,(m,p)=>p+"’ve").replace(/\b(he|she|it) has\b/gi,(m,p)=>p+"’s");
+  return s};
+const SP=[0.6,0.7,0.8,0.9,1,1.1];
+const sel=new Set();
+const $=id=>document.getElementById(id);
+let voice=null,voices=[];
+function pickVoice(){
+  try{
+    voices=speechSynthesis.getVoices().filter(v=>/^en[-_]US$/i.test(v.lang));
+    const male=/(david|guy|mark|aaron|alex|fred|tom|james|evan|ryan|christopher|eric|roger|steffan|davis|andrew|brian)/i;
+    const fem=/(zira|samantha|susan|jenny|aria|ava|emma|michelle|ana|female|allison|nicky|victoria)/i;
+    voice=voices.find(v=>male.test(v.name)&&!fem.test(v.name))||voices.find(v=>!fem.test(v.name))||voices[0]||null;
+    $("vnote").textContent=!("speechSynthesis" in window)?"مرورگر شما از پخش صوت پشتیبانی نمی‌کند.":
+      voice?"":"صدای آمریکایی روی این دستگاه پیدا نشد؛ ممکن است لهجهٔ پخش‌شده متفاوت باشد.";
+  }catch(e){}
+}
+if("speechSynthesis" in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+let cur=null,curBtn=null;
+function speak(t,r,btn){
+  if(!("speechSynthesis" in window)){$("vnote").textContent="این مرورگر از پخش صوت پشتیبانی نمی‌کند. لطفاً با Chrome یا Safari باز کنید.";return}
+  try{
+    pickVoice();
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(t);
+    u.lang="en-US";u.rate=r*0.8;u.pitch=1;u.volume=1;
+    if(voice)u.voice=voice;
+    let started=false;
+    u.onstart=()=>{started=true;$("vnote").textContent=""};
+    u.onerror=e=>{if(e.error!=="interrupted"&&e.error!=="canceled")$("vnote").textContent="خطا در پخش صدا: "+e.error+". اگر صدای گوشی بی‌صدا نیست، صفحه را در مرورگر اصلی (Chrome/Safari) باز کنید."};
+    cur=u;if(curBtn)curBtn.classList.remove("act");curBtn=btn||null;if(btn)btn.classList.add("act");const off=()=>{if(cur===u&&btn)btn.classList.remove("act")};u.onend=off;const oe=u.onerror;u.onerror=e=>{oe(e);off()};setTimeout(()=>{if(!started)off()},3500);
+    setTimeout(()=>{
+      speechSynthesis.resume();
+      speechSynthesis.speak(u);
+      setTimeout(()=>{if(!started&&!speechSynthesis.speaking&&cur===u){$("vnote").textContent="صدا پخش نشد. لطفاً صفحه را در مرورگر اصلی گوشی (Chrome یا Safari) باز کنید و مطمئن شوید گوشی بی‌صدا نیست."}},1500);
+    },80);
+  }catch(e){$("vnote").textContent="پخش صدا در این محیط ممکن نیست."}
+}
+const chips=$("chips");
+Object.keys(T).forEach(k=>{
+  const b=document.createElement("button");
+  b.className="chip";b.textContent=T[k].n;
+  b.onclick=()=>{sel.has(k)?sel.delete(k):sel.add(k);b.classList.toggle("on");$("go").disabled=!sel.size;upd()};
+  chips.appendChild(b);
+});
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function render(){
+  const out=$("out");out.innerHTML="";
+  let items=[];
+  Object.keys(T).forEach(k=>T[k].s.forEach((x,i)=>{if(sel.has(k))items.push({en:C(x[0],k),fa:x[1],t:T[k].n,n:k.toUpperCase()+" "+(i+1)})}));
+  if(sel.size>1){if($("mix").checked)shuffle(items);else{const h=s=>{let x=2166136261;for(const ch of s){x^=ch.charCodeAt(0);x=Math.imul(x,16777619)>>>0}x^=x>>>15;x=Math.imul(x,2246822519)>>>0;x^=x>>>13;return x>>>0};items.sort((a,b)=>h(a.n)-h(b.n))}}
+  items.forEach(it=>{
+    const c=document.createElement("div");c.className="card";
+    let rate=1;
+    c.innerHTML='<div><span class="num"></span> <span class="tag"></span></div><div class="en"></div><div class="row"><button class="m">معنی</button><button class="p">🔊 پخش</button><button class="cp">کپی</button></div><div class="sp"></div><div class="fa"></div>';
+    c.querySelector(".num").textContent="#"+it.n;c.querySelector(".tag").textContent=it.t;
+    c.querySelector(".en").textContent=it.en;
+    c.querySelector(".fa").textContent=it.fa;
+    c.querySelector(".m").onclick=()=>{const f=c.querySelector(".fa");const show=f.style.display!=="block";out.querySelectorAll(".fa").forEach(x=>x.style.display="none");out.querySelectorAll(".m").forEach(x=>x.classList.remove("act"));f.style.display=show?"block":"none";c.querySelector(".m").classList.toggle("act",show)};
+    c.querySelector(".cp").onclick=e=>{const b=e.currentTarget;const done=()=>{b.textContent="کپی شد ✓";setTimeout(()=>b.textContent="کپی",1200)};const fb=()=>{const a=document.createElement("textarea");a.value=it.en;document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(x){}a.remove()};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(it.en).then(done,fb)}else fb()};
+    const pb=c.querySelector(".p");pb.onclick=()=>speak(it.en,rate,pb);
+    const sp=c.querySelector(".sp");
+    SP.forEach(s=>{
+      const b=document.createElement("button");
+      b.textContent=(s===1?"1":s)+"x";if(s===1)b.className="on";
+      b.onclick=()=>{rate=s;sp.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");speak(it.en,rate,pb)};
+      sp.appendChild(b);
+    });
+    out.appendChild(c);
+  });
+  window.scrollTo({top:$("go").offsetTop,behavior:"smooth"});
+}
+$("go").onclick=render;
+(()=>{const h=document.querySelector("h1");h.style.cssText+="display:flex;justify-content:space-between;align-items:center;gap:8px";
+const b=document.createElement("button");b.textContent="💡";b.setAttribute("aria-label","راهنما");b.style.cssText="padding:4px 10px;font-size:18px;flex:none";
+const p=document.createElement("div");p.className="card";p.style.cssText="display:none;padding:14px;font-size:14px;line-height:2";
+p.innerHTML='<b>راهنمای کدهای بالای هر جمله</b><br>عدد کنار هر کد، شمارهٔ جمله در همان زمان است.<br><b dir="ltr">PS</b> = حال ساده (Present Simple)<br><b dir="ltr">PA</b> = گذشته ساده (Past Simple)<br><b dir="ltr">FS</b> = آینده ساده (Future Simple)<br><b dir="ltr">PC</b> = حال استمراری (Present Continuous)<br><b dir="ltr">PAC</b> = گذشته استمراری (Past Continuous)<br><b dir="ltr">PF</b> = حال کامل (Present Perfect)';
+h.after(p);h.appendChild(b);b.onclick=()=>{const o=p.style.display==="block";p.style.display=o?"none":"block";b.classList.toggle("act",!o)}})();
+$("showTag").onchange=e=>$("out").classList.toggle("hidetag",!e.target.checked);
+/*
+Object.keys(T).forEach(k=>{const b=document.createElement("button");b.className="chip";b.textContent=T[k].n;b.onclick=()=>{exSel.has(k)?exSel.delete(k):exSel.add(k);b.classList.toggle("on");$("exGo").disabled=!exSel.size};$("exChips").appendChild(b)});
+function exDraw(){
+  const it=exItems[exI];
+  $("qEn").textContent=it.en;$("qFa").textContent="";$("qMean").classList.remove("act");
+  $("qCount").textContent=(exI+1)+" / "+exItems.length;
+  $("qPrev").style.opacity=exI===0?".35":"1";$("qNext").style.opacity=exI===exItems.length-1?".35":"1";
+}
+$("exOpen").onclick=()=>{$("ex").style.display="block";$("exPick").style.display="block";$("exQuiz").style.display="none";$("ex").scrollTop=0};
+$("exBack").onclick=()=>{if($("exQuiz").style.display==="block"){$("exQuiz").style.display="none";$("exPick").style.display="block"}else $("ex").style.display="none"};
+$("exGo").onclick=()=>{
+  const h=s=>{let x=2166136261;for(const ch of s){x^=ch.charCodeAt(0);x=Math.imul(x,16777619)>>>0}x^=x>>>15;x=Math.imul(x,2246822519)>>>0;x^=x>>>13;return x>>>0};
+  exItems=[];
+  Object.keys(T).forEach(k=>T[k].s.forEach((x,i)=>{if(exSel.has(k))exItems.push({en:C(x[0],k),fa:x[1],n:k.toUpperCase()+" "+(i+1)})}));
+  if(exSel.size>1)exItems.sort((a,b)=>h(a.n)-h(b.n));
+  exI=0;$("exPick").style.display="none";$("exQuiz").style.display="block";exDraw();
+};
+$("qNext").onclick=()=>{if(exI<exItems.length-1){exI++;exDraw()}};
+$("qPrev").onclick=()=>{if(exI>0){exI--;exDraw()}};
+$("qMean").onclick=()=>{const on=!$("qMean").classList.contains("act");$("qMean").classList.toggle("act",on);*/
+const keys=Object.keys(T);
+function upd(){
+  $("selTxt").textContent=keys.filter(k=>sel.has(k)).map(k=>T[k].n).join(" - ")||"زمانی انتخاب نشده";
+  [...chips.children].forEach((b,i)=>b.classList.toggle("on",sel.has(keys[i])));
+  $("go").disabled=!sel.size;
+}
+let tmp=new Set(),xOn=false,xItems=[],xI=0,rec=null;
+keys.forEach(k=>{const b=document.createElement("button");b.className="chip";b.textContent=T[k].n;b.dataset.k=k;b.onclick=()=>{tmp.has(k)?tmp.delete(k):tmp.add(k);b.classList.toggle("on",tmp.has(k));$("pkOk").disabled=!tmp.size};$("pkChips").appendChild(b)});
+$("menuBtn").onclick=e=>{e.stopPropagation();const m=$("menu");m.style.display=m.style.display==="block"?"none":"block"};
+document.addEventListener("click",()=>{$("menu").style.display="none"});
+$("menuPick").onclick=()=>{tmp=new Set(sel);[...$("pkChips").children].forEach(b=>b.classList.toggle("on",tmp.has(b.dataset.k)));$("pkOk").disabled=!tmp.size;$("pk").style.display="flex"};
+$("pkOk").onclick=()=>{sel.clear();tmp.forEach(k=>sel.add(k));$("pk").style.display="none";upd();if(xOn)xStart();else if(sel.size)render()};
+const hs=s=>{let x=2166136261;for(const ch of s){x^=ch.charCodeAt(0);x=Math.imul(x,16777619)>>>0}x^=x>>>15;x=Math.imul(x,2246822519)>>>0;x^=x>>>13;return x>>>0};
+function xStart(){
+  xItems=[];keys.forEach(k=>T[k].s.forEach((x,i)=>{if(sel.has(k))xItems.push({en:C(x[0],k),fa:x[1],n:k.toUpperCase()+" "+(i+1)})}));
+  if(sel.size>1)xItems.sort((a,b)=>hs(a.n)-hs(b.n));
+  xI=0;xDraw();
+}
+function xDraw(){
+  $("xMean").classList.remove("act");$("xRes").textContent="";
+  if(!xItems.length){$("xEn").textContent="";$("xCount").textContent="";$("xFa").textContent="از منوی ☰ زمان را انتخاب کنید";return}
+  $("xEn").textContent=xItems[xI].en;$("xFa").textContent="";
+  $("xCount").textContent=(xI+1)+" / "+xItems.length;
+  $("xPrev").style.opacity=xI===0?".35":"1";$("xNext").style.opacity=xI===xItems.length-1?".35":"1";
+}
+function xShow(on){xOn=on;$("xp").style.display=on?"block":"none";$("bnExam").classList.toggle("cur",on);$("bnHome").classList.toggle("cur",!on);if(on)xStart()}
+$("bnExam").onclick=()=>xShow(true);
+$("bnHome").onclick=()=>xShow(false);
+$("xNext").onclick=()=>{if(xI<xItems.length-1){xI++;xDraw()}};
+$("xPrev").onclick=()=>{if(xI>0){xI--;xDraw()}};
+$("xMean").onclick=()=>{if(!xItems.length)return;const on=!$("xMean").classList.contains("act");$("xMean").classList.toggle("act",on);$("xFa").textContent=on?xItems[xI].fa:""};
+$("xListen").onclick=()=>{if(xItems.length)speak(xItems[xI].en,xRate,$("xListen"))};
+const nm=s=>s.toLowerCase().replace(/’/g,"'").replace(/won't/g,"will not").replace(/n't/g," not").replace(/'re/g," are").replace(/'m/g," am").replace(/'ll/g," will").replace(/'ve/g," have").replace(/'s\b/g," is").replace(/\bhas\b/g,"is").replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(Boolean);
+const sim=(a,b)=>{a=nm(a);b=nm(b);const d=Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=a[i-1]===b[j-1]?d[i-1][j-1]+1:Math.max(d[i-1][j],d[i][j-1]);return 2*d[a.length][b.length]/(a.length+b.length||1)};
+$("xSay").onclick=()=>{
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition,r=$("xRes");
+  if(!xItems.length)return;
+  if(!SR){r.style.color="#dc3545";r.textContent="این مرورگر تشخیص صدا ندارد (Chrome را امتحان کنید)";return}
+  try{speechSynthesis.cancel()}catch(e){}
+  if(rec){try{rec.abort()}catch(e){}}
+  rec=new SR();rec.lang="en-US";rec.maxAlternatives=3;rec.interimResults=false;
+  const b=$("xSay"),target=xItems[xI].en,idx=xI;
+  b.classList.add("act");r.textContent="";
+  rec.onresult=e=>{if(idx!==xI)return;let best=0;for(let j=0;j<e.results[0].length;j++)best=Math.max(best,sim(e.results[0][j].transcript,target));const ok=best>=0.9;r.style.color=ok?"#1a9b4b":"#dc3545";r.textContent=ok?"عالی بود":"دوباره تلاش کن"};
+  rec.onerror=e=>{b.classList.remove("act");if(idx!==xI)return;r.style.color="#dc3545";r.textContent=(e.error==="not-allowed"||e.error==="service-not-allowed")?"اجازهٔ میکروفون داده نشده":e.error==="no-speech"?"صدایی شنیده نشد، دوباره تلاش کن":"دوباره تلاش کن"};
+  rec.onend=()=>b.classList.remove("act");
+  try{rec.start()}catch(e){b.classList.remove("act")}
+};
+const fd=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+let saved=new Set();try{saved=new Set(JSON.parse(localStorage.getItem("sv")||"[]"))}catch(e){}
+const svSave=()=>{try{localStorage.setItem("sv",JSON.stringify([...saved]))}catch(e){}};
+function xFit(){const e=$("xEn"),b=e.parentNode;let S=82;const set=v=>{e.style.fontSize="calc(var(--u)*"+v+")"};set(S);
+  if(!b.clientHeight)return;
+  while(S>14&&(e.offsetHeight>b.clientHeight||e.scrollWidth>e.clientWidth+1)){S-=1;set(S)}}
+window.addEventListener("resize",()=>{if(xOn&&xItems.length)xFit()});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(xOn&&xItems.length)xFit()});
+function xDraw(){
+  const n=xItems.length;$("xMean").classList.remove("act");$("xRes").textContent="";
+  $("xSel").textContent=keys.filter(k=>sel.has(k)).map(k=>T[k].n).join(" - ");
+  $("xRevN").textContent=fd(saved.size);
+  if(!n){$("xEn").textContent="";$("xNum").textContent="";$("xPassed").textContent="";$("xCount").textContent="";$("xBar").style.width="0";$("xFa").textContent="از منوی بالا زمان را انتخاب کنید";return}
+  const it=xItems[xI],L=it.en.length;
+  $("xEn").textContent=it.en;xFit();
+  $("xNum").textContent=it.n;$("xPassed").textContent=xI+1;$("xCount").textContent=n-xI-1;
+  $("xBar").style.width=((xI+1)/n*100)+"%";$("xFa").textContent="";
+  $("xSave").classList.toggle("on",saved.has(it.n));
+  $("xPrev").style.opacity=xI===0?".35":"1";$("xNext").style.opacity=xI===n-1?".35":"1";
+}
+function xShow(on){xOn=on;$("xp").style.display=on?"block":"none";document.body.classList.toggle("xd",on);$("bnExam").classList.toggle("cur",on);$("bnHome").classList.toggle("cur",!on);if(on)xStart()}
+$("xSave").onclick=()=>{if(!xItems.length)return;const k=xItems[xI].n;saved.has(k)?saved.delete(k):saved.add(k);svSave();$("xSave").classList.toggle("on",saved.has(k));$("xRevN").textContent=fd(saved.size)};
+$("xHome").onclick=()=>xShow(false);
+const oldSay=$("xSay").onclick;
+$("xSay").onclick=async()=>{
+  if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){try{const s=await navigator.mediaDevices.getUserMedia({audio:true});s.getTracks().forEach(t=>t.stop())}catch(e){const r=$("xRes");r.style.color="#dc3545";r.textContent="اجازهٔ میکروفون داده نشده";return}}
+  oldSay();
+};
+const IC={xListen:'<svg viewBox="826 116 258 258"><path d="M833 205H890L955 140V350L890 288H833Z"/><path d="M982 193A33 52.5 0 0 1 982 298Z"/><path d="M982 140A81 105 0 0 1 982 350" fill="none" stroke="#e4e7ec" stroke-width="28"/></svg>',
+xSay:'<svg viewBox="433 123 258 258"><rect x="520" y="110" width="85" height="160" rx="42.5"/><path d="M482 233A80 80 0 0 0 642 233" fill="none" stroke="#e4e7ec" stroke-width="28"/><rect x="547" y="315" width="30" height="55"/><rect x="508" y="368" width="109" height="26"/></svg>',
+xPrac:'<svg viewBox="61 116 258 258"><g fill="none" stroke="#e4e7ec" stroke-width="28"><path d="M88 242A102 121 0 0 1 273 176"/><path d="M292 245A102 121 0 0 1 106 314"/></g><path d="M325 110V215H220Z"/><path d="M55 375V272H160Z"/></svg>',
+xRev:'<svg viewBox="56 621 258 258"><path d="M187 652A98 98 0 1 1 92 725" fill="none" stroke="#e4e7ec" stroke-width="28"/><path d="M72 652V728H148Z"/></svg>',
+xDict:'<svg viewBox="435 629 258 258"><path d="M440 825L590 673L640 723L490 872H440Z"/><path d="M607 655L642 628L685 672L656 708Z" stroke="#e4e7ec" stroke-width="10" stroke-linejoin="round"/><path d="M524 858H686V886H494Z"/></svg>',
+xShad:'<svg viewBox="781 623 258 258"><g fill="none" stroke="#ffc15f" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"><path d="M964 772C980 752 985 725 972 700C958 672 932 659 908 659C872 659 842 685 842 725C842 752 855 765 868 780C880 794 880 806 878 817C876 838 893 850 912 850C932 850 945 836 946 815"/><path d="M872 724C872 706 886 696 904 696C922 696 934 708 934 723C934 742 912 748 906 764C903 773 904 782 904 788"/></g></svg>'};
+for(const id in IC)$(id).querySelector(".gi").innerHTML=IC[id];
+let xRate=1;
+const xSpdUpd=()=>{$("xSpd").textContent=(xRate===1?"1":xRate)+"x"};
+SP.forEach(s=>{const b=document.createElement("button");b.className="chip"+(s===xRate?" on":"");b.textContent=(s===1?"1":s)+"x";b.dataset.s=s;b.onclick=()=>{xRate=s;[...$("pkSChips").children].forEach(x=>x.classList.toggle("on",+x.dataset.s===s));xSpdUpd();$("pkS").style.display="none"};$("pkSChips").appendChild(b)});
+$("menuBtn").addEventListener("click",()=>{$("menuSpd").style.display=xOn?"block":"none"});
+$("menuSpd").onclick=()=>{$("pkS").style.display="flex"};
+$("pkS").onclick=e=>{if(e.target===$("pkS"))$("pkS").style.display="none"};
+xSpdUpd();
+$("xSpd").onclick=()=>{$("pkS").style.display="flex"};
+$("xSel").onclick=()=>$("menuPick").click();
+/* ===== Practice mode (Practice button) ===== */
+const SPKI='<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+const MICI='<svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg>';
+const THUMBI='<svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>';
+const REDOI='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
+const PAUSEI='<svg viewBox="61 116 258 258"><rect x="89" y="147" width="62" height="196" rx="6"/><rect x="229" y="147" width="62" height="196" rx="6"/></svg>';
+const mk=(c,t)=>{const d=document.createElement("div");d.className=c;if(t!=null)d.textContent=t;return d};
+function boxPrompt(t,ic){const r=$("xRes");r.textContent="";r.appendChild(mk("rp",t));if(ic){const i=document.createElement("i");i.className="ri "+ic;i.innerHTML=ic==="spk"?SPKI:MICI;r.appendChild(i)}}
+function boxResult(heard,sc,ok){const r=$("xRes");r.textContent="";r.appendChild(mk("rh","شنیدم:"));const f=mk("rf");const i=document.createElement("i");i.className=ok?"th":"rd";i.innerHTML=ok?THUMBI:REDOI;f.appendChild(i);const sp=document.createElement("span");sp.textContent=(ok?"عالی! ":"دوباره بگو ")+fd(sc)+"٪";f.appendChild(sp);r.appendChild(f);const t=mk("rt",heard);r.appendChild(t);let S=37;while(S>16&&t.scrollWidth>t.clientWidth){S--;t.style.fontSize="calc(var(--u)*"+S+")"}}
+const lev=(a,b)=>{const m=a.length,n=b.length,d=[];for(let i=0;i<=m;i++)d[i]=[i];for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]};
+const score=(h,t)=>{const a=nm(h).join(" "),b=nm(t).join(" "),L=Math.max(a.length,b.length);return L?Math.round(100*(1-lev(a,b)/L)):0};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function ttsOnce(text,rate){return new Promise(res=>{
+  if(!("speechSynthesis" in window)){res();return}
+  try{pickVoice();speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate*0.8;u.pitch=1;u.volume=1;if(voice)u.voice=voice;
+    let done=false;const tm=setTimeout(()=>fin(),Math.max(6000,text.length*250/rate));
+    const fin=()=>{if(!done){done=true;clearTimeout(tm);res()}};
+    u.onend=fin;u.onerror=fin;
+    setTimeout(()=>{try{speechSynthesis.resume();speechSynthesis.speak(u)}catch(e){fin()}},80);
+  }catch(e){res()}
+})}
+function recOnce(){return new Promise(res=>{
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){res({err:"unsupported"});return}
+  let done=false;
+  const fin=v=>{if(!done){done=true;clearTimeout(tm);try{rec.abort()}catch(e){}res(v)}};
+  try{if(rec)rec.abort()}catch(e){}
+  rec=new SR();rec.lang="en-US";rec.maxAlternatives=3;rec.interimResults=false;
+  const tm=setTimeout(()=>fin({err:"no-speech"}),9000);
+  rec.onresult=e=>{const a=[];for(let j=0;j<e.results[0].length;j++)a.push(e.results[0][j].transcript);fin({alts:a})};
+  rec.onerror=e=>fin({err:e.error});
+  rec.onend=()=>fin({err:"no-speech"});
+  try{rec.start()}catch(e){fin({err:"start"})}
+})}
+function showOutcome(r,it){
+  if(r.err){
+    if(r.err==="no-speech"){boxPrompt("صدایی شنیده نشد");return "none"}
+    boxPrompt(r.err==="not-allowed"||r.err==="service-not-allowed"?"اجازهٔ میکروفون داده نشده":r.err==="unsupported"?"این مرورگر تشخیص صدا ندارد":"تشخیص صدا در دسترس نیست");return "fatal"}
+  let best=-1,heard="";r.alts.forEach(a=>{const s=score(a,it.en);if(s>best){best=s;heard=a}});
+  const ok=best>=80;boxResult(heard,best,ok);return ok?"ok":"bad";
+}
+let prOn=false,prTok=0,prBusy=false;
+const prUI=on=>{$("xPrac").querySelector(".gi").innerHTML=on?PAUSEI:IC.xPrac};
+function prStop(){prTok++;const was=prOn;prOn=false;try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}$("xListen").classList.remove("act");$("xSay").classList.remove("act");prUI(false);if(was)$("xRes").textContent=""}
+async function prRun(){
+  const tok=++prTok;prOn=true;prUI(true);
+  const alive=i=>prOn&&tok===prTok&&xOn&&xI===i;
+  let idx=xI,needListen=true;
+  while(alive(idx)){
+    const it=xItems[idx];
+    if(needListen){
+      boxPrompt("به جمله گوش کن","spk");$("xListen").classList.add("act");
+      await ttsOnce(it.en,xRate);$("xListen").classList.remove("act");
+      if(!alive(idx))return;
+    }
+    boxPrompt("آماده شو");await sleep(1000);if(!alive(idx))return;
+    boxPrompt("حالا بگو.","mic");$("xSay").classList.add("act");
+    const r=await recOnce();$("xSay").classList.remove("act");
+    if(!alive(idx))return;
+    const o=showOutcome(r,it);
+    if(o==="fatal"){await sleep(2500);if(alive(idx))prStop();return}
+    if(o==="none"){await sleep(1800);if(!alive(idx))return;needListen=false;continue}
+    await sleep(o==="ok"?2800:3200);if(!alive(idx))return;
+    if(o==="ok"){if(idx>=xItems.length-1){prStop();return}xI=idx+1;xDraw();idx=xI;needListen=true}else needListen=false;
+  }
+}
+const micOk=async()=>{if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){try{const s=await navigator.mediaDevices.getUserMedia({audio:true});s.getTracks().forEach(t=>t.stop())}catch(e){return false}}return true};
+$("xPrac").onclick=async()=>{
+  if(prOn){prStop();return}
+  if(!xItems.length||prBusy)return;
+  prBusy=true;const ok=await micOk();prBusy=false;
+  if(!ok){boxPrompt("اجازهٔ میکروفون داده نشده");return}
+  prRun();
+};
+$("xSay").onclick=async()=>{
+  if(!xItems.length)return;
+  if(prOn)prStop();
+  if(prBusy)return;
+  prBusy=true;const ok=await micOk();prBusy=false;
+  if(!ok){boxPrompt("اجازهٔ میکروفون داده نشده");return}
+  try{speechSynthesis.cancel()}catch(e){}
+  const tok=++prTok,idx=xI,it=xItems[idx];
+  boxPrompt("حالا بگو.","mic");$("xSay").classList.add("act");
+  const r=await recOnce();$("xSay").classList.remove("act");
+  if(tok!==prTok||idx!==xI)return;
+  showOutcome(r,it);
+};
+["xNext","xPrev","xListen"].forEach(id=>$(id).addEventListener("click",()=>{if(prOn)prStop()},true));
+const xStart0=xStart;xStart=function(){prStop();xStart0()};
+const xShow0=xShow;xShow=function(on){if(!on)prStop();xShow0(on)};
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
+upd();
+</script>
+</body>
+</html>
