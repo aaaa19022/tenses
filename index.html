@@ -189,8 +189,8 @@ html:has(body.xd){overflow:hidden}
 /* practice-mode message box */
 .qb{position:relative;overflow:hidden}
 #xRes{position:absolute;inset:0;color:#fff;font-family:'Vazirmatn',Tahoma,sans-serif;direction:rtl;pointer-events:none}
-.rp{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:calc(var(--u)*29);font-weight:500;line-height:1.3}
-.ri{position:absolute;left:calc(var(--u)*16);bottom:calc(var(--u)*16);width:calc(var(--u)*30);height:calc(var(--u)*30);display:block}
+.rp{position:absolute;left:0;right:0;top:calc(50% - var(--u)*5);transform:translateY(-50%);text-align:center;font-size:calc(var(--u)*29);font-weight:500;line-height:1.3}
+.ri{position:absolute;left:calc(var(--u)*13);bottom:calc(var(--u)*16);width:calc(var(--u)*29);height:calc(var(--u)*29);display:block}
 .ri svg{width:100%;height:100%;fill:currentColor;display:block}
 .ri.spk{color:#12838f}.ri.mic{color:#e2323f}
 .rh{position:absolute;right:calc(var(--u)*66);top:calc(var(--u)*6);font-size:calc(var(--u)*24);font-weight:700;line-height:calc(var(--u)*24);white-space:nowrap}
@@ -202,6 +202,7 @@ html:has(body.xd){overflow:hidden}
 .rt{position:absolute;left:calc(var(--u)*12);right:calc(var(--u)*12);top:calc(var(--u)*60);text-align:center;white-space:nowrap;overflow:hidden;font-family:'Roboto Condensed','Roboto',Arial,sans-serif;font-weight:700;font-size:calc(var(--u)*37);line-height:calc(var(--u)*44)}
 #xListen.act{filter:none;background:linear-gradient(180deg,#0f8d9b,#0a6f7c);border-color:#38cfd9}
 #xSay.act{filter:none;background:linear-gradient(180deg,#e63946,#c62836);border-color:#ff6b76}
+.rt .bad{color:#ff4b55;text-decoration:underline;text-decoration-color:#ff4b55;text-decoration-thickness:calc(var(--u)*3.5);text-underline-offset:calc(var(--u)*6);text-decoration-skip-ink:none}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
@@ -561,7 +562,27 @@ const REDOI='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.
 const PAUSEI='<svg viewBox="61 116 258 258"><rect x="89" y="147" width="62" height="196" rx="6"/><rect x="229" y="147" width="62" height="196" rx="6"/></svg>';
 const mk=(c,t)=>{const d=document.createElement("div");d.className=c;if(t!=null)d.textContent=t;return d};
 function boxPrompt(t,ic){const r=$("xRes");r.textContent="";r.appendChild(mk("rp",t));if(ic){const i=document.createElement("i");i.className="ri "+ic;i.innerHTML=ic==="spk"?SPKI:MICI;r.appendChild(i)}}
-function boxResult(heard,sc,ok){const r=$("xRes");r.textContent="";r.appendChild(mk("rh","شنیدم:"));const f=mk("rf");const i=document.createElement("i");i.className=ok?"th":"rd";i.innerHTML=ok?THUMBI:REDOI;f.appendChild(i);const sp=document.createElement("span");sp.textContent=(ok?"عالی! ":"دوباره بگو ")+fd(sc)+"٪";f.appendChild(sp);r.appendChild(f);const t=mk("rt",heard);r.appendChild(t);let S=37;while(S>16&&t.scrollWidth>t.clientWidth){S--;t.style.fontSize="calc(var(--u)*"+S+")"}}
+function diffMarks(toks,target){
+  const hw=[],hi=[];toks.forEach((tok,ti)=>nm(tok).forEach(w=>{hw.push(w);hi.push(ti)}));
+  const tw=nm(target),m=hw.length,n=tw.length;
+  const d=Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)d[i][j]=hw[i]===tw[j]?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
+  const bad=new Set(),miss={};let i=0,j=0;
+  while(i<m||j<n){
+    if(i<m&&j<n&&hw[i]===tw[j]){i++;j++}
+    else if(j<n&&(i>=m||d[i][j+1]>=d[i+1][j])){const k=i<m?hi[i]:"end";(miss[k]=miss[k]||[]).push(tw[j].length);j++}
+    else{bad.add(hi[i]);i++}
+  }
+  return {bad,miss};
+}
+function boxResult(heard,sc,ok,target){const r=$("xRes");r.textContent="";r.appendChild(mk("rh","شنیدم:"));const f=mk("rf");const i=document.createElement("i");i.className=ok?"th":"rd";i.innerHTML=ok?THUMBI:REDOI;f.appendChild(i);const sp=document.createElement("span");sp.textContent=(ok?"عالی! ":"دوباره بگو ")+fd(sc)+"٪";f.appendChild(sp);r.appendChild(f);
+  const t=mk("rt");r.appendChild(t);
+  const toks=heard.trim().split(/\s+/).filter(Boolean),mm=diffMarks(toks,target);
+  const gap=len=>{const g=document.createElement("span");g.className="bad";g.textContent="\u00a0".repeat(Math.max(3,Math.round(len*0.9)));return g};
+  toks.forEach((w,ti)=>{(mm.miss[ti]||[]).forEach(len=>{t.appendChild(gap(len));t.appendChild(document.createTextNode(" "))});
+    const e=document.createElement("span");e.textContent=w;if(mm.bad.has(ti))e.className="bad";t.appendChild(e);if(ti<toks.length-1)t.appendChild(document.createTextNode(" "))});
+  (mm.miss.end||[]).forEach(len=>{t.appendChild(document.createTextNode(" "));t.appendChild(gap(len))});
+  let S=37;while(S>16&&t.scrollWidth>t.clientWidth){S--;t.style.fontSize="calc(var(--u)*"+S+")"}}
 const lev=(a,b)=>{const m=a.length,n=b.length,d=[];for(let i=0;i<=m;i++)d[i]=[i];for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]};
 const score=(h,t)=>{const a=nm(h).join(" "),b=nm(t).join(" "),L=Math.max(a.length,b.length);return L?Math.round(100*(1-lev(a,b)/L)):0};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -590,18 +611,20 @@ function recOnce(){return new Promise(res=>{
 })}
 function showOutcome(r,it){
   if(r.err){
-    if(r.err==="no-speech"){boxPrompt("صدایی شنیده نشد");return "none"}
+    if(r.err==="no-speech"){boxPrompt("دوباره بگو");return "none"}
     boxPrompt(r.err==="not-allowed"||r.err==="service-not-allowed"?"اجازهٔ میکروفون داده نشده":r.err==="unsupported"?"این مرورگر تشخیص صدا ندارد":"تشخیص صدا در دسترس نیست");return "fatal"}
   let best=-1,heard="";r.alts.forEach(a=>{const s=score(a,it.en);if(s>best){best=s;heard=a}});
-  const ok=best>=80;boxResult(heard,best,ok);return ok?"ok":"bad";
+  const ok=best>=80;boxResult(heard,best,ok,it.en);return ok?"ok":"bad";
 }
 let prOn=false,prTok=0,prBusy=false;
 const prUI=on=>{$("xPrac").querySelector(".gi").innerHTML=on?PAUSEI:IC.xPrac};
-function prStop(){prTok++;const was=prOn;prOn=false;try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}$("xListen").classList.remove("act");$("xSay").classList.remove("act");prUI(false);if(was)$("xRes").textContent=""}
+function prStop(){prTok++;const was=prOn;prOn=false;try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}$("xListen").classList.remove("act");$("xSay").classList.remove("act");prUI(false);if(was)xIdle()}
+function xIdle(){if(xItems.length)boxPrompt("به جمله گوش کن","spk");else $("xRes").textContent=""}
+const xDraw0=xDraw;xDraw=function(){xDraw0();xIdle()};
 async function prRun(){
   const tok=++prTok;prOn=true;prUI(true);
   const alive=i=>prOn&&tok===prTok&&xOn&&xI===i;
-  let idx=xI,needListen=true;
+  let idx=xI,needListen=true,tries=0;
   while(alive(idx)){
     const it=xItems[idx];
     if(needListen){
@@ -609,18 +632,25 @@ async function prRun(){
       await ttsOnce(it.en,xRate);$("xListen").classList.remove("act");
       if(!alive(idx))return;
     }
-    boxPrompt("آماده شو");await sleep(1000);if(!alive(idx))return;
+    boxPrompt("آماده شو");await sleep(350);if(!alive(idx))return;
+    tries++;
     boxPrompt("حالا بگو.","mic");$("xSay").classList.add("act");
     const r=await recOnce();$("xSay").classList.remove("act");
     if(!alive(idx))return;
     const o=showOutcome(r,it);
     if(o==="fatal"){await sleep(2500);if(alive(idx))prStop();return}
-    if(o==="none"){await sleep(1800);if(!alive(idx))return;needListen=false;continue}
-    await sleep(o==="ok"?2800:3200);if(!alive(idx))return;
-    if(o==="ok"){if(idx>=xItems.length-1){prStop();return}xI=idx+1;xDraw();idx=xI;needListen=true}else needListen=false;
+    if(o==="ok"){
+      await sleep(2800);if(!alive(idx))return;
+      if(idx>=xItems.length-1){prStop();return}
+      xI=idx+1;xDraw();idx=xI;needListen=true;tries=0;continue;
+    }
+    await sleep(o==="none"?1800:3200);if(!alive(idx))return;
+    if(tries>=5){prStop();return}
+    needListen=false;
   }
 }
-const micOk=async()=>{if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){try{const s=await navigator.mediaDevices.getUserMedia({audio:true});s.getTracks().forEach(t=>t.stop())}catch(e){return false}}return true};
+let micGranted=false;
+const micOk=async()=>{if(micGranted)return true;if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){try{const st=await navigator.mediaDevices.getUserMedia({audio:true});st.getTracks().forEach(t=>t.stop())}catch(e){return false}}micGranted=true;return true};
 $("xPrac").onclick=async()=>{
   if(prOn){prStop();return}
   if(!xItems.length||prBusy)return;
