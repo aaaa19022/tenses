@@ -237,13 +237,15 @@ html:has(body.xd){overflow:hidden}
 .gr:not(.n) #xDict .gt b.pb2{top:calc(var(--u)*10.5)}
 
 /* ===== working state (copy of reference): flat fill, thin light line ===== */
-.gr:not(.n) .gb.act,.gr:not(.n) .gb.tl,.gr:not(.n) .gb.wk{filter:none!important;border-color:transparent!important;outline:calc(var(--u)*1.9) solid #8cf2f9;outline-offset:calc(var(--u)*-1.9)}
+.gr:not(.n) .gb.act,.gr:not(.n) .gb.tl,.gr:not(.n) .gb.wk{filter:none!important;border-color:transparent!important;outline:calc(var(--u)*2.3) solid #8cf2f9;outline-offset:calc(var(--u)*-2.3)}
 .gr:not(.n) #xListen.act,.gr:not(.n) #xListen.tl{background:#077f8d!important}
 .gr:not(.n) #xSay.act{background:#e12d38!important;outline-color:#ff8e90}
 .gr:not(.n) #xPrac.wk{background:#084d3a!important;outline-color:#8ff1f0}
 .gr:not(.n) #xDict.wk{background:#911c51!important;outline-color:#96ecfb}
 .gr:not(.n) #xRev.wk{background:#0f6a8e!important}
 .gr:not(.n) #xShad.wk{background:#c5501f!important}
+.rp{white-space:pre-line}
+.rp.two{line-height:1.12}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
@@ -604,7 +606,7 @@ const THUMBI='<svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2
 const REDOI='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
 const PAUSEI='<svg viewBox="61 116 258 258"><rect x="89" y="147" width="62" height="196" rx="6"/><rect x="229" y="147" width="62" height="196" rx="6"/></svg>';
 const mk=(c,t)=>{const d=document.createElement("div");d.className=c;if(t!=null)d.textContent=t;return d};
-function boxPrompt(t,ic){const r=$("xRes");r.textContent="";r.appendChild(mk("rp",t));if(ic){const i=document.createElement("i");i.className="ri "+ic;i.innerHTML=ic==="spk"?SPKI:MICI;r.appendChild(i)}}
+function boxPrompt(t,ic){const r=$("xRes");r.textContent="";const pp=mk("rp",t);if(t.indexOf("\n")>=0)pp.classList.add("two");r.appendChild(pp);if(ic){const i=document.createElement("i");i.className="ri "+ic;i.innerHTML=ic==="spk"?SPKI:MICI;r.appendChild(i)}}
 function diffMarks(toks,target){
   const hw=[],hi=[];toks.forEach((tok,ti)=>nm(tok).forEach(w=>{hw.push(w);hi.push(ti)}));
   const tw=nm(target),m=hw.length,n=tw.length;
@@ -734,8 +736,15 @@ $("xSay").onclick=async()=>{
   if(prBusy)return;
   prBusy=true;const ok=await micOk();prBusy=false;
   if(!ok){boxPrompt("اجازهٔ میکروفون داده نشده");return}
-  try{speechSynthesis.cancel()}catch(e){}
   const tok=++prTok,idx=xI,it=xItems[idx];
+  if($("xListen").classList.contains("act")){
+    spkWait=true;
+    boxPrompt("صبر کن تا خواندن جمله تمام شود؛\nسپس میکروفون خودکار فعال می‌شود.","spk");
+    const t0=Date.now();
+    while($("xListen").classList.contains("act")&&Date.now()-t0<20000){await sleep(80);if(tok!==prTok||idx!==xI){spkWait=false;return}}
+    boxPrompt("آماده شو");await sleep(450);spkWait=false;
+    if(tok!==prTok||idx!==xI)return;
+  }else{try{speechSynthesis.cancel()}catch(e){}}
   boxPrompt("حالا بگو.","mic");$("xSay").classList.add("act");
   const r=await recOnce();$("xSay").classList.remove("act");
   if(tok!==prTok||idx!==xI)return;
@@ -814,7 +823,7 @@ $("xDict").onclick=()=>{
     if(xI>=xItems.length-1){dkStop();return}
     xI++;dkStage="listen";dkBtn("normal");xDraw();dkRun();return}
 };
-["xListen","xSay","xPrac","xShad","xRev","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(dkOn)dkStop()},true));
+["xPrac","xShad","xRev","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(dkOn)dkStop()},true));
 const xDraw3=xDraw;xDraw=function(){xDraw3();if(dkOn)dkView()};
 const xStart3=xStart;xStart=function(){dkStop();xStart3()};
 const xShow3=xShow;xShow=function(on){if(!on)dkStop();xShow3(on)};
@@ -825,6 +834,11 @@ const rsOff=()=>["xRev","xShad"].forEach(j=>$(j).classList.remove("wk"));
 ["xListen","xSay","xPrac","xDict","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",rsOff,true));
 const xStart5=xStart;xStart=function(){rsOff();xStart5()};
 const xShow5=xShow;xShow=function(on){if(!on)rsOff();xShow5(on)};
+/* ===== Practice stops on any click; Speak yields to the last pressed option ===== */
+let spkWait=false;
+["xListen","xSay","xDict","xRev","xShad","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(prOn)prStop()},true));
+function abortSpeak(){if($("xSay").classList.contains("act")||spkWait){prTok++;spkWait=false;try{if(rec)rec.abort()}catch(e){}$("xSay").classList.remove("act");xIdle()}}
+["xListen","xPrac","xDict","xRev","xShad","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",abortSpeak,true));
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
 upd();
 </script>
