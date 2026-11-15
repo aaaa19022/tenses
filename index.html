@@ -246,6 +246,66 @@ html:has(body.xd){overflow:hidden}
 .gr:not(.n) #xShad.wk{background:#c5501f!important}
 .rp{white-space:pre-line}
 .rp.two{line-height:1.12}
+
+/* ===== Review menu + auto review (copy of reference) ===== */
+#rvM,#rvS,#rvQ{display:none;position:fixed;inset:0;z-index:90;background:rgba(2,8,22,.6);align-items:center;justify-content:center;padding:16px}
+.rvb0{width:calc(var(--u)*612);max-width:100%;background:linear-gradient(180deg,#03234a 0%,#03264e 40%,#032852 70%,#022248 100%);border:2.5px solid #17b2ff;border-radius:calc(var(--u)*38);padding:calc(var(--u)*46) calc(var(--u)*42) calc(var(--u)*40);color:#fff;font-family:'Vazirmatn','Vazir','IRANSans',Tahoma,sans-serif;text-align:center}
+.rvh{color:#fdc20f;font-size:calc(var(--u)*34);font-weight:600;margin-bottom:calc(var(--u)*26);line-height:1.4}
+.rvd{font-size:calc(var(--u)*23);line-height:2.1;font-weight:500;margin-bottom:calc(var(--u)*30)}
+.rvo{display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*16);width:100%;height:calc(var(--u)*77);border:0;border-radius:calc(var(--u)*40);padding:0;color:#fff;font-family:inherit;font-size:calc(var(--u)*26);font-weight:500}
+.rvo+.rvo{margin-top:calc(var(--u)*42)}
+.rvo i{font-style:normal;font-size:calc(var(--u)*22)}
+.rvo.bl{background:#0b58a0}.rvo.gn{background:#27be7b}.rvo.pu{background:#7d62c4}
+.rvl{font-size:calc(var(--u)*25);color:#cfe0f5;font-weight:500;margin:calc(var(--u)*22) 0 calc(var(--u)*14)}
+.rvr{display:flex;align-items:center;justify-content:space-between;direction:ltr;padding:0 calc(var(--u)*22)}
+.st{width:calc(var(--u)*76);height:calc(var(--u)*76);flex:none;border-radius:50%;border:2px solid #1b8fe3;background:#0b57a4;color:#fff;font-size:calc(var(--u)*44);line-height:1;padding:0;box-shadow:0 4px 10px rgba(0,0,0,.35);font-family:Arial,sans-serif}
+.rvv{color:#fdc20f;font-size:calc(var(--u)*33);font-weight:600;direction:rtl}
+.rvc{display:flex;align-items:center;justify-content:space-between;direction:rtl;margin:calc(var(--u)*28) 0 calc(var(--u)*34);font-size:calc(var(--u)*23);font-weight:500;cursor:pointer}
+.rvk{width:calc(var(--u)*32);height:calc(var(--u)*32);flex:none;border:3px solid #0a2352;background:#04173b;border-radius:3px;padding:0;display:flex;align-items:center;justify-content:center}
+.rvk.on{background:#fdc20f;border-color:#fdc20f}
+.rvk.on::after{content:"✓";color:#04173b;font-size:calc(var(--u)*24);font-weight:700;line-height:1}
+.rvb{position:absolute;inset:0;display:flex;align-items:center;direction:rtl;padding:0 calc(var(--u)*53) 0 calc(var(--u)*20);gap:calc(var(--u)*6);pointer-events:none}
+.rvt{flex:1;text-align:center;color:#fff;font-size:calc(var(--u)*22);font-weight:500;line-height:1.4}
+.rvp{pointer-events:auto;height:calc(var(--u)*69);flex:none;border:0;border-radius:calc(var(--u)*35);color:#fff;font-family:'Vazirmatn','Vazir',Tahoma,sans-serif;font-weight:600;font-size:calc(var(--u)*25);padding:0}
+.rve{width:calc(var(--u)*112);background:#7a1c3d}
+.rvq{width:calc(var(--u)*116);background:#0b5578}
+.qe{touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.qe,#xPassed,#xCount,#xFa{transition:opacity .12s linear}
+.fdo{opacity:0!important}
+
+/* ===== Shadowing (copy of reference) ===== */
+#shM,#shR{display:none;position:fixed;inset:0;z-index:95;background:rgba(2,8,22,.6);align-items:center;justify-content:center}
+.shb{position:relative;flex:none;width:calc(var(--u)*633);height:calc(var(--u)*1027.5);background:#042e60;border-radius:calc(var(--u)*40);box-shadow:inset 0 0 0 calc(var(--u)*3.5) #00c6ff;transform:translateY(calc(var(--u)*-16));font-family:'Vazirmatn','Vazir','IRANSans',Tahoma,sans-serif;color:#fff;direction:rtl}
+.shb.shrp{height:calc(var(--u)*722);transform:none}
+.shl{position:absolute;left:0;right:0;top:calc(var(--u)*var(--y));transform:translateY(-50%);text-align:center;white-space:nowrap;line-height:1.3}
+.shf{display:inline-block;white-space:nowrap;font-size:calc(var(--u)*30)}
+.sht{font-family:Roboto,'Roboto Condensed',Arial,sans-serif;font-weight:700;color:#fdd341}
+.shp{color:#fff;font-weight:700}
+.shc{color:#c3dcf6;font-weight:500}
+.shy{color:#f5d44a;font-weight:500}
+.shs{position:absolute;top:calc(var(--u)*503.8);width:calc(var(--u)*123);height:calc(var(--u)*70.1);border:0;border-radius:calc(var(--u)*36);background:#084c6f;padding:0}
+.shs i{position:absolute;left:50%;top:50%;background:#fff;transform:translate(-50%,-50%)}
+.shs .mn{width:calc(var(--u)*15);height:calc(var(--u)*3.8)}
+.shs .pl{width:calc(var(--u)*17);height:calc(var(--u)*3.8)}
+.shs .pl::after{content:"";position:absolute;left:50%;top:50%;width:calc(var(--u)*3.8);height:calc(var(--u)*17);background:#fff;transform:translate(-50%,-50%)}
+.shd{position:absolute;left:calc(var(--u)*205);top:calc(var(--u)*503.8);width:calc(var(--u)*223);height:calc(var(--u)*70.1);border-radius:calc(var(--u)*36);background:#05325c;display:flex;align-items:center;justify-content:center;direction:ltr}
+.shdv{font-family:Roboto,Arial,sans-serif;font-weight:500;color:#fff}
+.shr{position:absolute;top:calc(var(--u)*688);display:flex;align-items:center;gap:calc(var(--u)*12.7);direction:ltr;cursor:pointer}
+.shr .rg{position:relative;display:block;box-sizing:border-box;width:calc(var(--u)*37);height:calc(var(--u)*37);border-radius:50%;border:calc(var(--u)*5.7) solid #ff8f39}
+.shr.on .rg::after{content:"";position:absolute;left:calc(var(--u)*2.3);top:calc(var(--u)*2.3);width:calc(var(--u)*21);height:calc(var(--u)*21);border-radius:50%;background:#ff8f39}
+.shr span{font-size:calc(var(--u)*25);color:#fff;font-weight:500;direction:rtl}
+.shg{position:absolute;left:calc(var(--u)*42);width:calc(var(--u)*549);height:calc(var(--u)*77.7);border:0;border-radius:calc(var(--u)*40);padding:0;color:#fff;font-family:inherit;display:flex;align-items:center;justify-content:center}
+.shgo{top:calc(var(--u)*774.7);background:#d64d16}
+.shcl{top:calc(var(--u)*894.5);background:#065399}
+.shdone{top:calc(var(--u)*591.5);height:calc(var(--u)*76);background:#07509c}
+.shb1{font-weight:700;color:#fff}
+.sht2{font-weight:700;color:#f1d25c}
+.shrl{color:#f8ffff;font-weight:500}
+#shL1{direction:ltr;font-family:Roboto,Arial,sans-serif}
+.shrn{color:#c1dbf6;font-weight:500}
+.gr:not(.n) #xShad.wk{background:#df5014!important}
+.gr:not(.n) #xShad.wk .gt b{color:#ffeedd}
+.gr:not(.n) #xShad.wk .gt>span{color:#ffd2a6}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
@@ -277,6 +337,23 @@ html:has(body.xd){overflow:hidden}
 <div id="menu"><button id="menuPick">انتخاب زمان جمله</button><button id="menuSpd" style="display:none">سرعت جمله</button></div>
 <div id="pk"><div class="pkb"><b>انتخاب زمان جمله</b><div class="chips" id="pkChips"></div><button class="go" id="pkOk" disabled>ok</button></div></div>
 <div id="pkS"><div class="pkb"><b>سرعت جمله</b><div class="chips" id="pkSChips"></div></div></div>
+<div id="rvM"><div class="rvb0"><div class="rvh">مرور</div><div class="rvd">مرور لازم‌ها شامل جمله‌هایی است که نشان‌دار کرده‌ای. مرور خودکار هم برای شنیدن دوبارهٔ جمله‌هاست.</div>
+<button class="rvo bl" id="rvReq">مرور لازم‌ها (۰)</button>
+<button class="rvo gn" id="rvAuto"><span>مرور خودکار درس</span><i>►</i></button>
+<button class="rvo pu" id="rvHere">مرور خودکار از همینجا</button>
+<button class="rvo bl" id="rvClose">بستن</button></div></div>
+<div id="rvQ"><div class="rvb0"><div class="rvh">مرور لازم‌ها</div><div class="rvd" id="rvQd" style="margin-bottom:0"></div>
+<button class="rvo gn" id="rvQGo" style="margin-top:calc(var(--u)*40)">شروع مرور</button>
+<button class="rvo bl" id="rvQCl">بستن</button></div></div>
+<div id="rvS"><div class="rvb0"><div class="rvh" id="rvSt">مرور خودکار درس</div><div class="rvd" style="margin-bottom:0">تعداد تکرار هر جمله و دو فاصله را مشخص کن.<br>مرور فقط بعد از زدن «شروع مرور» آغاز می‌شود.</div>
+<div class="rvl">تعداد تکرار هر جمله</div><div class="rvr"><button class="st" data-k="r" data-d="-1">−</button><span class="rvv" id="rvVr"></span><button class="st" data-k="r" data-d="1">+</button></div>
+<div class="rvl">فاصله بین تکرارهای همان جمله</div><div class="rvr"><button class="st" data-k="g1" data-d="-1">−</button><span class="rvv" id="rvVg1"></span><button class="st" data-k="g1" data-d="1">+</button></div>
+<div class="rvl">فاصله تا جمله بعدی</div><div class="rvr"><button class="st" data-k="g2" data-d="-1">−</button><span class="rvv" id="rvVg2"></span><button class="st" data-k="g2" data-d="1">+</button></div>
+<div class="rvc" id="rvLpRow"><span>بعد از پایان درس از اول تکرار کن</span><button class="rvk" id="rvLp" aria-label="loop"></button></div>
+<button class="rvo gn" id="rvGo">شروع مرور</button>
+<button class="rvo bl" id="rvCl2">بستن</button></div></div>
+<div id="shM"><div class="shb" id="shB"><div class="shl" style="--y:80.3"><span class="shf sht" data-g="t" data-w="196.9">Shadowing</span></div><div class="shl" style="--y:171.7"><span class="shf shp" data-g="p">جمله را با هدفون گوش کن و بلافاصله تکرار کن.</span></div><div class="shl" style="--y:216.3"><span class="shf shp" data-g="p" data-w="460.6">برای امتیاز دقیق، محیط باید ساکت باشد. اگر نویز</span></div><div class="shl" style="--y:261.5"><span class="shf shp" data-g="p">زیاد باشد، تمرین متوقف می‌شود.</span></div><div class="shl" style="--y:343.9"><span class="shf shc" data-g="c" data-w="342">🎧 هدفون الزامی &nbsp;•&nbsp; 🔇 محیط ساکت</span></div><div class="shl" style="--y:383.5"><span class="shf shc" data-g="c">🎤 صدای طبیعی</span></div><div class="shl" style="--y:458.4"><span class="shf shy" data-g="l" data-w="209.6">سرعت پخش شدوینگ</span></div><button class="shs" id="shMin" style="left:calc(var(--u)*66.9)"><i class="mn"></i></button><div class="shd"><span class="shf shdv" id="shDv" data-g="d" data-w="150.3"></span></div><button class="shs" id="shPlus" style="left:calc(var(--u)*443.4)"><i class="pl"></i></button><div class="shl" style="--y:624.5"><span class="shf shy" data-g="l">تعداد جمله در این جلسه</span></div><div class="shr" data-n="10" style="left:calc(var(--u)*94.9)"><i class="rg"></i><span>۱۰</span></div><div class="shr" data-n="20" style="left:calc(var(--u)*249.1)"><i class="rg"></i><span>۲۰</span></div><div class="shr" data-n="50" style="left:calc(var(--u)*403.2)"><i class="rg"></i><span>۵۰</span></div><button class="shg shgo" id="shGo"><span class="shf shb1" data-g="go" data-w="214.7">بررسی محیط و شروع</span></button><button class="shg shcl" id="shCl"><span class="shf shb1" data-g="cl" data-w="56">بستن</span></button></div></div>
+<div id="shR"><div class="shb shrp" id="shRB"><div class="shl" style="--y:77"><span class="shf sht2" data-g="rt" data-w="230.6">گزارش شدوینگ</span></div><div class="shl" style="--y:158"><span class="shf shrl" data-g="rl" id="shL1"></span></div><div class="shl" style="--y:206.6"><span class="shf shrl" data-g="rl" data-w="355" id="shL2"></span></div><div class="shl" style="--y:255.2"><span class="shf shrl" data-g="rl" id="shL3"></span></div><div class="shl" style="--y:303.8"><span class="shf shrl" data-g="rl" id="shL4"></span></div><div class="shl" style="--y:352.4"><span class="shf shrl" data-g="rl" id="shL5"></span></div><div class="shl" style="--y:401"><span class="shf shrl" data-g="rl" id="shL6"></span></div><div class="shl" style="--y:466.8"><span class="shf shrn" data-g="rn" data-w="480">این امتیاز فعلاً از تطابق متن، کامل‌بودن و زمان شروع پاسخ</span></div><div class="shl" style="--y:500.7"><span class="shf shrn" data-g="rn">ساخته می‌شود؛ Pronunciation واقعی فقط وقتی اضافه</span></div><div class="shl" style="--y:534.6"><span class="shf shrn" data-g="rn">می‌شود که سنجش آوایی قابل‌اعتماد داشته باشیم.</span></div><button class="shg shdone" id="shDone"><span class="shf shb1" data-g="dn">تمام</span></button></div></div>
 <div id="xp"><div class="qw">
 <div class="qsel" id="xSel"></div><div class="qspd" id="xSpd"></div>
 <div class="qpg"><div class="qtr"><div class="qbar" id="xBar"></div></div></div>
@@ -570,7 +647,7 @@ function xDraw(){
   if(!n){$("xEn").textContent="";$("xNum").textContent="";$("xPassed").textContent="";$("xCount").textContent="";$("xBar").style.width="0";$("xFa").textContent="از منوی بالا زمان را انتخاب کنید";return}
   const it=xItems[xI],L=it.en.length;
   $("xEn").textContent=it.en;xFit();
-  $("xNum").textContent=it.n;$("xPassed").textContent=xI+1;$("xCount").textContent=n-xI-1;
+  $("xNum").textContent=it.n;$("xPassed").textContent=xI+1;$("xCount").textContent=n;
   $("xBar").style.width=((xI+1)/n*100)+"%";$("xFa").textContent="";
   $("xSave").classList.toggle("on",saved.has(it.n));
   $("xPrev").style.opacity=xI===0?".35":"1";$("xNext").style.opacity=xI===n-1?".35":"1";
@@ -653,7 +730,7 @@ function judge(h,t){
   let ok=(rec>=0.8&&pre>=0.6&&negOk)||charOk;
   let sc=Math.round(100*(0.85*rec+0.15*pre));
   sc=ok?Math.max(sc,80):Math.min(sc,79);
-  return {ok,sc};
+  return {ok,sc,rec,pre};
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function ttsOnce(text,rate){return new Promise(res=>{
@@ -840,7 +917,254 @@ let spkWait=false;
 function abortSpeak(){if($("xSay").classList.contains("act")||spkWait){prTok++;spkWait=false;try{if(rec)rec.abort()}catch(e){}$("xSay").classList.remove("act");xIdle()}}
 ["xListen","xPrac","xDict","xRev","xShad","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",abortSpeak,true));
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
+/* ===== Review menu + auto review ===== */
+let rvBack=0;let rvOn=false,rvPaused=false,rvTok=0,rvIdx=0,rvRep=1,rvMode="lesson",reqMode=false,rvR=1,rvG1=2,rvG2=3,rvLoop=false;
+let rvCfg={r:1,g1:2,g2:3,lp:false};try{Object.assign(rvCfg,JSON.parse(localStorage.getItem("rvcfg")||"{}"))}catch(e){}
+const rvSaveCfg=()=>{try{localStorage.setItem("rvcfg",JSON.stringify(rvCfg))}catch(e){}};
+(()=>{const q=$("xRev").querySelector(".gt>span");q.innerHTML='<span id="rvA">'+q.innerHTML+'</span><span id="rvB" style="display:none">مرور خودکار</span>'})();
+const rvM=$("rvM"),rvS=$("rvS");
+const RV_LIM={r:[1,10],g1:[1,30],g2:[1,30]};
+function rvSync(){$("rvVr").textContent=fd(rvCfg.r)+" بار";$("rvVg1").textContent=fd(rvCfg.g1)+" ثانیه";$("rvVg2").textContent=fd(rvCfg.g2)+" ثانیه";$("rvLp").classList.toggle("on",!!rvCfg.lp)}
+document.querySelectorAll("#rvS .st").forEach(b=>b.onclick=()=>{const k=b.dataset.k,l=RV_LIM[k];rvCfg[k]=Math.max(l[0],Math.min(l[1],rvCfg[k]+(+b.dataset.d)));rvSaveCfg();rvSync()});
+$("rvLpRow").onclick=()=>{rvCfg.lp=!rvCfg.lp;rvSaveCfg();rvSync()};
+rvM.onclick=e=>{if(e.target===rvM)rvM.style.display="none"};
+rvS.onclick=e=>{if(e.target===rvS)rvS.style.display="none"};
+$("rvClose").onclick=()=>{rvM.style.display="none"};
+$("rvCl2").onclick=()=>{rvS.style.display="none"};
+$("xRev").onclick=()=>{if(reqMode){rvExitReq();return}const n=saved.size;$("rvReq").textContent=n?"مرور لازم‌ها ("+fd(n)+")":"جمله‌ای نشان‌دار نشده";$("rvReq").style.opacity=n?"1":".5";rvM.style.display="flex"};
+function rvOpenS(m){rvMode=m;$("rvSt").textContent=m==="here"?"مرور خودکار از همینجا":"مرور خودکار درس";rvSync();rvS.style.display="flex"}
+$("rvAuto").onclick=()=>{rvM.style.display="none";rvOpenS("lesson")};
+$("rvHere").onclick=()=>{rvM.style.display="none";rvOpenS("here")};
+function rvEnterReq(){
+  const it=[];keys.forEach(k=>T[k].s.forEach((x,i)=>{const n=k.toUpperCase()+" "+(i+1);if(saved.has(n))it.push({en:C(x[0],k),fa:x[1],n})}));
+  if(!it.length)return;
+  rvM.style.display="none";rvStop();prStop();dkStop();rsOff();
+  rvBack=xI;xItems=it;xI=0;reqMode=true;xDraw();
+}
+const rvQ=$("rvQ");
+$("rvReq").onclick=()=>{
+  if(!saved.size)return;
+  rvM.style.display="none";
+  $("rvQd").textContent=fd(saved.size)+" جمله نشان‌دار داری. این جمله‌ها همان‌هایی‌اند که بوک‌مارک کرده‌ای و بعد از آخرین جمله، خودکار به جمله‌های اصلی برمی‌گردی.";
+  rvQ.style.display="flex";
+};
+$("rvQGo").onclick=()=>{rvQ.style.display="none";if(saved.size)rvEnterReq()};
+$("rvQCl").onclick=()=>{rvQ.style.display="none"};
+rvQ.onclick=e=>{if(e.target===rvQ)rvQ.style.display="none"};
+function rvExitReq(){
+  if(!reqMode)return;
+  const b=rvBack;reqMode=false;xStart();
+  xI=Math.max(0,Math.min(b,xItems.length-1));xDraw();
+}
+function rvBox(){
+  const r=$("xRes");r.textContent="";const w=mk("rvb");
+  const e=document.createElement("button");e.className="rvp rve";e.textContent="پایان";e.onclick=()=>rvStop("مرور خودکار متوقف شد.");
+  const p=document.createElement("button");p.className="rvp rvq";p.textContent=rvPaused?"ادامه":"مکث";p.onclick=rvTogglePause;
+  w.appendChild(e);w.appendChild(p);w.appendChild(mk("rvt","مرور خودکار، بار "+fd(rvRep)+" از "+fd(rvR)));r.appendChild(w);
+}
+function rvPaint(){if(!rvOn)return;$("xFa").textContent=xItems[xI]?xItems[xI].fa:"";rvBox()}
+function rvStop(msg){
+  const was=rvOn;rvOn=false;rvPaused=false;rvTok++;
+  if(was){try{speechSynthesis.cancel()}catch(e){}}
+  $("rvA").style.display="inline";$("rvB").style.display="none";$("xRev").classList.remove("wk");
+  if(was){if(msg)boxPrompt(msg);else xIdle()}
+}
+function rvTogglePause(){
+  if(!rvOn)return;
+  if(!rvPaused){rvPaused=true;rvTok++;try{speechSynthesis.cancel()}catch(e){}rvBox()}
+  else{rvRun(rvIdx,rvRep)}
+}
+async function rvRun(i,r){
+  const tok=++rvTok;rvOn=true;rvPaused=false;
+  const alive=()=>rvOn&&!rvPaused&&tok===rvTok&&xOn;
+  while(alive()){
+    rvIdx=i;rvRep=r;
+    if(xI!==i){xI=i;xDraw()}
+    rvPaint();
+    await ttsOnce(xItems[i].en,xRate);if(!alive())return;
+    if(r<rvR){await sleep(rvG1*1000);if(!alive())return;r++;continue}
+    await sleep(rvG2*1000);if(!alive())return;
+    if(i>=xItems.length-1){if(rvLoop){i=0;r=1;continue}if(reqMode){rvExitReq();return}rvStop("مرور خودکار تمام شد.");return}
+    i++;r=1;
+  }
+}
+$("rvGo").onclick=()=>{
+  rvS.style.display="none";if(!xItems.length)return;
+  rvR=rvCfg.r;rvG1=rvCfg.g1;rvG2=rvCfg.g2;rvLoop=!!rvCfg.lp;
+  prStop();dkStop();rsOff();try{speechSynthesis.cancel()}catch(e){}
+  $("rvA").style.display="none";$("rvB").style.display="inline";$("xRev").classList.add("wk");
+  rvRun(rvMode==="here"?xI:0,1);
+};
+["xListen","xSay","xPrac","xDict","xShad","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(id==="xNext"&&reqMode&&xI>=xItems.length-1){setTimeout(rvExitReq,0);return}if(rvOn)rvStop()},true));
+$("xSave").addEventListener("click",()=>{
+  if(!reqMode||!xItems.length)return;
+  const it=xItems[xI];if(!it||saved.has(it.n))return;
+  if(rvOn)rvStop();
+  xItems.splice(xI,1);
+  if(!xItems.length){rvExitReq();return}
+  if(xI>=xItems.length)xI=xItems.length-1;
+  xDraw();
+});
+(()=>{
+  const el=document.querySelector(".qe");let sx=0,sy=0,t0=0,on=false;
+  const idle=()=>!(rvOn||prOn||dkOn||spkWait)&&!document.querySelector("#xp .gb.wk,#xp .gb.act,#xp .gb.tl")&&!$("xMean").classList.contains("act")&&[rvM,rvS,rvQ,$("pk"),$("pkS")].every(d=>d.style.display!=="flex"&&d.style.display!=="block");
+  el.addEventListener("pointerdown",e=>{sx=e.clientX;sy=e.clientY;t0=Date.now();on=true});
+  el.addEventListener("pointercancel",()=>{on=false});
+  el.addEventListener("pointerup",e=>{
+    if(!on)return;on=false;
+    const dx=e.clientX-sx,dy=e.clientY-sy;
+    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.5||Date.now()-t0>900)return;
+    if(!xOn||!xItems.length||!idle())return;
+    (dx<0?$("xNext"):$("xPrev")).click();
+  });
+})();
+/* fade transition between sentences (copy of reference video: ~120ms out, ~40ms hold, ~120ms in) */
+let fdBusy=false;
+function fadeNav(fn){
+  if(fdBusy){fn();return}
+  fdBusy=true;
+  const E=[document.querySelector(".qe"),$("xPassed"),$("xCount"),$("xFa")];
+  E.forEach(e=>e.classList.add("fdo"));
+  setTimeout(()=>{fn();setTimeout(()=>{E.forEach(e=>e.classList.remove("fdo"));setTimeout(()=>{fdBusy=false},120)},40)},120);
+}
+$("xNext").onclick=()=>{if(xI<xItems.length-1)fadeNav(()=>{if(xI<xItems.length-1){xI++;xDraw()}})};
+$("xPrev").onclick=()=>{if(xI>0)fadeNav(()=>{if(xI>0){xI--;xDraw()}})};
+const xStart9=xStart;xStart=function(){rvStop();reqMode=false;xStart9()};
+const xShow9=xShow;xShow=function(on){if(!on)rvStop();xShow9(on)};
+const xDraw9=xDraw;xDraw=function(){xDraw9();if(reqMode)$("xSel").textContent="مرور لازم‌ها";if(rvOn)rvPaint()};
 upd();
+
+/* ===== Shadowing ===== */
+const SH_IDLE_T=$("xShad").querySelector(".gt").innerHTML,SH_IDLE_I=$("xShad").querySelector(".gi").innerHTML;
+const SH_ICON='<svg viewBox="0 0 46 46"><rect x="6.7" y="13" width="4.5" height="20" rx="1" style="fill:#ffddb0"/><path d="M14.3 7L39.3 23L14.3 39Z" style="fill:#ffddb0;stroke:#ffddb0;stroke-width:1.5px;stroke-linejoin:round"/></svg>';
+let shOn=false,shTok=0;
+const shCfg={rate:0.8,auto:true,n:10};
+try{Object.assign(shCfg,JSON.parse(localStorage.getItem("shcfg")||"{}"))}catch(e){}
+const shSave=()=>{try{localStorage.setItem("shcfg",JSON.stringify(shCfg))}catch(e){}};
+function shFit(root){
+  const g={};root.querySelectorAll("[data-g]").forEach(e=>{(g[e.dataset.g]=g[e.dataset.g]||[]).push(e)});
+  Object.values(g).forEach(list=>{
+    const ref=list.find(e=>e.dataset.w);if(!ref)return;
+    list.forEach(e=>e.style.fontSize="calc(var(--u)*30)");
+    const w=ref.getBoundingClientRect().width;if(!w)return;
+    const u=parseFloat(getComputedStyle(ref).fontSize)/30;
+    const fs=Math.max(12,Math.min(60,30*(parseFloat(ref.dataset.w)*u)/w));
+    list.forEach(e=>e.style.fontSize="calc(var(--u)*"+fs.toFixed(2)+")");
+  });
+}
+function shSync(){
+  $("shDv").textContent=(shCfg.auto?"Auto • ":"")+shCfg.rate.toFixed(2)+"x";
+  document.querySelectorAll("#shM .shr").forEach(r=>r.classList.toggle("on",+r.dataset.n===shCfg.n));
+}
+function shUI(on){
+  const b=$("xShad");b.classList.toggle("wk",on);
+  b.querySelector(".gt").innerHTML=on?'<b>Shadowing</b><span>در حال اجرا</span>':SH_IDLE_T;
+  b.querySelector(".gi").innerHTML=on?SH_ICON:SH_IDLE_I;
+}
+function shStop(msg){
+  const was=shOn;shOn=false;shTok++;
+  try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}
+  $("xListen").classList.remove("tl");shUI(false);
+  if(was){if(msg)boxPrompt(msg);else xIdle()}
+}
+function shBeep(){try{const C=window.AudioContext||window.webkitAudioContext,c=new C(),o=c.createOscillator(),g=c.createGain();o.type="sine";o.frequency.value=1000;g.gain.value=.25;o.connect(g);g.connect(c.destination);o.start();setTimeout(()=>{try{o.stop();c.close()}catch(e){}},180)}catch(e){}}
+async function shNoise(){
+  try{
+    const st=await navigator.mediaDevices.getUserMedia({audio:true}),C=window.AudioContext||window.webkitAudioContext,c=new C(),src=c.createMediaStreamSource(st),an=c.createAnalyser();
+    an.fftSize=1024;src.connect(an);const buf=new Float32Array(an.fftSize);let sum=0,n=0;
+    await new Promise(r=>{const t0=Date.now(),iv=setInterval(()=>{an.getFloatTimeDomainData(buf);let q=0;for(let i=0;i<buf.length;i++)q+=buf[i]*buf[i];sum+=Math.sqrt(q/buf.length);n++;if(Date.now()-t0>900){clearInterval(iv);r()}},60)});
+    st.getTracks().forEach(t=>t.stop());try{c.close()}catch(e){}
+    return n>0&&sum/n>0.1;
+  }catch(e){return false}
+}
+function shListen(ms,tok){return new Promise(res=>{
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){res({err:"unsupported"});return}
+  const t0=performance.now();let first=null,alts=null,done=false,err=null;
+  const fin=()=>{if(done)return;done=true;clearTimeout(tm);try{rec.abort()}catch(e){}res({alts,first,err})};
+  const tm=setTimeout(fin,ms);
+  const go=()=>{
+    try{if(rec)rec.abort()}catch(e){}
+    rec=new SR();rec.lang="en-US";rec.continuous=false;rec.maxAlternatives=5;rec.interimResults=true;
+    rec.onresult=e=>{if(first===null)first=performance.now()-t0;const R=e.results[e.results.length-1],a=[];for(let j=0;j<R.length;j++)a.push(R[j].transcript);alts=a;if(R.isFinal)setTimeout(fin,500)};
+    rec.onerror=e=>{if(e.error==="no-speech"||e.error==="aborted")return;err=e.error;fin()};
+    rec.onend=()=>{if(!done&&alts===null&&shOn&&tok===shTok)setTimeout(()=>{if(!done)go()},150)};
+    try{rec.start()}catch(e){err="start";fin()}
+  };
+  go();
+})}
+function shScore(r,it){
+  if(!r.alts)return {acc:0,comp:0,tim:0};
+  let b=null;r.alts.forEach(a=>{const j=judge(a,it.en),f=(j.rec+j.pre)?2*j.rec*j.pre/(j.rec+j.pre):0;if(!b||f>b.f)b={f,rec:j.rec}});
+  const L=r.first==null?5000:r.first;
+  return {acc:Math.round(100*b.f),comp:Math.round(100*b.rec),tim:Math.round(Math.max(0,Math.min(100,L<=800?100:100*(5000-L)/4200)))};
+}
+function shReport(res,sec){
+  const av=k=>Math.round(res.reduce((a,x)=>a+x[k],0)/Math.max(1,res.length));
+  const acc=av("acc"),comp=av("comp"),tim=av("tim"),sc=Math.round(.6*acc+.2*comp+.2*tim);
+  let first=null;try{first=JSON.parse(localStorage.getItem("shFirst"))}catch(e){}
+  if(first==null){first=sc;try{localStorage.setItem("shFirst",JSON.stringify(sc))}catch(e){}}
+  const d=sc-first,m=Math.floor(sec/60),ss=sec%60;
+  const T=(id,h)=>{$(id).innerHTML=h};
+  T("shL1","Shadow Score: <bdi>"+sc+"%</bdi>");
+  T("shL2","دقت متن: <bdi>"+acc+"%</bdi> &nbsp;•&nbsp; کامل‌بودن: <bdi>"+comp+"%</bdi>");
+  T("shL3","زمان شروع پاسخ: <bdi>"+tim+"%</bdi>");
+  T("shL4","سرعت: <bdi>"+shCfg.rate.toFixed(2)+"x</bdi>");
+  T("shL5",fd(res.length)+" جمله &nbsp;•&nbsp; "+fd(m)+" دقیقه و "+fd(ss)+" ثانیه");
+  T("shL6","تغییر نسبت به اولین جلسه: <bdi>"+(d>0?"+":d<0?"-":"")+fd(Math.abs(d))+"</bdi> امتیاز");
+  $("shR").style.display="flex";shFit($("shRB"));
+}
+async function shRun(tok){
+  const start=xI,N=Math.max(1,Math.min(shCfg.n,xItems.length-start)),res=[],t0=Date.now();
+  const alive=()=>shOn&&tok===shTok&&xOn;
+  for(let k=0;k<N;k++){
+    const idx=start+k;if(xI!==idx){xI=idx;xDraw()}
+    const it=xItems[idx];$("xFa").textContent=it.fa;
+    const lab=t=>"شدوینگ "+fd(k+1)+" / "+fd(N)+" • "+t;
+    boxPrompt(lab("گوش کن"));
+    await sleep(1200);if(!alive())return;
+    $("xListen").classList.add("tl");await ttsOnce(it.en,shCfg.rate);$("xListen").classList.remove("tl");
+    if(!alive())return;
+    await sleep(600);if(!alive())return;
+    boxPrompt(lab("آماده"));shBeep();
+    await sleep(600);if(!alive())return;
+    boxPrompt(lab("حالا تکرار کن"),"mic");const mi=$("xRes").querySelector(".ri");if(mi)mi.style.color="#ff903e";
+    const r=await shListen(7200,tok);if(!alive())return;
+    if(r.err){
+      const E={"not-allowed":"اجازهٔ میکروفون داده نشده","service-not-allowed":"سرویس تشخیص صدای گوشی (Google) غیرفعال است","unsupported":"این مرورگر تشخیص صدا ندارد","network":"اتصال به سرویس تشخیص صدا برقرار نشد","audio-capture":"میکروفون در دسترس نیست","language-not-supported":"زبان انگلیسی برای تشخیص صدا فعال نیست"};
+      shStop((E[r.err]||"تشخیص صدا در دسترس نیست")+" ["+r.err+"]");return}
+    res.push(shScore(r,it));
+  }
+  if(!alive())return;
+  shStop();shReport(res,Math.round((Date.now()-t0)/1000));
+}
+$("xShad").onclick=()=>{
+  if(shOn){shStop("شدوینگ متوقف شد.");return}
+  if(!xItems.length)return;
+  rvStop();prStop();dkStop();try{abortSpeak()}catch(e){}try{speechSynthesis.cancel()}catch(e){}
+  shSync();$("shM").style.display="flex";shFit($("shB"));
+};
+$("shMin").onclick=()=>{shCfg.auto=false;shCfg.rate=Math.max(.5,Math.round((shCfg.rate-.05)*100)/100);shSave();shSync();shFit($("shB"))};
+$("shPlus").onclick=()=>{shCfg.auto=false;shCfg.rate=Math.min(1.5,Math.round((shCfg.rate+.05)*100)/100);shSave();shSync();shFit($("shB"))};
+document.querySelectorAll("#shM .shr").forEach(r=>r.onclick=()=>{shCfg.n=+r.dataset.n;shSave();shSync()});
+$("shCl").onclick=()=>{$("shM").style.display="none"};
+$("shM").onclick=e=>{if(e.target===$("shM"))$("shM").style.display="none"};
+$("shDone").onclick=()=>{$("shR").style.display="none"};
+$("shR").onclick=e=>{if(e.target===$("shR"))$("shR").style.display="none"};
+$("shGo").onclick=async()=>{
+  $("shM").style.display="none";shSave();
+  if(!xItems.length)return;
+  const tok=++shTok;shOn=true;shUI(true);boxPrompt("در حال بررسی محیط…");
+  const ok=await micOk();if(tok!==shTok)return;
+  if(!ok){shStop("اجازهٔ میکروفون داده نشده");return}
+  const noisy=await shNoise();if(tok!==shTok)return;
+  if(noisy){shStop("محیط پرنویز است؛ شدوینگ متوقف شد.");return}
+  shRun(tok);
+};
+["xListen","xSay","xPrac","xDict","xRev","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(shOn)shStop()},true));
+const xStartSh=xStart;xStart=function(){shStop();xStartSh()};
+const xShowSh=xShow;xShow=function(on){if(!on)shStop();xShowSh(on)};
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if($("shM").style.display==="flex")shFit($("shB"));if($("shR").style.display==="flex")shFit($("shRB"))});
 </script>
 </body>
 </html>
