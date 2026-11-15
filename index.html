@@ -266,11 +266,14 @@ html:has(body.xd){overflow:hidden}
 .rvk.on::after{content:"✓";color:#04173b;font-size:calc(var(--u)*24);font-weight:700;line-height:1}
 .rvb{position:absolute;inset:0;display:flex;align-items:center;direction:rtl;padding:0 calc(var(--u)*53) 0 calc(var(--u)*20);gap:calc(var(--u)*6);pointer-events:none}
 .rvt{flex:1;text-align:center;color:#fff;font-size:calc(var(--u)*22);font-weight:500;line-height:1.4}
-.rvp{pointer-events:auto;height:calc(var(--u)*69);flex:none;border:0;border-radius:calc(var(--u)*35);color:#fff;font-family:'Vazirmatn','Vazir',Tahoma,sans-serif;font-weight:600;font-size:calc(var(--u)*25);padding:0}
+.rvp{pointer-events:auto;height:calc(var(--u)*69);flex:none;border:0;border-radius:calc(var(--u)*35);color:#fff;font-family:'Vazirmatn','Vazir',Tahoma,sans-serif;font-weight:500;font-size:calc(var(--u)*20);padding:0}
 .rve{width:calc(var(--u)*112);background:#7a1c3d}
 .rvq{width:calc(var(--u)*116);background:#0b5578}
 .qe{touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.qe,#xPassed,#xCount,#xFa{transition:opacity .12s linear}
+.qe,#xFa{transition:opacity .12s linear}
+#xPassed{transition:opacity .12s linear,transform .12s linear}
+#xPassed.fdo{transform:translateY(calc(var(--u)*10))}
+#xPassed.fdi{transform:translateY(calc(var(--u)*-10));opacity:0;transition:none}
 .fdo{opacity:0!important}
 
 /* ===== Shadowing (copy of reference) ===== */
@@ -289,7 +292,7 @@ html:has(body.xd){overflow:hidden}
 .shs .pl{width:calc(var(--u)*17);height:calc(var(--u)*3.8)}
 .shs .pl::after{content:"";position:absolute;left:50%;top:50%;width:calc(var(--u)*3.8);height:calc(var(--u)*17);background:#fff;transform:translate(-50%,-50%)}
 .shd{position:absolute;left:calc(var(--u)*205);top:calc(var(--u)*503.8);width:calc(var(--u)*223);height:calc(var(--u)*70.1);border-radius:calc(var(--u)*36);background:#05325c;display:flex;align-items:center;justify-content:center;direction:ltr}
-.shdv{font-family:Roboto,Arial,sans-serif;font-weight:500;color:#fff}
+.shdv{font-family:Roboto,Arial,sans-serif;font-weight:500;color:#fff;font-size:calc(var(--u)*28)}
 .shr{position:absolute;top:calc(var(--u)*688);display:flex;align-items:center;gap:calc(var(--u)*12.7);direction:ltr;cursor:pointer}
 .shr .rg{position:relative;display:block;box-sizing:border-box;width:calc(var(--u)*37);height:calc(var(--u)*37);border-radius:50%;border:calc(var(--u)*5.7) solid #ff8f39}
 .shr.on .rg::after{content:"";position:absolute;left:calc(var(--u)*2.3);top:calc(var(--u)*2.3);width:calc(var(--u)*21);height:calc(var(--u)*21);border-radius:50%;background:#ff8f39}
@@ -352,7 +355,7 @@ html:has(body.xd){overflow:hidden}
 <div class="rvc" id="rvLpRow"><span>بعد از پایان درس از اول تکرار کن</span><button class="rvk" id="rvLp" aria-label="loop"></button></div>
 <button class="rvo gn" id="rvGo">شروع مرور</button>
 <button class="rvo bl" id="rvCl2">بستن</button></div></div>
-<div id="shM"><div class="shb" id="shB"><div class="shl" style="--y:80.3"><span class="shf sht" data-g="t" data-w="196.9">Shadowing</span></div><div class="shl" style="--y:171.7"><span class="shf shp" data-g="p">جمله را با هدفون گوش کن و بلافاصله تکرار کن.</span></div><div class="shl" style="--y:216.3"><span class="shf shp" data-g="p" data-w="460.6">برای امتیاز دقیق، محیط باید ساکت باشد. اگر نویز</span></div><div class="shl" style="--y:261.5"><span class="shf shp" data-g="p">زیاد باشد، تمرین متوقف می‌شود.</span></div><div class="shl" style="--y:343.9"><span class="shf shc" data-g="c" data-w="342">🎧 هدفون الزامی &nbsp;•&nbsp; 🔇 محیط ساکت</span></div><div class="shl" style="--y:383.5"><span class="shf shc" data-g="c">🎤 صدای طبیعی</span></div><div class="shl" style="--y:458.4"><span class="shf shy" data-g="l" data-w="209.6">سرعت پخش شدوینگ</span></div><button class="shs" id="shMin" style="left:calc(var(--u)*66.9)"><i class="mn"></i></button><div class="shd"><span class="shf shdv" id="shDv" data-g="d" data-w="150.3"></span></div><button class="shs" id="shPlus" style="left:calc(var(--u)*443.4)"><i class="pl"></i></button><div class="shl" style="--y:624.5"><span class="shf shy" data-g="l">تعداد جمله در این جلسه</span></div><div class="shr" data-n="10" style="left:calc(var(--u)*94.9)"><i class="rg"></i><span>۱۰</span></div><div class="shr" data-n="20" style="left:calc(var(--u)*249.1)"><i class="rg"></i><span>۲۰</span></div><div class="shr" data-n="50" style="left:calc(var(--u)*403.2)"><i class="rg"></i><span>۵۰</span></div><button class="shg shgo" id="shGo"><span class="shf shb1" data-g="go" data-w="214.7">بررسی محیط و شروع</span></button><button class="shg shcl" id="shCl"><span class="shf shb1" data-g="cl" data-w="56">بستن</span></button></div></div>
+<div id="shM"><div class="shb" id="shB"><div class="shl" style="--y:80.3"><span class="shf sht" data-g="t" data-w="196.9">Shadowing</span></div><div class="shl" style="--y:171.7"><span class="shf shp" data-g="p">جمله را با هدفون گوش کن و بلافاصله تکرار کن.</span></div><div class="shl" style="--y:216.3"><span class="shf shp" data-g="p" data-w="460.6">برای امتیاز دقیق، محیط باید ساکت باشد. اگر نویز</span></div><div class="shl" style="--y:261.5"><span class="shf shp" data-g="p">زیاد باشد، تمرین متوقف می‌شود.</span></div><div class="shl" style="--y:343.9"><span class="shf shc" data-g="c" data-w="342">🎧 هدفون الزامی &nbsp;•&nbsp; 🔇 محیط ساکت</span></div><div class="shl" style="--y:383.5"><span class="shf shc" data-g="c">🎤 صدای طبیعی</span></div><div class="shl" style="--y:458.4"><span class="shf shy" data-g="l" data-w="209.6">سرعت پخش شدوینگ</span></div><button class="shs" id="shMin" style="left:calc(var(--u)*66.9)"><i class="mn"></i></button><div class="shd"><span class="shf shdv" id="shDv"></span></div><button class="shs" id="shPlus" style="left:calc(var(--u)*443.4)"><i class="pl"></i></button><div class="shl" style="--y:624.5"><span class="shf shy" data-g="l">تعداد جمله در این جلسه</span></div><div class="shr" data-n="10" style="left:calc(var(--u)*94.9)"><i class="rg"></i><span>۱۰</span></div><div class="shr" data-n="20" style="left:calc(var(--u)*249.1)"><i class="rg"></i><span>۲۰</span></div><div class="shr" data-n="50" style="left:calc(var(--u)*403.2)"><i class="rg"></i><span>۵۰</span></div><button class="shg shgo" id="shGo"><span class="shf shb1" data-g="go" data-w="214.7">بررسی محیط و شروع</span></button><button class="shg shcl" id="shCl"><span class="shf shb1" data-g="cl" data-w="56">بستن</span></button></div></div>
 <div id="shR"><div class="shb shrp" id="shRB"><div class="shl" style="--y:77"><span class="shf sht2" data-g="rt" data-w="230.6">گزارش شدوینگ</span></div><div class="shl" style="--y:158"><span class="shf shrl" data-g="rl" id="shL1"></span></div><div class="shl" style="--y:206.6"><span class="shf shrl" data-g="rl" data-w="355" id="shL2"></span></div><div class="shl" style="--y:255.2"><span class="shf shrl" data-g="rl" id="shL3"></span></div><div class="shl" style="--y:303.8"><span class="shf shrl" data-g="rl" id="shL4"></span></div><div class="shl" style="--y:352.4"><span class="shf shrl" data-g="rl" id="shL5"></span></div><div class="shl" style="--y:401"><span class="shf shrl" data-g="rl" id="shL6"></span></div><div class="shl" style="--y:466.8"><span class="shf shrn" data-g="rn" data-w="480">این امتیاز فعلاً از تطابق متن، کامل‌بودن و زمان شروع پاسخ</span></div><div class="shl" style="--y:500.7"><span class="shf shrn" data-g="rn">ساخته می‌شود؛ Pronunciation واقعی فقط وقتی اضافه</span></div><div class="shl" style="--y:534.6"><span class="shf shrn" data-g="rn">می‌شود که سنجش آوایی قابل‌اعتماد داشته باشیم.</span></div><button class="shg shdone" id="shDone"><span class="shf shb1" data-g="dn">تمام</span></button></div></div>
 <div id="xp"><div class="qw">
 <div class="qsel" id="xSel"></div><div class="qspd" id="xSpd"></div>
@@ -791,7 +794,7 @@ async function prRun(){
     if(o==="ok"){
       await sleep(2800);if(!alive(idx))return;
       if(idx>=xItems.length-1){prStop();return}
-      xI=idx+1;xDraw();idx=xI;needListen=true;tries=0;continue;
+      await fadeGo(()=>{xI=idx+1;xDraw()});idx=xI;needListen=true;tries=0;continue;
     }
     await sleep(o==="none"?1800:3200);if(!alive(idx))return;
     if(tries>=5){prStop();return}
@@ -898,7 +901,8 @@ $("xDict").onclick=()=>{
     dkStage="reveal";dkBoxSet("حالا مقایسه کن.");dkBtn("next");dkView();return}
   if(dkStage==="reveal"){
     if(xI>=xItems.length-1){dkStop();return}
-    xI++;dkStage="listen";dkBtn("normal");xDraw();dkRun();return}
+    if(fdBusy)return;
+    fadeNav(()=>{xI++;dkStage="listen";dkBtn("normal");xDraw();dkRun()});return}
 };
 ["xPrac","xShad","xRev","xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(dkOn)dkStop()},true));
 const xDraw3=xDraw;xDraw=function(){xDraw3();if(dkOn)dkView()};
@@ -979,7 +983,7 @@ async function rvRun(i,r){
   const alive=()=>rvOn&&!rvPaused&&tok===rvTok&&xOn;
   while(alive()){
     rvIdx=i;rvRep=r;
-    if(xI!==i){xI=i;xDraw()}
+    if(xI!==i){await fadeGo(()=>{xI=i;xDraw()});if(!alive())return}
     rvPaint();
     await ttsOnce(xItems[i].en,xRate);if(!alive())return;
     if(r<rvR){await sleep(rvG1*1000);if(!alive())return;r++;continue}
@@ -1023,10 +1027,14 @@ let fdBusy=false;
 function fadeNav(fn){
   if(fdBusy){fn();return}
   fdBusy=true;
-  const E=[document.querySelector(".qe"),$("xPassed"),$("xCount"),$("xFa")];
-  E.forEach(e=>e.classList.add("fdo"));
-  setTimeout(()=>{fn();setTimeout(()=>{E.forEach(e=>e.classList.remove("fdo"));setTimeout(()=>{fdBusy=false},120)},40)},120);
+  const E=[document.querySelector(".qe"),$("xFa")],P=$("xPassed");
+  E.forEach(e=>e.classList.add("fdo"));P.classList.add("fdo");
+  setTimeout(()=>{fn();setTimeout(()=>{
+    P.classList.add("fdi");void P.offsetWidth;
+    E.forEach(e=>e.classList.remove("fdo"));P.classList.remove("fdo","fdi");
+    setTimeout(()=>{fdBusy=false},120)},40)},120);
 }
+function fadeGo(fn){return new Promise(r=>fadeNav(()=>{fn();r()}))}
 $("xNext").onclick=()=>{if(xI<xItems.length-1)fadeNav(()=>{if(xI<xItems.length-1){xI++;xDraw()}})};
 $("xPrev").onclick=()=>{if(xI>0)fadeNav(()=>{if(xI>0){xI--;xDraw()}})};
 const xStart9=xStart;xStart=function(){rvStop();reqMode=false;xStart9()};
@@ -1118,7 +1126,7 @@ async function shRun(tok){
   const start=xI,N=Math.max(1,Math.min(shCfg.n,xItems.length-start)),res=[],t0=Date.now();
   const alive=()=>shOn&&tok===shTok&&xOn;
   for(let k=0;k<N;k++){
-    const idx=start+k;if(xI!==idx){xI=idx;xDraw()}
+    const idx=start+k;if(xI!==idx){await fadeGo(()=>{xI=idx;xDraw()});if(!alive())return}
     const it=xItems[idx];$("xFa").textContent=it.fa;
     const lab=t=>"شدوینگ "+fd(k+1)+" / "+fd(N)+" • "+t;
     boxPrompt(lab("گوش کن"));
