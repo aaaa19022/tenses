@@ -309,6 +309,29 @@ html:has(body.xd){overflow:hidden}
 .gr:not(.n) #xShad.wk{background:#df5014!important}
 .gr:not(.n) #xShad.wk .gt b{color:#ffeedd}
 .gr:not(.n) #xShad.wk .gt>span{color:#ffd2a6}
+
+.qc{position:relative}
+.wmw{-webkit-tap-highlight-color:transparent}
+#wmP{position:absolute;left:calc(var(--u)*16);right:calc(var(--u)*17);top:calc(var(--u)*56.7);height:calc(var(--u)*489);background:#05315f;border:calc(var(--u)*3.2) solid #ffd33f;border-radius:calc(var(--u)*38);z-index:6;color:#fff;overflow:hidden;font-family:'Vazirmatn','Vazir','IRANSans',Tahoma,sans-serif;transform-origin:50% 50%;box-sizing:border-box}
+#wmP.in{animation:wmIn .36s cubic-bezier(.2,.8,.25,1) both}
+#wmP.out{animation:wmOut .17s ease-in both}
+@keyframes wmIn{0%{transform:perspective(900px) rotateY(160deg) scale(.82);opacity:0}30%{opacity:.9}100%{transform:perspective(900px) rotateY(0) scale(1);opacity:1}}
+@keyframes wmOut{0%{transform:perspective(900px) rotateY(0) scale(1);opacity:1}100%{transform:perspective(900px) rotateY(75deg) scale(.88);opacity:0}}
+#wmP>*{position:absolute}
+.wmL{left:0;right:0;top:calc(var(--u)*26);text-align:center;font:500 calc(var(--u)*21)/calc(var(--u)*22) Roboto,Arial,sans-serif;color:#b8dcff}
+.wmX{right:calc(var(--u)*17);top:calc(var(--u)*14.7);width:calc(var(--u)*67);height:calc(var(--u)*67);border-radius:50%;background:#084c6f;border:0;padding:0;display:flex;align-items:center;justify-content:center}
+.wmX svg{width:calc(var(--u)*14);height:calc(var(--u)*14)}
+.wmW{left:calc(var(--u)*55);top:calc(var(--u)*84.5);display:flex;align-items:baseline;gap:calc(var(--u)*27);line-height:1;white-space:nowrap;direction:ltr}
+.wmW b{font:700 calc(var(--u)*61) 'Roboto Condensed','Arial Narrow',Arial,sans-serif}
+.wmW i{font:600 calc(var(--u)*25.5) Roboto,Arial,sans-serif;color:#0fbbf1;font-style:normal}
+.wmM{left:calc(var(--u)*55);right:calc(var(--u)*55);top:calc(var(--u)*151);height:calc(var(--u)*100);display:flex;align-items:center;direction:rtl;text-align:right;color:#fad34a;font-weight:700;font-size:calc(var(--u)*30);line-height:1.5}
+.wmR{right:calc(var(--u)*42);top:calc(var(--u)*271);height:calc(var(--u)*36);line-height:calc(var(--u)*36);direction:rtl;font-size:calc(var(--u)*24);font-weight:500;color:#fff;white-space:nowrap}
+.wmF{left:calc(var(--u)*53.5);top:calc(var(--u)*349);height:calc(var(--u)*28);line-height:calc(var(--u)*28);font:400 calc(var(--u)*26)/calc(var(--u)*28) Roboto,Arial,sans-serif;color:#fff;white-space:nowrap}
+.wmD{left:calc(var(--u)*49);right:calc(var(--u)*49);top:calc(var(--u)*396);height:calc(var(--u)*2.5);background:#4f6764}
+.wmH{left:0;right:0;top:calc(var(--u)*423);text-align:center;direction:rtl;font-size:calc(var(--u)*24);font-weight:700;line-height:calc(var(--u)*30);color:#fff;white-space:nowrap}
+.wmH em{font-style:normal;font-family:Roboto,Arial,sans-serif;font-weight:700}
+.wmH b{font-weight:500}
+.wmo #xPrac,.wmo #xRev,.wmo #xDict,.wmo #xShad{filter:brightness(.42) saturate(.85)!important;pointer-events:none}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@500;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
@@ -1011,7 +1034,7 @@ $("xSave").addEventListener("click",()=>{
 });
 (()=>{
   const el=document.querySelector(".qe");let sx=0,sy=0,t0=0,on=false;
-  const idle=()=>!(rvOn||prOn||dkOn||spkWait)&&!document.querySelector("#xp .gb.wk,#xp .gb.act,#xp .gb.tl")&&!$("xMean").classList.contains("act")&&[rvM,rvS,rvQ,$("pk"),$("pkS")].every(d=>d.style.display!=="flex"&&d.style.display!=="block");
+  const idle=()=>!(rvOn||prOn||dkOn||spkWait||wmOn)&&!document.querySelector("#xp .gb.wk,#xp .gb.act,#xp .gb.tl")&&!$("xMean").classList.contains("act")&&[rvM,rvS,rvQ,$("pk"),$("pkS")].every(d=>d.style.display!=="flex"&&d.style.display!=="block");
   el.addEventListener("pointerdown",e=>{sx=e.clientX;sy=e.clientY;t0=Date.now();on=true});
   el.addEventListener("pointercancel",()=>{on=false});
   el.addEventListener("pointerup",e=>{
@@ -1173,6 +1196,226 @@ $("shGo").onclick=async()=>{
 const xStartSh=xStart;xStart=function(){shStop();xStartSh()};
 const xShowSh=xShow;xShow=function(on){if(!on)shStop();xShowSh(on)};
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if($("shM").style.display==="flex")shFit($("shB"));if($("shR").style.display==="flex")shFit($("shRB"))});
+/* ===== Word Mode dictionary + engine ===== */
+const WM_DATA="i|aɪ|من|s\nyou|juː|تو / شما|s\nhe|hiː|او (مرد)|s\nshe|ʃiː|او (زن)|s\nit|ɪt|آن / او (برای شیء یا حیوان)|s\nwe|wiː|ما|s\nthey|ðeɪ|آن‌ها|s\nme|miː|مرا / به من|o\nhim|hɪm|او را / به او (مرد)|o\nus|ʌs|ما را / به ما|o\nmy|maɪ|مالِ من|k\nyour|jʊr|مالِ تو / شما|k\nhis|hɪz|مالِ او (مرد)|k\nher|hɝː|مالِ او (زن)|k\ntheir|ðer|مالِ آن‌ها|k\nthe|ðə|(حرف تعریف معین؛ معنی مستقل ندارد)|t\na|ə|یک (حرف تعریف نامعین)|t\nan|ən|یک (حرف تعریف نامعین، قبل از صدای واکه)|t\nthis|ðɪs|این|y\nthat|ðæt|آن|y\nthese|ðiːz|این‌ها|y\nsome|sʌm|مقداری / چند تا|t\nall|ɔːl|همه / تمام|t\nevery|ˈevri|هر / همه‌ی|t\nanything|ˈeniθɪŋ|هر چیزی / چیزی|g\nwho|huː|چه کسی|g\nwhose|huːz|مالِ چه کسی|g\nwhat|wʌt|چه / چی|g\nwhen|wen|وقتی که / کی|q\nwhere|wer|کجا|q\nwhy|waɪ|چرا|q\nhow|haʊ|چگونه|q\nthere|ðer|آنجا|l\nthen|ðen|بعد / سپس|e\nhere|hɪr|اینجا|l\nnow|naʊ|حالا|e\ntoday|təˈdeɪ|امروز|e\ntonight|təˈnaɪt|امشب|e\ntomorrow|təˈmɑːroʊ|فردا|e\nyesterday|ˈjestərdeɪ|دیروز|e\nalready|ɔːlˈredi|قبلاً / از قبل|e\nalways|ˈɔːlweɪz|همیشه|f\noften|ˈɔːfn|اغلب / معمولاً|f\nnever|ˈnevər|هرگز / هیچ‌وقت|f\never|ˈevər|تا به حال|e\njust|dʒʌst|همین الان / تازه|e\nyet|jet|هنوز / تا الان|e\nearly|ˈɝːli|زود|r\nback|bæk|(call back) پس / دوباره (تماس بگیر)|r\nout|aʊt|بیرون (go out: بیرون رفتن)|r\nup|ʌp|بالا (get up: از خواب بلند شدن)|r\noutside|ˌaʊtˈsaɪd|بیرون|l\nvery|ˈveri|خیلی|r\nnot|nɑːt|نه / نیست (نفی)|r\nwell|wel|خوب|r\nfast|fæst|سریع|r\nabout|əˈbaʊt|دربارهٔ|p\nafter|ˈæftər|بعد از|p\nat|æt|در / ساعتِ|p\nbefore|bɪˈfɔːr|قبل از / قبلاً|p\nby|baɪ|با (وسیله) / کنار|p\nfor|fɔːr|برای|p\nfrom|frʌm|از|p\nin|ɪn|در|p\nnear|nɪr|نزدیکِ|p\nof|ʌv|از / مالِ|p\non|ɑːn|روی / در (روز)|p\nsince|sɪns|از (زمانِ) / از وقتی که|p\nto|tuː|به / برای|p\nwith|wɪð|با|p\nand|ænd|و|c\no'clock|əˈklɑːk|ساعتِ (دقیقاً سر ساعت)|r\none|wʌn|یک (عدد ۱)|u\ntwo|tuː|دو (عدد ۲)|u\nthree|θriː|سه (عدد ۳)|u\nfive|faɪv|پنج (عدد ۵)|u\nsix|sɪks|شش (عدد ۶)|u\nseven|ˈsevn|هفت (عدد ۷)|u\neight|eɪt|هشت (عدد ۸)|u\nnine|naɪn|نه (عدد ۹)|u\nten|ten|ده (عدد ۱۰)|u\neleven|ɪˈlevn|یازده (عدد ۱۱)|u\nmuch|mʌtʃ|چقدر (در How much)|r\nlot|lɑːt|(a lot) زیاد / خیلی|r\nlong|lɔːŋ|طولانی / دراز|j\nlong#a|lɔːŋ|چه مدت (در How long)|r\nlate|leɪt|دیر|j\nlast|læst|گذشته / آخر|j\nnext|nekst|بعدی / آینده|j\nnew|nuː|جدید / نو|j\ngood|ɡʊd|خوب|j\nbad|bæd|بد|j\nbig|bɪɡ|بزرگ|j\nsmall|smɔːl|کوچک|j\nnice|naɪs|خوب / دوست‌داشتنی|j\nhappy|ˈhæpi|خوشحال|j\ntired|ˈtaɪərd|خسته|j\nhot|hɑːt|داغ / گرم|j\ncold|koʊld|سرد|j\ndark|dɑːrk|تاریک|j\nred|red|قرمز|j\nblue|bluː|آبی|j\nairport|ˈerpɔːrt|فرودگاه|n|airports:ˈerpɔːrts\napple|ˈæpl|سیب|n|apples:ˈæplz\nattention|əˈtenʃn|توجه|n\nbaby|ˈbeɪbi|نوزاد / بچه|n|babies:ˈbeɪbiz\nbag|bæɡ|کیف / ساک|n|bags:bæɡz\nball|bɔːl|توپ|n|balls:bɔːlz\nbank|bæŋk|بانک|n|banks:bæŋks\nbed|bed|تخت / رختخواب|n|beds:bedz\nbill|bɪl|صورت‌حساب|n|bills:bɪlz\nbird|bɝːd|پرنده|n|birds:bɝːdz\nbirthday|ˈbɝːθdeɪ|تولد (روز تولد)|n|birthdays:ˈbɝːθdeɪz\nbook|bʊk|کتاب|n|books:bʊks\nboy|bɔɪ|پسر|n|boys:bɔɪz\nbread|bred|نان|n\nbreakfast|ˈbrekfəst|صبحانه|n\nbrother|ˈbrʌðər|برادر|n|brothers:ˈbrʌðərz\nbus|bʌs|اتوبوس|n|buses:ˈbʌsɪz\ncake|keɪk|کیک|n|cakes:keɪks\ncar|kɑːr|ماشین|n|cars:kɑːrz\nchild|tʃaɪld|کودک / بچه|n|children:ˈtʃɪldrən\ncity|ˈsɪti|شهر|n|cities:ˈsɪtiz\ncoat|koʊt|پالتو / کت|n|coats:koʊts\ncoffee|ˈkɔːfi|قهوه|n\ncomputer|kəmˈpjuːtər|رایانه / کامپیوتر|n|computers:kəmˈpjuːtərz\ncream|kriːm|خامه / بستنی (در ice cream)|n\ndaughter|ˈdɔːtər|دختر (فرزندِ مؤنث)|n|daughters:ˈdɔːtərz\nday|deɪ|روز|n|days:deɪz\ndinner|ˈdɪnər|شام|n\ndish|dɪʃ|ظرف|n|dishes:ˈdɪʃɪz\ndoctor|ˈdɑːktər|دکتر / پزشک|n|doctors:ˈdɑːktərz\ndog|dɔːɡ|سگ|n|dogs:dɔːɡz\ndoor|dɔːr|در|n|doors:dɔːrz\ndress|dres|پیراهن (لباس زنانه)|n|dresses:ˈdresɪz\neast|iːst|شرق|n\nexam|ɪɡˈzæm|امتحان|n|exams:ɪɡˈzæmz\nfamily|ˈfæməli|خانواده|n|families:ˈfæməliz\nfather|ˈfɑːðər|پدر|n|fathers:ˈfɑːðərz\nfilm|fɪlm|فیلم|n|films:fɪlmz\nfish|fɪʃ|ماهی|n\nfood|fuːd|غذا|n\nfootball|ˈfʊtbɔːl|فوتبال|n\nfriend|frend|دوست|n|friends:frendz\ngame|ɡeɪm|بازی / مسابقه|n|games:ɡeɪmz\ngarden|ˈɡɑːrdn|باغچه / باغ|n|gardens:ˈɡɑːrdnz\nglass|ɡlæs|لیوان|n|glasses:ˈɡlæsɪz\ngrandmother|ˈɡrænmʌðər|مادربزرگ|n\ngym|dʒɪm|باشگاه ورزشی|n\nhand|hænd|دست|n|hands:hændz\nhat|hæt|کلاه|n|hats:hæts\nhomework|ˈhoʊmwɝːk|تکلیف (مشق)|n\nhorse|hɔːrs|اسب|n|horses:ˈhɔːrsɪz\nhotel|hoʊˈtel|هتل|n|hotels:hoʊˈtelz\nhouse|haʊs|خانه|n|houses:ˈhaʊzɪz\nhome|hoʊm|خانه / منزل|n\nice|aɪs|یخ|n\nidea|aɪˈdiːə|ایده / فکر|n|ideas:aɪˈdiːəz\njob|dʒɑːb|شغل|n|jobs:dʒɑːbz\nkey|kiː|کلید|n|keys:kiːz\nkid|kɪd|بچه|n|kids:kɪdz\nkitchen|ˈkɪtʃɪn|آشپزخانه|n\nletter|ˈletər|نامه|n|letters:ˈletərz\nlibrary|ˈlaɪbreri|کتابخانه|n\nlunch|lʌntʃ|ناهار|n\nmagazine|ˈmæɡəziːn|مجله|n|magazines:ˈmæɡəziːnz\nman|mæn|مرد|n|men:men\nmarket|ˈmɑːrkɪt|بازار|n\nmeat|miːt|گوشت|n\nmessage|ˈmesɪdʒ|پیام|n|messages:ˈmesɪdʒɪz\nmilk|mɪlk|شیر (نوشیدنی)|n\nmonth|mʌnθ|ماه|n|months:mʌnθs\nmorning|ˈmɔːrnɪŋ|صبح|n|mornings:ˈmɔːrnɪŋz\nmother|ˈmʌðər|مادر|n|mothers:ˈmʌðərz\nmovie|ˈmuːvi|فیلم (سینمایی)|n|movies:ˈmuːviz\nmusic|ˈmjuːzɪk|موسیقی|n\nname|neɪm|اسم / نام|n|names:neɪmz\nnews|nuːz|خبر / اخبار|n\nnewspaper|ˈnuːzpeɪpər|روزنامه|n\nnight|naɪt|شب|n|nights:naɪts\nnoise|nɔɪz|سروصدا / صدا|n\nnoon|nuːn|ظهر|n\nnumber|ˈnʌmbər|شماره / عدد|n|numbers:ˈnʌmbərz\nparent|ˈperənt|والد (پدر یا مادر)|n|parents:ˈperənts\nparty|ˈpɑːrti|مهمانی|n|parties:ˈpɑːrtiz\npasta|ˈpɑːstə|پاستا|n\npen|pen|خودکار|n|pens:penz\nphone|foʊn|تلفن / گوشی|n|phones:foʊnz\npizza|ˈpiːtsə|پیتزا|n\nplane|pleɪn|هواپیما|n|planes:pleɪnz\nradio|ˈreɪdioʊ|رادیو|n\nrestaurant|ˈrestərɑːnt|رستوران|n|restaurants:ˈrestərɑːnts\nrice|raɪs|برنج|n\nroom|ruːm|اتاق|n|rooms:ruːmz\nschool|skuːl|مدرسه|n|schools:skuːlz\nshop|ʃɑːp|مغازه|n|shops:ʃɑːps\nshower|ˈʃaʊər|دوش (حمام)|n\nsister|ˈsɪstər|خواهر|n|sisters:ˈsɪstərz\nsky|skaɪ|آسمان|n\nstation|ˈsteɪʃn|ایستگاه|n|stations:ˈsteɪʃnz\nstreet|striːt|خیابان|n|streets:striːts\nstudent|ˈstuːdnt|دانشجو / دانش‌آموز|n|students:ˈstuːdnts\nsugar|ˈʃʊɡər|شکر|n\nsun|sʌn|خورشید / آفتاب|n\nsushi|ˈsuːʃi|سوشی|n\ntaxi|ˈtæksi|تاکسی|n|taxis:ˈtæksiz\ntea|tiː|چای|n\nteacher|ˈtiːtʃər|معلم|n|teachers:ˈtiːtʃərz\ntennis|ˈtenɪs|تنیس|n\ntest|test|آزمون|n|tests:tests\nticket|ˈtɪkɪt|بلیت|n|tickets:ˈtɪkɪts\ntime|taɪm|زمان / ساعت / وقت|n|times:taɪmz\ntown|taʊn|شهر کوچک|n|towns:taʊnz\ntrain|treɪn|قطار|n|trains:treɪnz\ntrip|trɪp|سفر / گردش|n|trips:trɪps\numbrella|ʌmˈbrelə|چتر|n\nvegetable|ˈvedʒtəbl|سبزی / سبزیجات|n|vegetables:ˈvedʒtəblz\nwallet|ˈwɑːlɪt|کیف پول|n\nwater|ˈwɔːtər|آب|n\nweather|ˈweðər|هوا (وضع هوا)|n\nweek|wiːk|هفته|n|weeks:wiːks\nweekend|ˈwiːkend|آخر هفته|n|weekends:ˈwiːkendz\nwindow|ˈwɪndoʊ|پنجره|n|windows:ˈwɪndoʊz\nwinter|ˈwɪntər|زمستان|n\nword|wɝːd|کلمه|n|words:wɝːdz\nyear|jɪr|سال|n|years:jɪrz\nEnglish|ˈɪŋɡlɪʃ|زبان انگلیسی|n\nFrench|frentʃ|زبان فرانسه|n\nSpanish|ˈspænɪʃ|زبان اسپانیایی|n\nItalian|ɪˈtæljən|ایتالیایی (مربوط به ایتالیا)|j\nLondon|ˈlʌndən|لندن|n\nItaly|ˈɪtəli|ایتالیا|n\nSpain|speɪn|اسپانیا|n\nTurkey|ˈtɝːki|ترکیه|n\nMonday|ˈmʌndeɪ|دوشنبه|n\nTuesday|ˈtuːzdeɪ|سه‌شنبه|n\nFriday|ˈfraɪdeɪ|جمعه|n|Fridays:ˈfraɪdeɪz\nSaturday|ˈsætərdeɪ|شنبه|n|Saturdays:ˈsætərdeɪz\nSunday|ˈsʌndeɪ|یکشنبه|n|Sundays:ˈsʌndeɪz\n\ntv|ˌtiːˈviː|تلویزیون|n|tvs:ˌtiːˈviːz\npark|pɑːrk|پارک|n|parks:pɑːrks\naccept|əkˈsept|پذیرفتن / قبول کردن|v||accept,accepted,accepted\nanswer|ˈænsər|جواب دادن|v|answering:ˈænsərɪŋ|answer,answered,answered\nanswer#n|ˈænsər|جواب / پاسخ|n\narrive|əˈraɪv|رسیدن / وارد شدن|v|arrived:əˈraɪvd|arrive,arrived,arrived\neat|iːt|خوردن|v|ate:eɪt,eaten:ˈiːtn,eating:ˈiːtɪŋ|eat,ate,eaten\nbuy|baɪ|خریدن|v|bought:bɔːt|buy,bought,bought\nbring|brɪŋ|آوردن|v||bring,brought,brought\nbreak|breɪk|شکستن / خراب کردن|v|broken:ˈbroʊkən|break,broke,broken\ncall|kɔːl|زنگ زدن / صدا زدن|v|called:kɔːld,calling:ˈkɔːlɪŋ|call,called,called\ncome|kʌm|آمدن|v|came:keɪm,coming:ˈkʌmɪŋ|come,came,come\ncarry|ˈkæri|حمل کردن / بردن|v|carrying:ˈkæriɪŋ|carry,carried,carried\nchange|tʃeɪndʒ|عوض کردن / تغییر دادن|v|changed:tʃeɪndʒd|change,changed,changed\nclean|kliːn|تمیز کردن|v|cleaned:kliːnd,cleaning:ˈkliːnɪŋ,cleans:kliːnz|clean,cleaned,cleaned\nclose|kloʊz|بستن / بسته شدن|v||close,closed,closed\ncook|kʊk|پختن / آشپزی کردن|v|cooked:kʊkt,cooking:ˈkʊkɪŋ,cooks:kʊks|cook,cooked,cooked\ncost|kɔːst|قیمت داشتن / تمام شدن|v||cost,cost,cost\ncry|kraɪ|گریه کردن|v|crying:ˈkraɪɪŋ|cry,cried,cried\ndecide|dɪˈsaɪd|تصمیم گرفتن|v|decided:dɪˈsaɪdɪd|decide,decided,decided\ndrink|drɪŋk|نوشیدن|v|drank:dræŋk,drinking:ˈdrɪŋkɪŋ|drink,drank,drunk\ndrive|draɪv|رانندگی کردن / راندن|v|driven:ˈdrɪvn,drives:draɪvz,driving:ˈdraɪvɪŋ|drive,drove,driven\nenjoy|ɪnˈdʒɔɪ|لذت بردن / خوشت آمدن|v||enjoy,enjoyed,enjoyed\nfeel|fiːl|احساس کردن|v|feeling:ˈfiːlɪŋ|feel,felt,felt\nfind|faɪnd|پیدا کردن|v|found:faʊnd|find,found,found\nfinish|ˈfɪnɪʃ|تمام کردن|v|finished:ˈfɪnɪʃt|finish,finished,finished\nfly|flaɪ|پرواز کردن|v|flown:floʊn|fly,flew,flown\nforget|fərˈɡet|فراموش کردن|v|forgot:fərˈɡɑːt,forgotten:fərˈɡɑːtn|forget,forgot,forgotten\nget|ɡet|گرفتن / شدن / (get up) از خواب بلند شدن|v|getting:ˈɡetɪŋ|get,got,gotten\ngive|ɡɪv|دادن|v|given:ˈɡɪvn|give,gave,given\ngo|ɡoʊ|رفتن|v|goes:ɡoʊz,going:ˈɡoʊɪŋ,gone:ɡɔːn,went:went|go,went,gone\nhear|hɪr|شنیدن|v|heard:hɝːd|hear,heard,heard\nhelp|help|کمک کردن|v||help,helped,helped\nhelp#n|help|کمک|n\nknow|noʊ|دانستن / شناختن|v|known:noʊn|know,knew,known\nlaugh|læf|خندیدن|v|laughing:ˈlæfɪŋ|laugh,laughed,laughed\nlearn|lɝːn|یاد گرفتن|v|learning:ˈlɝːnɪŋ|learn,learned,learned\nleave|liːv|ترک کردن / رفتن / جا گذاشتن|v|leaves:liːvz,leaving:ˈliːvɪŋ,left:left|leave,left,left\nlike|laɪk|دوست داشتن|v|likes:laɪks|like,liked,liked\nlisten|ˈlɪsn|گوش دادن|v|listening:ˈlɪsnɪŋ|listen,listened,listened\nlive|lɪv|زندگی کردن|v|lived:lɪvd|live,lived,lived\nlook|lʊk|نگاه کردن / (look for) دنبال چیزی گشتن|v|looking:ˈlʊkɪŋ|look,looked,looked\nlose|luːz|گم کردن / باختن|v|lost:lɔːst|lose,lost,lost\nmake|meɪk|ساختن / درست کردن|v|made:meɪd,making:ˈmeɪkɪŋ|make,made,made\nmeet|miːt|ملاقات کردن / دیدن|v|met:met|meet,met,met\nneed|niːd|نیاز داشتن|v||need,needed,needed\nopen|ˈoʊpən|باز کردن / باز شدن|v|opened:ˈoʊpənd,opens:ˈoʊpənz|open,opened,opened\npay|peɪ|پرداخت کردن|v|paid:peɪd,paying:ˈpeɪɪŋ|pay,paid,paid\nplay|pleɪ|بازی کردن / نواختن|v|played:pleɪd,playing:ˈpleɪɪŋ,plays:pleɪz|play,played,played\nput|pʊt|گذاشتن|v||put,put,put\nring|rɪŋ|زنگ زدن (صدای زنگ)|v|rang:ræŋ,ringing:ˈrɪŋɪŋ|ring,rang,rung\nread|riːd|خواندن|v|reading:ˈriːdɪŋ|read,read /red/,read /red/\nride|raɪd|سوار شدن (اسب، دوچرخه ...)|v|ridden:ˈrɪdn|ride,rode,ridden\nrise|raɪz|بالا آمدن / طلوع کردن|v|rises:ˈraɪzɪz|rise,rose,risen\nrun|rʌn|دویدن|v|running:ˈrʌnɪŋ|run,ran,run\nsay|seɪ|گفتن|v||say,said,said\nsee|siː|دیدن|v|saw:sɔː,seen:siːn|see,saw,seen\nsend|send|فرستادن|v||send,sent,sent\nsing|sɪŋ|آواز خواندن|v|singing:ˈsɪŋɪŋ|sing,sang,sung\nsit|sɪt|نشستن|v|sitting:ˈsɪtɪŋ|sit,sat,sat\nsleep|sliːp|خوابیدن|v|sleeping:ˈsliːpɪŋ,sleeps:sliːps,slept:slept|sleep,slept,slept\nsmile|smaɪl|لبخند زدن|v|smiling:ˈsmaɪlɪŋ|smile,smiled,smiled\nsnow|snoʊ|برف باریدن|v|snowing:ˈsnoʊɪŋ,snows:snoʊz|snow,snowed,snowed\nspeak|spiːk|صحبت کردن / حرف زدن|v||speak,spoke,spoken\nstart|stɑːrt|شروع کردن / شروع شدن|v|started:ˈstɑːrtɪd|start,started,started\nstay|steɪ|ماندن / اقامت کردن|v|stayed:steɪd,staying:ˈsteɪɪŋ|stay,stayed,stayed\nstop|stɑːp|ایستادن / متوقف شدن|v|stopped:stɑːpt,stops:stɑːps|stop,stopped,stopped\nstudy|ˈstʌdi|درس خواندن / مطالعه کردن|v|studying:ˈstʌdiɪŋ|study,studied,studied\ntake|teɪk|گرفتن / بردن|v|taking:ˈteɪkɪŋ,took:tʊk|take,took,taken\ntalk|tɔːk|صحبت کردن|v|talked:tɔːkt,talking:ˈtɔːkɪŋ|talk,talked,talked\nthink|θɪŋk|فکر کردن / گمان کردن|v|thinking:ˈθɪŋkɪŋ|think,thought,thought\ntry|traɪ|سعی کردن / امتحان کردن|v|tried:traɪd|try,tried,tried\nunderstand|ˌʌndərˈstænd|فهمیدن|v||understand,understood,understood\nuse|juːz|استفاده کردن|v|using:ˈjuːzɪŋ|use,used,used\nvisit|ˈvɪzɪt|دیدن / بازدید کردن|v|visited:ˈvɪzɪtɪd|visit,visited,visited\nwait|weɪt|منتظر ماندن|v|waiting:ˈweɪtɪŋ|wait,waited,waited\nwake|weɪk|بیدار شدن (wake up)|v|wakes:weɪks,woke:woʊk|wake,woke,woken\nwalk|wɔːk|راه رفتن / پیاده رفتن|v|walking:ˈwɔːkɪŋ|walk,walked,walked\nwant|wɑːnt|خواستن|v||want,wanted,wanted\nwash|wɑːʃ|شستن|v|washed:wɑːʃt|wash,washed,washed\nwatch|wɑːtʃ|تماشا کردن|v|watched:wɑːtʃt,watching:ˈwɑːtʃɪŋ|watch,watched,watched\nwear|wer|پوشیدن (لباس)|v|wearing:ˈwerɪŋ|wear,wore,worn\nwin|wɪn|بردن (در بازی) / پیروز شدن|v||win,won,won\nwork|wɝːk|کار کردن|v|worked:wɝːkt,working:ˈwɝːkɪŋ,works:wɝːks|work,worked,worked\nwork#n|wɝːk|کار|n\nwrite|raɪt|نوشتن|v|writing:ˈraɪtɪŋ,wrote:roʊt|write,wrote,written\nrain|reɪn|باران آمدن (باریدن)|v|raining:ˈreɪnɪŋ|rain,rained,rained\nboil|bɔɪl|جوشیدن|v|boiling:ˈbɔɪlɪŋ|boil,boiled,boiled\nhome#a|hoʊm|خانه (در خانه / به خانه)|l\nbe|biː|بودن|b|am:æm,is:ɪz,are:ɑːr,was:wʌz,were:wɝː,been:bɪn|be,was / were,been\nhave|hæv|داشتن / خوردن (غذا)|h|has:hæz,had:hæd,having:ˈhævɪŋ|have,had,had\ndo|duː|انجام دادن|d|does:dʌz,did:dɪd,doing:ˈduːɪŋ,done:dʌn|do,did,done\nwill|wɪl|(برای ساخت آینده) خواهد / خواهم ...|m\nwould|wʊd|(حالت مؤدبانه یا شرطی) می‌خواست / می‌خواهم؟ ...|m\ncould|kʊd|می‌توانست / می‌توانم؟ (درخواست مؤدبانه)|m\nshould|ʃʊd|باید (توصیه)|m\ni'm|aɪm|من هستم|x|مخفف I am (ضمیر فاعلی + فعل be)\nyou're|jʊr|تو هستی / شما هستید|x|مخفف you are (ضمیر فاعلی + فعل be)\nwe're|wɪr|ما هستیم|x|مخفف we are (ضمیر فاعلی + فعل be)\nthey're|ðer|آن‌ها هستند|x|مخفف they are (ضمیر فاعلی + فعل be)\nhe's|hiːz|او (مرد) است|x|مخفف he is (ضمیر فاعلی + فعل be)\nshe's|ʃiːz|او (زن) است|x|مخفف she is (ضمیر فاعلی + فعل be)\nit's|ɪts|آن است|x|مخفف it is (ضمیر فاعلی + فعل be)\nhe's#h|hiːz|او (مرد) ... است (برای ساخت ماضی نقلی)|x|مخفف he has (ضمیر فاعلی + فعل کمکی have)\nshe's#h|ʃiːz|او (زن) ... است (برای ساخت ماضی نقلی)|x|مخفف she has (ضمیر فاعلی + فعل کمکی have)\nit's#h|ɪts|آن ... است (برای ساخت ماضی نقلی)|x|مخفف it has (ضمیر فاعلی + فعل کمکی have)\ni've|aɪv|من ... (برای ساخت ماضی نقلی)|x|مخفف I have (ضمیر فاعلی + فعل کمکی have)\nyou've|juːv|تو ... / شما ... (برای ساخت ماضی نقلی)|x|مخفف you have (ضمیر فاعلی + فعل کمکی have)\nwe've|wiːv|ما ... (برای ساخت ماضی نقلی)|x|مخفف we have (ضمیر فاعلی + فعل کمکی have)\nthey've|ðeɪv|آن‌ها ... (برای ساخت ماضی نقلی)|x|مخفف they have (ضمیر فاعلی + فعل کمکی have)\ni'll|aɪl|من ... خواهم (آینده)|x|مخفف I will (ضمیر فاعلی + فعل وجهی will)\nyou'll|juːl|تو ... خواهی / شما ... خواهید (آینده)|x|مخفف you will (ضمیر فاعلی + فعل وجهی will)\nhe'll|hiːl|او (مرد) ... خواهد (آینده)|x|مخفف he will (ضمیر فاعلی + فعل وجهی will)\nshe'll|ʃiːl|او (زن) ... خواهد (آینده)|x|مخفف she will (ضمیر فاعلی + فعل وجهی will)\nit'll|ˈɪtl|آن ... خواهد (آینده)|x|مخفف it will (ضمیر فاعلی + فعل وجهی will)\nwe'll|wiːl|ما ... خواهیم (آینده)|x|مخفف we will (ضمیر فاعلی + فعل وجهی will)\nthey'll|ðeɪl|آن‌ها ... خواهند (آینده)|x|مخفف they will (ضمیر فاعلی + فعل وجهی will)\nwon't|woʊnt|... نخواهد / ... نخواهم (آینده، منفی)|x|مخفف will not (فعل وجهی + نفی)\ndon't|doʊnt|(برای نفی) نمی ...|x|مخفف do not (فعل کمکی + نفی)\ndoesn't|ˈdʌznt|(برای نفی) نمی ... (سوم‌شخص مفرد)|x|مخفف does not (فعل کمکی + نفی)\ndidn't|ˈdɪdnt|(برای نفی گذشته) ... نکرد|x|مخفف did not (فعل کمکی + نفی)\nwasn't|ˈwʌznt|نبود|x|مخفف was not (فعل be + نفی)\nweren't|wɝːnt|نبودیم / نبودید / نبودند|x|مخفف were not (فعل be + نفی)\nisn't|ˈɪznt|نیست|x|مخفف is not (فعل be + نفی)\naren't|ɑːrnt|نیستیم / نیستید / نیستند|x|مخفف are not (فعل be + نفی)\nhaven't|ˈhævnt|(ماضی نقلی منفی) ... نکرده‌ام / ... نکرده‌ایم|x|مخفف have not (فعل کمکی + نفی)\nhasn't|ˈhæznt|(ماضی نقلی منفی) ... نکرده است|x|مخفف has not (فعل کمکی + نفی)";
+const WM_ROLE={v:"فعل اصلی",n:"اسم",j:"صفت",r:"قید",e:"قید زمان",f:"قید تکرار",l:"قید مکان",p:"حرف اضافه",c:"حرف ربط",s:"ضمیر فاعلی",o:"ضمیر مفعولی",k:"صفت ملکی",t:"حرف تعریف / تعیین‌کننده",y:"صفت اشاره",q:"قید پرسشی / موصولی",g:"ضمیر پرسشی / نامعین",m:"فعل وجهی",u:"عدد"};
+const WM_LEX={},WM_TOK={};
+function wmLoad(txt){
+  txt.split("\n").forEach(l=>{
+    if(!l.trim())return;
+    const p=l.split("|"),key=p[0],base=key.split("#")[0];
+    const e={key,ip:p[1],fa:p[2],r:p[3],x:p[4]||"",f:p[5]||"",vars:{}};
+    if(e.r!=="x"&&e.x)e.x.split(",").forEach(v=>{const i=v.indexOf(":");if(i>0)e.vars[v.slice(0,i)]=v.slice(i+1)});
+    WM_LEX[key]=e;
+    const add=(t,kind)=>{const k=t.toLowerCase();(WM_TOK[k]=WM_TOK[k]||[]).push({key,kind,tok:t})};
+    add(base,"base");
+    Object.keys(e.vars).forEach(t=>add(t,"var"));
+  });
+}
+const WM_MOTION=new Set(["drives","drive","driving","walk","walks","walking","go","goes","going","went","gone","come","comes","coming","came","get","gets","getting","got","back","run","running","ran"]);
+const WM_PREP=new Set(["at","in","on","to","for","with","from","of","by","about","after","before","near","since","and","too","here","there","today","tomorrow","yesterday","tonight","now","then"]);
+function wmPick(tl,ctx){ // choose which sense key for a lower-case token
+  const c=WM_TOK[tl];if(!c)return null;
+  const keys=[...new Set(c.map(x=>x.key.split("#")[0]))];
+  let lex=null;
+  // proper-noun / exact key first
+  let cand=c;
+  const bases=[...new Set(c.map(x=>x.key.split("#")[0]))];
+  const pv=ctx.pv,ppv=ctx.ppv,nx=ctx.nx,idx=ctx.idx,last=ctx.last;
+  let want="";
+  const NP=new Set(["after","before","his","her","my","your","their","our","the","a","an","some","start","finish","at","for","this","that","need","get","give"]);
+  if((tl==="work"||tl==="help"||tl==="answer")&&(NP.has(pv)||(pv==="to"&&WM_MOTION.has(ppv))))want="n";
+  else if(tl==="long"&&pv==="how")want="a";
+  else if(tl==="home"&&(WM_MOTION.has(pv)||["be","am","is","are","was","were"].includes(pv)))want="a";
+  else if((tl==="he's"||tl==="she's"||tl==="it's")&&ctx.pf)want="h";
+  const pickKey=want?c.find(x=>x.key.endsWith("#"+want)):c.find(x=>!x.key.includes("#"));
+  return pickKey||c[0];
+}
+const WM_SKIP=new Set(["i","you","he","she","it","we","they","not","never","ever","just","already","yet","always","often","also","really"]);
+const WM_VERBROLES=["v","d","h","b"];
+function wmIsPP(w){
+  const q=WM_TOK[w];if(!q)return false;
+  return q.some(h=>{const E=WM_LEX[h.key];if(!WM_VERBROLES.includes(E.r)||!E.f)return false;return E.f.split(",")[2].split(" ")[0].toLowerCase()===w});
+}
+function wmN(t){return (t||"").toLowerCase().replace(/’/g,"'")}
+function wmInfo(toks,idx,itemId){
+  const raw=toks[idx],tl=wmN(raw);
+  const ctx={pv:wmN(toks[idx-1]),ppv:wmN(toks[idx-2]),nx:wmN(toks[idx+1]),idx,last:idx===toks.length-1,pf:/^PF\b/i.test(itemId||"")};
+  const hit=wmPick(tl,ctx);
+  if(!hit)return null;
+  const nxe=WM_TOK[wmN(toks[idx+1])]?WM_LEX[WM_TOK[wmN(toks[idx+1])][0].key]:null;
+  const e=WM_LEX[hit.key],baseW=hit.key.split("#")[0],isVar=hit.kind==="var";
+  let ip=isVar?e.vars[hit.tok]:e.ip;
+  let r=e.r,fa=e.fa,role="",forms="";
+  if(r==="d"){
+    const before=toks.slice(0,idx).map(wmN);
+    const earlier=before.some(w=>["do","does","did","don't","doesn't","didn't","will","won't","would","should","could","to"].includes(w));
+    const main=tl==="doing"||tl==="done"||ctx.last||earlier||ctx.pv==="not";
+    role=main?"فعل اصلی":"فعل کمکی";
+    if(!main)fa="کمک به ساخت پرسش و جمله منفی (معادل مستقل ندارد)";
+  }else if(r==="h"){
+    let aux=false;
+    const before=toks.slice(0,idx).map(wmN);
+    const hasAuxBefore=before.some(w=>["do","does","did","don't","doesn't","didn't","will","won't","would","should","could","to","not"].includes(w));
+    if(!hasAuxBefore){
+      for(let k=idx+1;k<toks.length&&k<=idx+5;k++){const w=wmN(toks[k]);if(wmIsPP(w)||w==="been"){aux=true;break}if(WM_PREP.has(w))break}
+    }
+    role=aux?"فعل کمکی":"فعل اصلی";
+    if(aux)fa="کمک برای ساخت ماضی نقلی (معادل مستقل ندارد)";
+  }else if(r==="b"){
+    let ing=false;
+    for(let k=idx+1;k<toks.length&&k<=idx+5;k++){const w=wmN(toks[k]);if(w.endsWith("ing")&&WM_TOK[w]&&["v","d","h"].includes(WM_LEX[WM_TOK[w][0].key].r)){ing=true;break}if(WM_PREP.has(w)&&!["today","tomorrow","yesterday","tonight","now","here","there","then"].includes(w))break}
+    if(ing&&tl!=="been"){role="فعل کمکی";fa="کمک برای ساخت زمان استمراری (معادل مستقل ندارد)"}
+    else role="فعل ربطی (بودن)";
+  }else if(r==="x")role=e.x;
+  else if(tl==="her"){
+    const poss=!ctx.last&&!WM_PREP.has(ctx.nx);
+    if(!poss){r="o";fa="او را / به او (زن)"}
+    role=WM_ROLE[r];
+  }else if(r==="y"){
+    if(["cost","is","was","are","were","will","does","did"].includes(ctx.nx)){role="ضمیر اشاره"}else role="صفت اشاره";
+  }else role=WM_ROLE[r]||"";
+
+  const WM_FORMFA={am:"هستم",is:"است",are:"هستی / هستید / هستیم / هستند",was:"بود",were:"بودی / بودید / بودیم / بودند",been:"بوده (شکل سوم be)",be:"بودن",has:"دارد",have:"دارم / داری / داریم / دارند",had:"داشت / داشته",having:"داشتن / خوردن (غذا)",does:"انجام می‌دهد",did:"انجام داد",done:"انجام داده",doing:"در حال انجام دادن",do:"انجام دادن"};
+  if((r==="b"||r==="h"||r==="d")&&(role==="فعل ربطی (بودن)"||role==="فعل اصلی"))fa=WM_FORMFA[tl]||fa;
+  if(tl==="when"){if(idx>0&&!["what","where","why","how","who"].includes(ctx.pv)){role="حرف ربط";fa="وقتی که"}else{role="قید پرسشی";fa="کی / چه وقت"}}
+  if(tl==="what"&&nxe&&["n"].includes(nxe.r)){role="صفت پرسشی";fa="چه ... (مثلاً What time = چه ساعتی)"}
+  if(tl==="how"&&(ctx.nx==="much"||ctx.nx==="long")){fa=ctx.nx==="much"?"چگونه؛ در «How much» یعنی «چقدر»":"چگونه؛ در «How long» یعنی «چه مدت»"}
+  if(tl==="before"&&ctx.last){role="قید";fa="قبلاً"}
+  if(tl==="to"){
+    const verbNext=WM_TOK[ctx.nx]&&WM_TOK[ctx.nx].some(h=>{const E=WM_LEX[h.key];return h.kind==="base"&&E.r==="v"});
+    if(verbNext&&["start","started","starts","want","wants","wanted","need","needs","needed","decided","decide","tried","try","forget","forgot","like","likes","learn","learned","going"].includes(ctx.pv)){role="حرف مصدری (to + فعل ساده)";fa="(نشانهٔ مصدر) «to» قبل از فعل"}
+  }
+  if(e.f&&["v"].includes(e.r)&&isVar){
+    const f=e.f.split(",").map(x=>x.split(" ")[0].toLowerCase());
+    let tag="";
+    if(tl===f[1]&&tl===f[2])tag="شکل گذشتهٔ ساده و شکل سوم";
+    else if(tl===f[1])tag="شکل گذشتهٔ ساده";
+    else if(tl===f[2])tag="شکل سوم (اسم مفعول)";
+    else if(tl.endsWith("ing"))tag="شکل -ing (ادامه‌دار)";
+    else if(tl.endsWith("s"))tag="سوم‌شخص مفرد (he/she/it)";
+    if(tag)fa=fa+" ("+tag+")";
+  }
+  if(tl==="read"){
+    if(/^PA\s/i.test(itemId||"")){ip="red";fa+=" (شکل گذشتهٔ ساده؛ تلفظ: red)"}
+    else if(/^PF\s/i.test(itemId||"")){ip="red";fa+=" (شکل سوم؛ تلفظ: red)"}
+    else fa+=" (حال ساده؛ تلفظ: riːd)";
+  }
+  if(r==="n"&&isVar)fa+=" (جمع)";
+  if(WM_VERBROLES.includes(e.r)&&e.f)forms=e.f.split(",").join(" — ");
+  const proper=/^[A-Z]/.test(baseW);
+  let word=proper?raw.replace(/’/g,"'"):tl;
+  if(tl==="i")word="I";
+  return {word,ip,fa,role,forms,base:baseW};
+}
+
+/* ===== Word Mode ===== */
+wmLoad(WM_DATA);
+let wmOn=false,wmTok=0,wmWord="",wmCtx=null;
+const wmEsc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const wmBusyOther=()=>!!(rvOn||prOn||dkOn||spkWait||(typeof shOn!=="undefined"&&shOn));
+function wmWrap(){
+  const e=$("xEn");if(!e||e.querySelector(".wmw")||!e.textContent)return;
+  const t=e.textContent;e.textContent="";
+  t.split(/(\s+)/).forEach(p=>{
+    if(!p)return;
+    if(/^\s+$/.test(p)){e.appendChild(document.createTextNode(p));return}
+    const s=document.createElement("span");s.className="wmw";s.textContent=p;e.appendChild(s);
+  });
+}
+function wmSpeakWord(raw){
+  const t=raw.replace(/[^A-Za-z’']/g,"").replace(/’/g,"'");if(!t)return;
+  try{speechSynthesis.cancel()}catch(e){}
+  ttsOnce(t,xRate);
+}
+function wmHint(kind,txt){
+  const h=$("wmH");if(!h)return;
+  if(kind==="idle")h.innerHTML='<span dir="ltr">Listen <b>→</b> Speak / Score</span>';
+  else if(kind==="listen")h.innerHTML='گوش کن: &nbsp;<em dir="ltr">'+wmEsc(wmWord)+'</em>';
+  else if(kind==="heard")h.textContent="شنیدی؟ حالا Speak بزن و کلمه رو تکرار کن.";
+  else if(kind==="say")h.innerHTML='حالا بگو: &nbsp;<em dir="ltr">'+wmEsc(wmWord)+'</em>';
+  else h.textContent=txt;
+}
+function wmOpen(spanEl){
+  if(wmOn||!xItems.length)return;
+  const spans=Array.from($("xEn").querySelectorAll(".wmw"));
+  const toks=spans.map(s=>s.textContent.replace(/[^A-Za-z’']/g,""));
+  const idx=spans.indexOf(spanEl);if(idx<0||!toks[idx])return;
+  const info=wmInfo(toks,idx,(xItems[xI]&&xItems[xI].n)||"");
+  if(prOn)prStop();if(dkOn)dkStop();rvStop();try{if(typeof shStop==="function")shStop()}catch(e){}
+  try{speechSynthesis.cancel()}catch(e){}
+  wmOn=true;wmTok++;document.body.classList.add("wmo");
+  wmWord=toks[idx].replace(/’/g,"'");
+  const P=document.createElement("div");P.id="wmP";P.className="in";
+  const i=info||{word:wmWord.toLowerCase(),ip:"",fa:"این کلمه هنوز در دیکشنری برنامه نیست",role:"",forms:""};
+  P.innerHTML='<div class="wmL">WORD MODE</div>'+
+   '<button class="wmX" aria-label="close"><svg viewBox="0 0 24 24"><path d="M4 4L20 20M20 4L4 20" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></button>'+
+   '<div class="wmW"><b>'+wmEsc(i.word)+'</b>'+(i.ip?'<i dir="ltr">/'+wmEsc(i.ip)+'/</i>':'')+'</div>'+
+   '<div class="wmM"><span>'+wmEsc(i.fa)+'</span></div>'+
+   (i.role?'<div class="wmR">نقش در این جمله: '+wmEsc(i.role)+'</div>':'')+
+   (i.forms?'<div class="wmF" dir="ltr">'+wmEsc(i.forms)+'</div>':'')+
+   '<div class="wmD"></div><div class="wmH" id="wmH"></div>';
+  document.querySelector(".qc").appendChild(P);
+  P.querySelector(".wmX").onclick=()=>wmClose(true);
+  wmHint("idle");
+}
+function wmClose(msg){
+  if(!wmOn)return;
+  wmOn=false;wmTok++;
+  try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}
+  $("xListen").classList.remove("tl");$("xSay").classList.remove("act");
+  const P=$("wmP");if(P){P.className="out";setTimeout(()=>{if(P.parentNode)P.remove()},180)}
+  document.body.classList.remove("wmo");
+  if(msg)boxPrompt("تمرین گفتاری متوقف شد.");
+}
+async function wmListen(){
+  const tok=++wmTok;try{speechSynthesis.cancel()}catch(e){}try{if(rec)rec.abort()}catch(e){}
+  $("xSay").classList.remove("act");$("xListen").classList.add("tl");wmHint("listen");
+  await ttsOnce(wmWord,xRate);
+  $("xListen").classList.remove("tl");
+  if(!wmOn||tok!==wmTok)return;
+  wmHint("heard");
+}
+async function wmSay(){
+  const tok=++wmTok;try{speechSynthesis.cancel()}catch(e){}
+  $("xListen").classList.remove("tl");
+  wmHint("say");$("xSay").classList.add("act");
+  const ok=await micOk();
+  if(!wmOn||tok!==wmTok)return;
+  if(!ok){$("xSay").classList.remove("act");wmHint("t","اجازهٔ میکروفون داده نشده");return}
+  const r=await recOnce();
+  $("xSay").classList.remove("act");
+  if(!wmOn||tok!==wmTok)return;
+  if(r.err||!r.alts){wmHint("t",(r.err==="no-speech"||r.err==="aborted"||!r.err)?"چیزی نشنیدم؛ دوباره Speak بزن.":"تشخیص صدا در دسترس نیست");return}
+  let best=-1,heard="";
+  r.alts.forEach(a=>{const j=judge(a,wmWord);if(j.sc>best){best=j.sc;heard=a}});
+  const lab=best>=90?"عالی!":best>=70?"خوبه!":best>=40?"نزدیک بود!":"دوباره امتحان کن";
+  $("wmH").innerHTML=lab+' &nbsp;'+fd(best)+'٪ &nbsp;•&nbsp; شنیدم: <em dir="ltr">'+wmEsc(heard)+'</em>';
+}
+$("xListen").addEventListener("click",e=>{if(!wmOn)return;e.stopImmediatePropagation();e.preventDefault();wmListen()},true);
+$("xSay").addEventListener("click",e=>{if(!wmOn)return;e.stopImmediatePropagation();e.preventDefault();wmSay()},true);
+["xNext","xPrev"].forEach(id=>$(id).addEventListener("click",()=>{if(wmOn)wmClose(false)},true));
+(()=>{
+  const en=$("xEn");let tm=null,sx=0,sy=0,w=null,long=false;
+  en.addEventListener("pointerdown",e=>{
+    const s=e.target.closest&&e.target.closest(".wmw");if(!s||wmOn||wmBusyOther())return;
+    w=s;sx=e.clientX;sy=e.clientY;long=false;clearTimeout(tm);
+    tm=setTimeout(()=>{long=true;tm=null;wmOpen(s)},450);
+  });
+  en.addEventListener("pointermove",e=>{if(tm&&Math.hypot(e.clientX-sx,e.clientY-sy)>14){clearTimeout(tm);tm=null;w=null}});
+  en.addEventListener("pointerup",e=>{
+    clearTimeout(tm);tm=null;
+    if(w&&!long&&Math.hypot(e.clientX-sx,e.clientY-sy)<=14)wmSpeakWord(w.textContent);
+    w=null;
+  });
+  en.addEventListener("pointercancel",()=>{clearTimeout(tm);tm=null;w=null});
+  en.addEventListener("contextmenu",e=>e.preventDefault());
+})();
+const xDraw9w=xDraw;xDraw=function(){xDraw9w();wmWrap()};
+const xStart9w=xStart;xStart=function(){wmClose(false);xStart9w()};
+const xShow9w=xShow;xShow=function(on){if(!on)wmClose(false);xShow9w(on)};
+wmWrap();
+
 </script>
 </body>
 </html>
